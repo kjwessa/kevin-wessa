@@ -18,7 +18,7 @@ This personal project attempts to take my personal website built in 2017, rebuil
 
 **Project Link**
 <a name="link"></a>
-_Coming Soon_
+https://dynamic-chaja-ed08fb.netlify.app
 
 **Technologies Used**
 <a name="technologies"></a>
