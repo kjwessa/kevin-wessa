@@ -1,0 +1,31 @@
+@import url(./_fonts.scss);
+@import url(./_mixins.scss);
+@import url(./_variables.scss);
+.test {
+  font-size: 100px;
+  color: red;
+}
+
+.nav {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.nav__links {
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.nav__link {
+  font-size: 1rem;
+}
+
+.nav__link a {
+  text-decoration: none;
+} /*# sourceMappingURL=main.css.map */
+h1 {
+  font-size: 100px;
+}/*# sourceMappingURL=styles.css.map */
