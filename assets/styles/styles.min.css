@@ -1,1 +1,0 @@
-@import"./_fonts.scss";@import"./_mixins.scss";@import"./_variables.scss";.test{font-size:100px;color:red}.nav{display:flex;justify-content:flex-end}.nav__links{list-style:none;padding-left:0;margin-left:0;display:flex;gap:.5rem}.nav__link{font-size:1rem}.nav__link a{text-decoration:none}h1{font-size:100px}/*# sourceMappingURL=styles.min.css.map */
