@@ -10,3 +10,12 @@
     font-weight: 100 900;
   }
 }
+
+@layer base {
+  @font-face {
+    font-family: "GeneralSans Variable";
+    src: url(./fonts/GeneralSans-Variable.ttf) format("truetype");
+    font-display: swap;
+    font-weight: 100 900;
+  }
+}
