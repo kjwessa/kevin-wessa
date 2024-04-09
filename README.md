@@ -17,7 +17,7 @@ The development journey for Kevin Wessa is outlined as follows:
 ### Initial Version:
 
 - A simple landing page with a "coming soon" feel.
-- Addition of links to social media.
+- Addition of links to social media.c
 
 ### Beta Version:
 
