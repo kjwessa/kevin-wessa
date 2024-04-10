@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 @layer base {
   @font-face {
     font-family: "Humane VF";
@@ -10,7 +15,6 @@
     font-weight: 100 900;
   }
 }
-
 @layer base {
   @font-face {
     font-family: "GeneralSans Variable";
