@@ -1,5 +1,6 @@
 const socialLinks = [
   {
+    id: 1,
     name: "GitHub",
     url: "https://github.com/kjwessa",
     svg: (
@@ -30,6 +31,7 @@ const socialLinks = [
     ),
   },
   {
+    id: 2,
     name: "LinkedIn",
     url: "https://www.linkedin.com/in/kjwessa/",
     svg: (
@@ -74,6 +76,7 @@ const socialLinks = [
     ),
   },
   {
+    id: 3,
     name: "Facebook",
     url: "https://www.facebook.com/kevin.wessa.7",
     svg: (
@@ -111,6 +114,7 @@ const socialLinks = [
     ),
   },
   {
+    id: 4,
     name: "Instagram",
     url: "https://www.instagram.com/kjwessa/",
     svg: (
