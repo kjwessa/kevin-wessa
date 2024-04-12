@@ -7,7 +7,9 @@ export default function Main() {
       <p className="text-m -mt-4 font-body leading-none">
         Designer / Developer / Photographer
       </p>
-      <SocialIconsList />
+      <SocialIconsList
+        filter={["LinkedIn", "GitHub", "Facebook", "Instagram", "Email"]}
+      />
     </section>
   );
 }
