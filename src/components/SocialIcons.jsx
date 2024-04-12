@@ -1,9 +1,9 @@
-import socialLinks from "../data/socialIconsData";
+import socialIconsData from "../data/socialIconsData";
 
 export default function SocialIcons() {
   return (
     <div className="flex space-x-4">
-      {socialLinks.map((link) => (
+      {socialIconsData.map((link) => (
         <a
           key={link.name}
           href={link.url}
