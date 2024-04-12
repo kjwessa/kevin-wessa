@@ -1,4 +1,4 @@
-import SocialIcons from "./SocialIcons";
+import SocialIconsList from "./SocialIconsList";
 
 export default function Main() {
   return (
@@ -7,7 +7,7 @@ export default function Main() {
       <p className="text-m -mt-4 font-body leading-none">
         Designer / Developer / Photographer
       </p>
-      <SocialIcons />
+      <SocialIconsList />
     </section>
   );
 }
