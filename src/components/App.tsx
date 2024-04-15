@@ -2,12 +2,14 @@ import Header from "./Header";
 import Main from "./Main";
 import Footer from "./Footer";
 
-export default function App() {
+function App() {
   return (
-    <div className="bg-champagne-light text-prussian-medium flex min-h-svh flex-col">
+    <div className="flex min-h-svh flex-col bg-champagne-light text-prussian-medium">
       <Header />
       <Main />
       <Footer />
     </div>
   );
 }
+
+export default App;

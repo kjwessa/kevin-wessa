@@ -1,6 +1,6 @@
-export default function Footer() {
+function Footer() {
   // Update the copyright year
-  const getCurrentYear = () => {
+  const getCurrentYear = (): number => {
     const year = new Date().getFullYear();
     return year;
   };
@@ -21,3 +21,5 @@ export default function Footer() {
     </footer>
   );
 }
+
+export default Footer;

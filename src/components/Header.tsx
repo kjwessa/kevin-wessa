@@ -1,4 +1,4 @@
-export default function Header() {
+function Header() {
   return (
     <header className="flex items-center justify-center py-3">
       <div>
@@ -7,3 +7,5 @@ export default function Header() {
     </header>
   );
 }
+
+export default Header;
