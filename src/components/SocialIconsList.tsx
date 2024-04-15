@@ -1,11 +1,24 @@
 import socialIconsData from "../data/socialIconsData";
 import SocialIcon from "./SocialIcon";
 
-export default function SocialIconsList({ filter }) {
+type socialIconsData = {
+  id: number;
+  name: string;
+  url: string;
+  svg: JSX.Element;
+};
+
+type SocialIconsListProps = {
+  filter?: string[];
+};
+
+function SocialIconsList({ filter }: SocialIconsListProps) {
   // if a 'filter' prop is provided, use it to determine which icons to display
   const filteredIcons = filter
-    ? // the 'filter' method creates a new array with all eleemnts that pass the test
-      socialIconsData.filter((icon) => filter.includes(icon.name))
+    ? // the 'filter' method creates a new array with all elements that pass the test
+      socialIconsData.filter((icon: socialIconsData) =>
+        filter.includes(icon.name),
+      )
     : // if no 'filter' prop is provided, use the entire array of social icons
       socialIconsData;
 
@@ -14,10 +27,9 @@ export default function SocialIconsList({ filter }) {
 
   return (
     <div className="flex gap-2 pb-1 pt-4 text-prussian-medium hover:text-prussian-dark">
-      {sortedIcons.map((icon) => (
+      {sortedIcons.map((icon: socialIconsData) => (
         <SocialIcon
           key={icon.id}
-          id={icon.id}
           name={icon.name}
           url={icon.url}
           svg={icon.svg}
@@ -26,3 +38,5 @@ export default function SocialIconsList({ filter }) {
     </div>
   );
 }
+
+export default SocialIconsList;
