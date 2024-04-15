@@ -41,5 +41,7 @@ The development journey for Kevin Wessa is outlined as follows:
 
 This project is crafted with the following technologies:
 
-- **Vite:** For its fast build times and modern development experience.
-- **React:** For building a dynamic and responsive user interface.
+- **Vite**
+- **React**
+- **Tailwind**
+- **TypeScript**
