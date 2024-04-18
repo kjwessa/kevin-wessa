@@ -1,9 +1,13 @@
+import Header from "./components/Header";
+import Main from "./components/Main";
+import Footer from "./components/Footer";
+
 export default function Home() {
   return (
-    <main>
-      <h1 className="pl-4 text-sm capitalize">
-        Let's try and get live so I can take a nap...
-      </h1>
-    </main>
+    <div className="flex min-h-svh flex-col bg-champagne-light text-prussian-medium">
+      <Header />
+      <Main />
+      <Footer />
+    </div>
   );
 }

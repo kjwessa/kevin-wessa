@@ -1,10 +1,9 @@
 {
   "name": "kevin-wessa",
+  "version": "0.2.0",
   "private": false,
-  "version": "0.1.0",
-  "type": "module",
   "scripts": {
-    "dev": "next dev & sleep 1 && open -a 'Google Chrome' http://localhost:3000",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -20,17 +19,12 @@
     "@types/node": "^20",
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
-    "@typescript-eslint/eslint-plugin": "^7.7.0",
-    "@typescript-eslint/parser": "^7.7.0",
-    "autoprefixer": "^10.4.19",
-    "eslint": "^8.57.0",
-    "eslint-config-next": "^14.2.1",
-    "eslint-plugin-react": "^7.34.1",
-    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.2",
     "postcss": "^8.4.38",
     "prettier": "^3.2.5",
     "prettier-plugin-tailwindcss": "^0.5.13",
-    "tailwindcss": "^3.4.3",
+    "tailwindcss": "^3.4.1",
     "typescript": "^5.0.0"
   }
 }

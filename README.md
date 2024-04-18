@@ -41,7 +41,6 @@ The development journey for Kevin Wessa is outlined as follows:
 
 This project is crafted with the following technologies:
 
-- **Vite**
-- **React**
+- **Next**
 - **Tailwind**
 - **TypeScript**
