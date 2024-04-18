@@ -1,4 +1,4 @@
-import socialIconsData from "../data/socialIconsData";
+import socialIconsData from "../../data/socialIconsData";
 import SocialIcon from "./SocialIcon";
 
 type socialIconsData = {
