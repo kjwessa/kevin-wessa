@@ -153,7 +153,7 @@ const socialIconsData = [
   {
     id: 5,
     name: "Email",
-    url: "mailto:${process.env.REACT_APP_EMAIL_ADDRESS}",
+    url: `mailto:${process.env.NEXT_PUBLIC_EMAIL_ADDRESS}`,
     svg: (
       <svg
         width="24px"
