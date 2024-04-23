@@ -4,7 +4,7 @@
   "private": false,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && next-sitemap",
     "start": "next start",
     "lint": "next lint",
     "clean": "rm -rf .next/ && rm -rf node_modules/ && npm install"
@@ -12,6 +12,8 @@
   "dependencies": {
     "@vercel/analytics": "^1.2.2",
     "next": "^14.2.1",
+    "next-seo": "^6.5.0",
+    "next-sitemap": "^4.2.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "tailwind-merge": "^2.2.2"
