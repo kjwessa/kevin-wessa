@@ -1,5 +1,5 @@
 import socialIconsData from "../data/socialIconsData";
-import SocialIcon from "./SocialIcon";
+import { SocialIcon } from "./SocialIcon";
 
 type socialIconsData = {
   id: number;
@@ -12,7 +12,7 @@ type SocialIconsListProps = {
   filter?: string[];
 };
 
-function SocialIconsList({ filter }: SocialIconsListProps) {
+export function SocialIconsList({ filter }: SocialIconsListProps) {
   // if a 'filter' prop is provided, use it to determine which icons to display
   const filteredIcons = filter
     ? // the 'filter' method creates a new array with all elements that pass the test
@@ -38,5 +38,3 @@ function SocialIconsList({ filter }: SocialIconsListProps) {
     </div>
   );
 }
-
-export default SocialIconsList;
