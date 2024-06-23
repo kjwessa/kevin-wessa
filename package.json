@@ -10,6 +10,7 @@
     "clean": "rm -rf .next/ && rm -rf node_modules/ && npm install"
   },
   "dependencies": {
+    "@million/lint": "^1.0.0-rc.26",
     "@vercel/analytics": "^1.2.2",
     "next": "^14.2.1",
     "next-seo": "^6.5.0",
