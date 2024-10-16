@@ -1,35 +1,79 @@
 {
   "name": "kevin-wessa",
-  "version": "0.2.0",
-  "private": false,
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
   "scripts": {
+    "clean": "rm -rf .next/ && rm -rf node_modules/ && pnpm install",
     "dev": "next dev",
-    "build": "next build && next-sitemap",
+    "dev:monitor": "node memory-monitor.js & pnpm dev",
+    "build": "NODE_OPTIONS=--no-deprecation next build",
+    "postbuild": "next-sitemap --config next-sitemap.config.cjs",
     "start": "next start",
+    "build:start": "next build && next start",
     "lint": "next lint",
-    "clean": "rm -rf .next/ && rm -rf node_modules/ && npm install"
+    "generate:importmap": "payload generate:importmap",
+    "generate:types": "payload generate:types"
   },
   "dependencies": {
-    "@million/lint": "^1.0.0-rc.26",
-    "@vercel/analytics": "^1.2.2",
-    "next": "^14.2.1",
-    "next-seo": "^6.5.0",
-    "next-sitemap": "^4.2.3",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "sharp": "^0.33.4",
-    "tailwind-merge": "^2.2.2"
+    "@payloadcms/db-mongodb": "beta",
+    "@payloadcms/live-preview-react": "beta",
+    "@payloadcms/next": "beta",
+    "@payloadcms/plugin-cloud": "beta",
+    "@payloadcms/plugin-form-builder": "beta",
+    "@payloadcms/plugin-nested-docs": "beta",
+    "@payloadcms/plugin-redirects": "beta",
+    "@payloadcms/plugin-seo": "beta",
+    "@payloadcms/richtext-lexical": "beta",
+    "@payloadcms/storage-s3": "beta",
+    "@payloadcms/ui": "beta",
+    "@radix-ui/react-checkbox": "^1.1.1",
+    "@radix-ui/react-label": "^2.1.0",
+    "@radix-ui/react-select": "^2.1.1",
+    "@radix-ui/react-slot": "^1.1.0",
+    "@tailwindcss/typography": "^0.5.14",
+    "babel-plugin-react-compiler": "0.0.0-experimental-de2cfda-20240912",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
+    "eslint-plugin-react-compiler": "0.0.0-experimental-75b9fd4-20240912",
+    "graphql": "^16.9.0",
+    "gsap": "^3.12.5",
+    "lexical": "0.17.0",
+    "lucide-react": "^0.380.0",
+    "next": "15.0.0-canary.173",
+    "next-sitemap": "^4.0.6",
+    "payload": "beta",
+    "payload-admin-bar": "^1.0.6",
+    "prism-react-renderer": "^2.3.1",
+    "react": "19.0.0-rc-3edc000d-20240926",
+    "react-dom": "19.0.0-rc-3edc000d-20240926",
+    "react-hook-form": "7.45.4",
+    "sharp": "^0.33.5",
+    "tailwind-merge": "^2.5.2",
+    "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
-    "@types/node": "^20",
-    "@types/react": "^18.2.0",
-    "@types/react-dom": "^18.2.0",
-    "eslint": "^8",
-    "eslint-config-next": "14.2.2",
-    "postcss": "^8.4.38",
-    "prettier": "^3.2.5",
-    "prettier-plugin-tailwindcss": "^0.5.13",
-    "tailwindcss": "^3.4.1",
-    "typescript": "^5.0.0"
+    "@types/node": "^20.16.2",
+    "@types/react": "npm:types-react@19.0.0-rc.1",
+    "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "14.2.4",
+    "postcss": "^8.4.41",
+    "prettier": "^3.3.3",
+    "prettier-plugin-tailwindcss": "^0.6.6",
+    "tailwindcss": "^3.4.10",
+    "typescript": "^5.5.4"
+  },
+  "next-unused": {
+    "alias": {},
+    "include": [
+      "src"
+    ],
+    "exclude": [
+      "node_modules"
+    ],
+    "entrypoints": [
+      "src/app"
+    ]
   }
 }
