@@ -1,0 +1,308 @@
+[
+  {
+    "primary": {
+      "text": "Experience Design",
+      "color": "accent",
+      "underline": "Innovator"
+    },
+    "secondary": {
+      "text": "Visual Design",
+      "color": "base",
+      "underline": "Leader"
+    },
+    "tertiary": {
+      "text": "Product Design",
+      "color": "base",
+      "underline": "Leader"
+    }
+  },
+  {
+    "primary": {
+      "text": "Kevin Wessa",
+      "color": "accent",
+      "underline": "Hi, that's me!"
+    },
+    "secondary": {
+      "text": "Husband",
+      "color": "base",
+      "underline": "Leader"
+    },
+    "tertiary": {
+      "text": "Proud Father",
+      "color": "base",
+      "underline": "Leader"
+    }
+  },
+  {
+    "primary": {
+      "text": "Cleveland, OH",
+      "color": "accent",
+      "underline": "Innovator"
+    },
+    "secondary": {
+      "text": "Pensacola, FL",
+      "color": "base",
+      "underline": "Leader"
+    },
+    "tertiary": {
+      "text": "Creative Director",
+      "color": "base",
+      "underline": "Leader"
+    }
+  },
+  {
+    "primary": {
+      "text": "web dev",
+      "color": "accent",
+      "underline": "Innovator"
+    },
+    "secondary": {
+      "text": "full stack",
+      "color": "base",
+      "underline": "Leader"
+    },
+    "tertiary": {
+      "text": "data science",
+      "color": "base",
+      "underline": "Leader"
+    }
+  },
+  {
+    "primary": {
+      "text": "embracing complexity",
+      "color": "accent",
+      "underline": "Innovator"
+    },
+    "secondary": {
+      "text": "simplifying complexity",
+      "color": "base",
+      "underline": "Leader"
+    },
+    "tertiary": {
+      "text": "embracing simplicity",
+      "color": "base",
+      "underline": "Leader"
+    }
+  },
+  {
+    "primary": {
+      "text": "UX Designer",
+      "color": "accent",
+      "underline": "Innovator"
+    },
+    "secondary": {
+      "text": "Problem Solver",
+      "color": "base",
+      "underline": "Leader"
+    },
+    "tertiary": {
+      "text": "Creative Director",
+      "color": "base",
+      "underline": "Leader"
+    }
+  },
+  {
+    "primary": {
+      "text": "Full Stack",
+      "color": "accent",
+      "underline": "Innovator"
+    },
+    "secondary": {
+      "text": "Code Architect",
+      "color": "base",
+      "underline": "Leader"
+    },
+    "tertiary": {
+      "text": "Data Scientist",
+      "color": "base",
+      "underline": "Leader"
+    }
+  },
+  {
+    "primary": {
+      "text": "minimalism",
+      "color": "accent",
+      "underline": "Innovator"
+    },
+    "secondary": {
+      "text": "people-centric",
+      "color": "base",
+      "underline": "Leader"
+    },
+    "tertiary": {
+      "text": "creative direction",
+      "color": "base",
+      "underline": "Leader"
+    }
+  },
+  {
+    "primary": {
+      "text": "Photography",
+      "color": "accent",
+      "underline": "Innovator"
+    },
+    "secondary": {
+      "text": "Videography",
+      "color": "base",
+      "underline": "Leader"
+    },
+    "tertiary": {
+      "text": "Creative Direction",
+      "color": "base",
+      "underline": "Leader"
+    }
+  },
+  {
+    "primary": {
+      "text": "impact",
+      "color": "accent",
+      "underline": "Innovator"
+    },
+    "secondary": {
+      "text": "positive change",
+      "color": "base",
+      "underline": "Leader"
+    },
+    "tertiary": {
+      "text": "buzzwords",
+      "color": "base",
+      "underline": "Leader"
+    }
+  },
+  {
+    "primary": {
+      "text": "Story Teller",
+      "color": "accent",
+      "underline": "Innovator"
+    },
+    "secondary": {
+      "text": "Moment Capturer",
+      "color": "base",
+      "underline": "Leader"
+    },
+    "tertiary": {
+      "text": "Creative Director",
+      "color": "base",
+      "underline": "Leader"
+    }
+  },
+  {
+    "primary": {
+      "text": "Family Man",
+      "color": "accent",
+      "underline": "Innovator"
+    },
+    "secondary": {
+      "text": "Work-Life Balance",
+      "color": "base",
+      "underline": "Leader"
+    },
+    "tertiary": {
+      "text": "Economics",
+      "color": "base",
+      "underline": "Leader"
+    }
+  },
+  {
+    "primary": {
+      "text": "Innovator",
+      "color": "accent",
+      "underline": "Innovator"
+    },
+    "secondary": {
+      "text": "Trendsetter",
+      "color": "base",
+      "underline": "Leader"
+    },
+    "tertiary": {
+      "text": "Philosophy",
+      "color": "base",
+      "underline": "Leader"
+    }
+  },
+  {
+    "primary": {
+      "text": "AI Enthusiast",
+      "color": "accent",
+      "underline": "Innovator"
+    },
+    "secondary": {
+      "text": "Tech Explorer",
+      "color": "base",
+      "underline": "Leader"
+    },
+    "tertiary": {
+      "text": "Unbounded Branding",
+      "color": "base",
+      "underline": "Leader"
+    }
+  },
+  {
+    "primary": {
+      "text": "Agile",
+      "color": "accent",
+      "underline": "Innovator"
+    },
+    "secondary": {
+      "text": "Adaptive",
+      "color": "base",
+      "underline": "Leader"
+    },
+    "tertiary": {
+      "text": "Pixel Perfect",
+      "color": "base",
+      "underline": "Leader"
+    }
+  },
+  {
+    "primary": {
+      "text": "Mentor",
+      "color": "accent",
+      "underline": "Innovator"
+    },
+    "secondary": {
+      "text": "Lifelong Learner",
+      "color": "base",
+      "underline": "Leader"
+    },
+    "tertiary": {
+      "text": "Creative Director",
+      "color": "base",
+      "underline": "Leader"
+    }
+  },
+  {
+    "primary": {
+      "text": "Design Thinker",
+      "color": "accent",
+      "underline": "Innovator"
+    },
+    "secondary": {
+      "text": "Creative Problem Solver",
+      "color": "base",
+      "underline": "Leader"
+    },
+    "tertiary": {
+      "text": "Creative Director",
+      "color": "base",
+      "underline": "Leader"
+    }
+  },
+  {
+    "primary": {
+      "text": "Ethical Design",
+      "color": "accent",
+      "underline": "Innovator"
+    },
+    "secondary": {
+      "text": "Inclusive Design",
+      "color": "base",
+      "underline": "Leader"
+    },
+    "tertiary": {
+      "text": "Creative Director",
+      "color": "base",
+      "underline": "Leader"
+    }
+  }
+]
