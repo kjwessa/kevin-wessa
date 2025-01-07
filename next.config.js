@@ -1,5 +1,5 @@
 import { withPayload } from '@payloadcms/next/withPayload'
-
+import { withSentryConfig } from '@sentry/nextjs'
 import redirects from './redirects.js'
 
 const NEXT_PUBLIC_SERVER_URL = process.env.VERCEL_PROJECT_PRODUCTION_URL
@@ -8,7 +8,12 @@ const NEXT_PUBLIC_SERVER_URL = process.env.VERCEL_PROJECT_PRODUCTION_URL
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  experimental: {
+    reactCompiler: true,
+  },
+  serverExternalPackages: ['pg'],
   images: {
+    formats: ['image/avif', 'image/webp'],
     remotePatterns: [
       ...[NEXT_PUBLIC_SERVER_URL /* 'https://example.com' */].map((item) => {
         const url = new URL(item)
@@ -18,10 +23,37 @@ const nextConfig = {
           protocol: url.protocol.replace(':', ''),
         }
       }),
+      {
+        protocol: 'https',
+        hostname: 'bucket.kevinwessa.com',
+        port: '',
+        pathname: '/**',
+      },
     ],
   },
   reactStrictMode: true,
   redirects,
 }
 
-export default withPayload(nextConfig)
+const config = withPayload(nextConfig)
+
+// Sentry configuration
+const sentryConfig = withSentryConfig(config, {
+  org: 'brewww-studio',
+  project: 'kwessa-payload',
+  silent: !process.env.CI,
+  widenClientFileUpload: true,
+  reactComponentAnnotation: {
+    enabled: true,
+  },
+  tunnelRoute: '/monitoring',
+  hideSourceMaps: true,
+  disableLogger: true,
+  automaticVercelMonitors: true,
+  sourcemaps: {
+    assets: '.next/static/**/*',
+    deleteSourcemapsAfterUpload: true,
+  },
+})
+
+export default sentryConfig
