@@ -27,26 +27,37 @@
       }
     ],
     "paths": {
-      "@payload-config": [
-        "./src/payload.config.ts"
-      ],
-      "react": [
-        "./node_modules/@types/react"
-      ],
-      "@/*": [
-        "./src/*"
-      ],
+      "@/access/*": ["src/access/*"],
+      "@/app/*": ["src/app/*"],
+      "@/data/*": ["src/data/*"],
+      "@/blocks/*": ["src/blocks/*"],
+      "@/collections/*": ["src/collections/*"],
+      "@/components/*": ["src/components/*"],
+      "@cssVariables": ["./cssvariables.js"],
+      "@/forms/*": ["src/forms/*"],
+      "@/fields/*": ["src/fields/*"],
+      "@/globals/*": ["src/globals/*"],
+      "@/heros/*": ["src/heros/*"],
+      "@/hooks/*": ["src/hooks/*"],
+      "@/icons/*": ["src/icons/*"],
+      "@/images/*": ["./public/images/*"],
+      "@/lib/*": ["src/lib/*"],
+      "@payload-config": ["./src/payload.config.ts"],
+      "@/public/*": ["./public/*"],
+      "@root/*": ["src/*"],
+      "@/styles/*": ["src/styles/*"],
+      "@/payload-types": ["./src/payload-types.ts"],
+      "@/utilities/*": ["src/utilities/*"]
     }
   },
   "include": [
+    "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
     "redirects.js",
     "next.config.js",
-    "next-sitemap.config.cjs"
+    "tailwind.config.mjs"
   ],
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"]
 }
