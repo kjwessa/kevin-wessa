@@ -1,44 +1,53 @@
 import type { Metadata } from 'next'
-import localFont from 'next/font/local'
-import '@/styles/globals.css'
 
-const HumaneVF = localFont({
-  variable: '--font-humane-vf',
-  display: 'swap',
-  src: [
-    {
-      path: '../../../src/fonts/Humane-VF.ttf',
-      weight: '100 900',
-      style: 'normal',
-    },
-  ],
-})
+import { cn } from 'src/utilities/cn'
+import { GeistMono } from 'geist/font/mono'
+import { GeistSans } from 'geist/font/sans'
+import React from 'react'
 
-const GeneralSansVariable = localFont({
-  variable: '--font-general-sans-variable',
-  display: 'swap',
-  src: [
-    {
-      path: '../../../src/fonts/GeneralSans-Variable.ttf',
-      weight: '100 900',
-      style: 'normal',
-    },
-  ],
-})
+import { AdminBar } from '@/components/AdminBar'
+import { Footer } from '@/Footer/Component'
+import { Header } from '@/Header/Component'
+import { Providers } from '@/providers'
+import { InitTheme } from '@/providers/Theme/InitTheme'
+import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
+import { draftMode } from 'next/headers'
 
-export const metadata: Metadata = {
-  title: 'Kevin Wessa - Designer, Developer, Photographer',
-  description: 'Kevin J. Wessa is a designer, developer, and photographer based in Cleveland, OH',
-}
+import './globals.css'
+import { getServerSideURL } from '@/utilities/getURL'
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const { isEnabled } = await draftMode()
+
   return (
-    <html lang="en" className={`${HumaneVF.variable} ${GeneralSansVariable.variable}`}>
-      <body>{children}</body>
+    <html className={cn(GeistSans.variable, GeistMono.variable)} lang="en" suppressHydrationWarning>
+      <head>
+        <InitTheme />
+        <link href="/favicon.ico" rel="icon" sizes="32x32" />
+        <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
+      </head>
+      <body>
+        <Providers>
+          <AdminBar
+            adminBarProps={{
+              preview: isEnabled,
+            }}
+          />
+
+          <Header />
+          {children}
+          <Footer />
+        </Providers>
+      </body>
     </html>
   )
+}
+
+export const metadata: Metadata = {
+  metadataBase: new URL(getServerSideURL()),
+  openGraph: mergeOpenGraph(),
+  twitter: {
+    card: 'summary_large_image',
+    creator: '@payloadcms',
+  },
 }

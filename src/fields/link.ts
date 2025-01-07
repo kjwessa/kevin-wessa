@@ -1,6 +1,6 @@
 import type { Field } from 'payload'
 
-import deepMerge from '@root/utilities/deepMerge'
+import deepMerge from '@/utilities/deepMerge'
 
 export type LinkAppearances = 'default' | 'outline'
 
@@ -75,9 +75,8 @@ export const link: LinkType = ({ appearances, disableLabel = false, overrides = 
         condition: (_, siblingData) => siblingData?.type === 'reference',
       },
       label: 'Document to link to',
-      maxDepth: 1,
-      relationTo: ['pages'],
-      required: false,
+      relationTo: ['pages', 'posts'],
+      required: true,
     },
     {
       name: 'url',
@@ -86,7 +85,7 @@ export const link: LinkType = ({ appearances, disableLabel = false, overrides = 
         condition: (_, siblingData) => siblingData?.type === 'custom',
       },
       label: 'Custom URL',
-      required: false,
+      required: true,
     },
   ]
 

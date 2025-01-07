@@ -1,50 +1,39 @@
-//* Import Node Modules
+// storage-adapter-import-placeholder
+import { postgresAdapter } from '@payloadcms/db-postgres'
+
+import sharp from 'sharp' // sharp-import
 import path from 'path'
 import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
-import sharp from 'sharp'
 
-//* Import Plugins
-import { postgresAdapter } from '@payloadcms/db-postgres'
+import { Categories } from './collections/Categories'
+import { Media } from './collections/Media'
+import { Pages } from './collections/Pages'
+import { Posts } from './collections/Posts'
+import { Users } from './collections/Users'
+import { Footer } from './Footer/config'
+import { Header } from './Header/config'
 import { plugins } from './plugins'
-import { defaultLexical } from './fields/defaultLexical'
+import { defaultLexical } from '@/fields/defaultLexical'
+import { getServerSideURL } from './utilities/getURL'
 
-//* Import Collections
-import { Categories } from '@/collections/Categories/config'
-import { Posts } from '@/collections/Posts/config'
-import { Brands } from '@/collections/Brands/config'
-import { FAQ } from '@/collections/FAQ/config'
-import { Location } from '@/collections/Locations/config'
-import { Media } from '@/collections/Media/config'
-import { Pages } from '@/collections/Pages/config'
-import { Pillars } from '@/collections/Pillars/config'
-import { Playground } from '@/collections/Play/config'
-import { Services } from '@/collections/Services/config'
-import { Team } from '@/collections/Team/config'
-import { Technologies } from '@/collections/Technologies/config'
-import { Testimonials } from '@/collections/Testimonials/config'
-import { Users } from '@/collections/Users/config'
-import { Projects } from '@/collections/Projects/config'
-import { Industries } from '@/collections/Industries/config'
-
-//* Import Globals
-import { Header } from './globals/Header/index'
-import { Footer } from './globals/Footer/index'
-
-//* Get File Path
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
-//* Build Configuration
 export default buildConfig({
   admin: {
     components: {
-      beforeLogin: [],
-      beforeDashboard: [],
+      // The `BeforeLogin` component renders a message that you see while logging into your admin panel.
+      // Feel free to delete this at any time. Simply remove the line below and the import `BeforeLogin` statement on line 15.
+      beforeLogin: ['@/components/BeforeLogin'],
+      // The `BeforeDashboard` component renders the 'welcome' block that you see after logging into your admin panel.
+      // Feel free to delete this at any time. Simply remove the line below and the import `BeforeDashboard` statement on line 15.
+      beforeDashboard: ['@/components/BeforeDashboard'],
     },
     importMap: {
       baseDir: path.resolve(dirname),
     },
+    user: Users.slug,
     livePreview: {
       breakpoints: [
         {
@@ -67,34 +56,9 @@ export default buildConfig({
         },
       ],
     },
-    user: Users.slug,
-    autoLogin:
-      process.env.NODE_ENV === 'development'
-        ? {
-            email: process.env.PAYLOAD_ADMIN_EMAIL,
-            password: process.env.PAYLOAD_ADMIN_PASSWORD,
-          }
-        : false,
   },
-
-  collections: [
-    Media,
-    Users,
-    Pages,
-    Posts,
-    Categories,
-    Location,
-    Projects,
-    FAQ,
-    Brands,
-    Technologies,
-    Testimonials,
-    Services,
-    Pillars,
-    Playground,
-    Team,
-    Industries,
-  ],
+  // This config helps us configure global or default features that the other editors can inherit
+  editor: defaultLexical,
   db: postgresAdapter({
     pool: {
       connectionString: process.env.POSTGRES_URL,
@@ -105,17 +69,21 @@ export default buildConfig({
       allowExitOnIdle: true,
       maxUses: 1000,
       statement_timeout: 60000,
-      application_name: process.env.NODE_ENV === 'production' ? 'brewww-prod' : 'brewww-dev',
+      application_name: process.env.NODE_ENV === 'production' ? 'kwessa-prod' : 'kwessa-dev',
       keepAlive: false,
     },
     push: false,
     migrationDir: './src/migrations',
     idType: 'uuid',
   }),
-  editor: defaultLexical,
+  collections: [Pages, Posts, Media, Categories, Users],
+  cors: [getServerSideURL()].filter(Boolean),
   globals: [Header, Footer],
-  plugins: [...plugins],
-  secret: process.env.PAYLOAD_SECRET || '',
+  plugins: [
+    ...plugins,
+    // storage-adapter-placeholder
+  ],
+  secret: process.env.PAYLOAD_SECRET,
   sharp,
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),

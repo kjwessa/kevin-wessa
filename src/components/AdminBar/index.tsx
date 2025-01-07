@@ -1,11 +1,14 @@
 'use client'
 
 import type { PayloadAdminBarProps } from 'payload-admin-bar'
+
 import { cn } from '@/utilities/cn'
 import { useSelectedLayoutSegments } from 'next/navigation'
 import { PayloadAdminBar } from 'payload-admin-bar'
 import React, { useState } from 'react'
 import { useRouter } from 'next/navigation'
+
+import './index.scss'
 
 import { getClientSideURL } from '@/utilities/getURL'
 
@@ -26,7 +29,7 @@ const collectionLabels = {
   },
 }
 
-const Title: React.FC = () => <span className="font-medium text-white">Dashboard</span>
+const Title: React.FC = () => <span>Dashboard</span>
 
 export const AdminBar: React.FC<{
   adminBarProps?: PayloadAdminBarProps
@@ -43,17 +46,17 @@ export const AdminBar: React.FC<{
 
   return (
     <div
-      className={cn(baseClass, 'bg-black py-3 text-white', {
+      className={cn(baseClass, 'py-2 bg-black text-white', {
         block: show,
         hidden: !show,
       })}
     >
-      <div className="mx-auto max-w-[100rem] px-6 md:px-8 lg:px-12">
+      <div className="container">
         <PayloadAdminBar
           {...adminBarProps}
-          className="text-white"
+          className="py-2 text-white"
           classNames={{
-            controls: 'font-medium text-white space-x-4',
+            controls: 'font-medium text-white',
             logo: 'text-white',
             user: 'text-white',
           }}
@@ -76,10 +79,6 @@ export const AdminBar: React.FC<{
             padding: 0,
             position: 'relative',
             zIndex: 'unset',
-            width: '100%',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
           }}
         />
       </div>
