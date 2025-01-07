@@ -1,8 +1,7 @@
 {
-  "name": "kevin",
-  "version": "1.0.1",
-  "description": "Website template for Payload",
-  "license": "MIT",
+  "name": "kevin-wessa",
+  "version": "1.7.0",
+  "private": true,
   "type": "module",
   "scripts": {
     "clean": "rm -rf node_modules .next",

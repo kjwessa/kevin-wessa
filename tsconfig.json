@@ -43,6 +43,8 @@
       "@/images/*": ["./public/images/*"],
       "@/lib/*": ["src/lib/*"],
       "@payload-config": ["./src/payload.config.ts"],
+      "@/providers/HeaderTheme": ["src/providers/HeaderTheme/index.tsx"],
+      "@/providers/*": ["src/providers/*"],
       "@/public/*": ["./public/*"],
       "@root/*": ["src/*"],
       "@/styles/*": ["src/styles/*"],
