@@ -1,9 +1,12 @@
+// Payload Imports
 import type { CollectionConfig } from 'payload'
-
-import { authenticated } from '../../access/authenticated'
+// Access Control
+import { authenticated } from '@/access/authenticated'
 
 export const Users: CollectionConfig = {
   slug: 'users',
+
+  //* Access Settings
   access: {
     admin: authenticated,
     create: authenticated,
@@ -11,16 +14,26 @@ export const Users: CollectionConfig = {
     read: authenticated,
     update: authenticated,
   },
-  admin: {
-    defaultColumns: ['name', 'email'],
-    useAsTitle: 'name',
-  },
-  auth: true,
+
+  //* Collection Fields
   fields: [
     {
-      name: 'name',
-      type: 'text',
+      type: 'row',
+      fields: [
+        {
+          name: 'name',
+          type: 'text',
+          label: 'Full Name',
+          required: true,
+        },
+      ],
     },
   ],
+
+  //* Admin Settings
+  admin: {
+    useAsTitle: 'email',
+  },
+  auth: true,
   timestamps: true,
 }
