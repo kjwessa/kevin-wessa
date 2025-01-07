@@ -8,8 +8,25 @@ const NEXT_PUBLIC_SERVER_URL = process.env.NEXT_PUBLIC_SERVER_URL || 'http://loc
 const nextConfig = {
   experimental: {
     reactCompiler: true,
+    serverActions: {
+      bodySizeLimit: '2mb',
+    },
+    optimizePackageImports: [
+      '@radix-ui/react-accordion',
+      '@radix-ui/react-checkbox',
+      '@radix-ui/react-label',
+      '@radix-ui/react-select',
+      '@radix-ui/react-slot',
+      'class-variance-authority',
+      'lucide-react',
+      'motion',
+      'prism-react-renderer',
+      'swiper',
+    ],
   },
   serverExternalPackages: ['pg'],
+  reactStrictMode: true,
+  poweredByHeader: false,
   images: {
     formats: ['image/avif', 'image/webp'],
     remotePatterns: [
@@ -29,7 +46,62 @@ const nextConfig = {
       },
     ],
   },
-  reactStrictMode: true,
+  // Security headers
+  headers: () => [
+    {
+      source: '/:path*',
+      headers: [
+        {
+          key: 'X-DNS-Prefetch-Control',
+          value: 'on',
+        },
+        {
+          key: 'Strict-Transport-Security',
+          value: 'max-age=31536000; includeSubDomains',
+        },
+        {
+          key: 'X-Frame-Options',
+          value: 'SAMEORIGIN',
+        },
+        {
+          key: 'X-Content-Type-Options',
+          value: 'nosniff',
+        },
+        {
+          key: 'X-XSS-Protection',
+          value: '1; mode=block',
+        },
+        {
+          key: 'Referrer-Policy',
+          value: 'strict-origin-when-cross-origin',
+        },
+        {
+          key: 'Permissions-Policy',
+          value: 'camera=(), microphone=(), geolocation=(), interest-cohort=()',
+        },
+      ],
+    },
+  ],
+  // Webpack optimizations
+  webpack: (config, { dev, isServer }) => {
+    // Optimize SVG imports
+    config.module.rules.push({
+      test: /\.svg$/,
+      use: ['@svgr/webpack'],
+    })
+
+    // Optimize CSS
+    if (!dev && !isServer) {
+      config.optimization.splitChunks.cacheGroups.styles = {
+        name: 'styles',
+        test: /\.(css|scss)$/,
+        chunks: 'all',
+        enforce: true,
+      }
+    }
+
+    return config
+  },
   redirects,
 }
 
