@@ -22,10 +22,12 @@
     "db:restore": "echo '💾 Restoring to local...' && source .env.local && [[ \"$POSTGRES_URL\" == *\"localhost\"* ]] && psql \"$POSTGRES_URL\" < prod_dump.sql || (echo '⚠️  Error: Not a local database' && exit 1)",
     "db:sync": "echo '🔄 Syncing database...' && pnpm db:dump && pnpm db:restore",
     "db:reset": "echo '🗑️  Resetting local database...' && dropdb kwessadb && createdb kwessadb && pnpm db:sync",
-    "ci": "pnpm payload migrate && pnpm build"
+    "ci": "pnpm payload migrate && pnpm build",
+    "validate:config": "tsx scripts/validateConfig.ts",
+    "validate:blocks": "tsx scripts/validateBlocks.ts"
   },
   "dependencies": {
-"@neondatabase/serverless": "0.10.4",
+    "@neondatabase/serverless": "0.10.4",
     "@payloadcms/db-postgres": "^3.14.0",
     "@payloadcms/email-nodemailer": "^3.14.0",
     "@payloadcms/live-preview-react": "^3.14.0",

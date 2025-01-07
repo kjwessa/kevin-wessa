@@ -69,3 +69,7 @@ Thumbs.db
 # IDE Rules
 .windsurfrules
 .cursorrules
+
+# Test outputs
+.test-output/
+*.txt
