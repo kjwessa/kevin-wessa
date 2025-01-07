@@ -19,12 +19,6 @@ import {
 } from '@payloadcms/plugin-seo/fields'
 
 // Block Imports
-import { MediaBlock } from '@/blocks/MediaBlock/config'
-import { Banner } from '@/blocks/Banner/config'
-import { CallToAction } from '@/blocks/CallToAction/config'
-
-import { FormBlock } from '@/blocks/Form/config'
-
 
 
 // Utilities Imports
@@ -55,11 +49,7 @@ const contentFields: Field[] = [
     minRows: 1,
     maxRows: 20,
     blocks: [
-      MediaBlock,
-      FormBlock,
-      Banner,
-      CallToAction,
-   
+  
     ] as Block[],
     admin: {
       description: 'Add content blocks to build out this page.',

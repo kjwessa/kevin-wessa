@@ -1,46 +1,51 @@
 import React from 'react'
 
-import type { Page } from '@/payload-types'
+import type { Page, Media, Post } from '@/payload-types'
 
 import { CMSLink } from '@/components/Link'
-import { Media } from '@/components/Media'
+import { Media as MediaComponent } from '@/components/Media'
 import RichText from '@/components/RichText'
 
-export const MediumImpactHero: React.FC<Page['hero']> = ({ links, media, richText }) => {
+type MediumImpactHeroProps = {
+  links?: {
+    link: {
+      type?: 'reference' | 'custom'
+      label?: string
+      reference?: {
+        relationTo: 'pages' | 'posts'
+        value: string | number | Page | Post
+      }
+      url?: string
+    }
+  }[]
+  media?: Media
+  richText?: any
+}
+
+export const MediumImpactHero: React.FC<MediumImpactHeroProps> = ({ links, media, richText }) => {
   return (
     <div className="">
       <div className="container mb-8">
-        {richText && <RichText className="mb-6" data={richText} enableGutter={false} />}
-
-        {Array.isArray(links) && links.length > 0 && (
-          <ul className="flex gap-4">
-            {links.map(({ link }, i) => {
-              return (
-                <li key={i}>
-                  <CMSLink {...link} />
-                </li>
-              )
-            })}
-          </ul>
-        )}
+        <div className="max-w-[36.5rem]">
+          {richText && <RichText className="mb-6" data={richText} enableGutter={false} />}
+          {Array.isArray(links) && links.length > 0 && (
+            <ul className="flex gap-4">
+              {links.map(({ link }, i) => {
+                return (
+                  <li key={i}>
+                    <CMSLink {...link} />
+                  </li>
+                )
+              })}
+            </ul>
+          )}
+        </div>
       </div>
-      <div className="container ">
-        {media && typeof media === 'object' && (
-          <div>
-            <Media
-              className="-mx-4 md:-mx-8 2xl:-mx-16"
-              imgClassName=""
-              priority
-              resource={media}
-            />
-            {media?.caption && (
-              <div className="mt-3">
-                <RichText data={media.caption} enableGutter={false} />
-              </div>
-            )}
-          </div>
-        )}
-      </div>
+      {media && typeof media === 'object' && (
+        <div className="relative">
+          <MediaComponent className="w-full" priority resource={media} />
+        </div>
+      )}
     </div>
   )
 }

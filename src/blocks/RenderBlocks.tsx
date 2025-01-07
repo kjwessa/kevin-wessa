@@ -2,20 +2,22 @@ import { cn } from 'src/utilities/cn'
 import React, { Fragment } from 'react'
 
 import type { Page } from '@/payload-types'
-
-import { CallToActionBlock } from '@/blocks/CallToAction/Component'
+import type { FormBlockType } from '@/blocks/Form/Component'
 
 import { FormBlock } from '@/blocks/Form/Component'
-import { MediaBlock } from '@/blocks/MediaBlock/Component'
 
-const blockComponents = {
-  cta: CallToActionBlock,
+type BlockComponents = {
+  formBlock: typeof FormBlock
+}
+
+type Block = { blockType: 'formBlock' } & FormBlockType
+
+const blockComponents: BlockComponents = {
   formBlock: FormBlock,
-  mediaBlock: MediaBlock,
 }
 
 export const RenderBlocks: React.FC<{
-  blocks: Page['layout'][0][]
+  blocks?: unknown[]
 }> = (props) => {
   const { blocks } = props
 
@@ -25,17 +27,19 @@ export const RenderBlocks: React.FC<{
     return (
       <Fragment>
         {blocks.map((block, index) => {
-          const { blockType } = block
+          if (block && typeof block === 'object' && 'blockType' in block) {
+            const { blockType } = block as { blockType: string }
 
-          if (blockType && blockType in blockComponents) {
-            const Block = blockComponents[blockType]
+            if (blockType && blockType in blockComponents) {
+              const Block = blockComponents[blockType as keyof BlockComponents]
 
-            if (Block) {
-              return (
-                <div className="my-16" key={index}>
-                  <Block {...block} disableInnerContainer />
-                </div>
-              )
+              if (Block) {
+                return (
+                  <div className="my-16" key={index}>
+                    <Block {...(block as Block)} />
+                  </div>
+                )
+              }
             }
           }
           return null

@@ -14,7 +14,7 @@ import {
 
 import { slugField } from '@/fields/slug'
 
-import { MediaBlock } from '@/blocks/MediaBlock/config'
+// import { MediaBlock } from '@/blocks/MediaBlock/config'
 import { Code } from '@/blocks/Code/config'
 
 
