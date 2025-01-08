@@ -13,6 +13,7 @@ import { ContentBlock } from '@/blocks/Content/Component'
 import { ContentBeta } from '@/blocks/ContentBeta/Component'
 import { MediaGrid } from '@/blocks/MediaGrid/Component'
 import { Bio } from '@/blocks/Bio/Component'
+import { MediaSlider } from '@/blocks/MediaSlider/Component'
 
 type BlockType = NonNullable<Page['layout']>[number]
 
@@ -24,6 +25,7 @@ const blockComponents = {
   contentBeta: ContentBeta,
   mediaGrid: MediaGrid,
   bioBlock: Bio,
+  mediaSlider: MediaSlider,
 } as const
 
 type Props = {

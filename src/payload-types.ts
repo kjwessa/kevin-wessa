@@ -121,7 +121,15 @@ export interface Page {
   /**
    * Add content blocks to build out this page.
    */
-  layout: (MediaBlock | SplitContentBlock | ContentBlock | ContentBetaBlock | MediaGridBlock | BioBlock)[];
+  layout: (
+    | MediaBlock
+    | SplitContentBlock
+    | ContentBlock
+    | ContentBetaBlock
+    | MediaGridBlock
+    | BioBlock
+    | MediaSliderBlock
+  )[];
   meta?: {
     title?: string | null;
     /**
@@ -404,6 +412,31 @@ export interface BioBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'bioBlock';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "MediaSliderBlock".
+ */
+export interface MediaSliderBlock {
+  slides: {
+    media: string | Media;
+    /**
+     * Brief description of the image for accessibility
+     */
+    altText?: string | null;
+    id?: string | null;
+  }[];
+  settings?: {
+    autoplay?: boolean | null;
+    loop?: boolean | null;
+    /**
+     * Speed of the slide transition in milliseconds
+     */
+    speed?: number | null;
+  };
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'mediaSlider';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -873,6 +906,7 @@ export interface PagesSelect<T extends boolean = true> {
         contentBeta?: T | ContentBetaBlockSelect<T>;
         mediaGrid?: T | MediaGridBlockSelect<T>;
         bioBlock?: T | BioBlockSelect<T>;
+        mediaSlider?: T | MediaSliderBlockSelect<T>;
       };
   meta?:
     | T
@@ -1021,6 +1055,28 @@ export interface BioBlockSelect<T extends boolean = true> {
         avatar?: T;
         secondaryImage?: T;
         verticalText?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "MediaSliderBlock_select".
+ */
+export interface MediaSliderBlockSelect<T extends boolean = true> {
+  slides?:
+    | T
+    | {
+        media?: T;
+        altText?: T;
+        id?: T;
+      };
+  settings?:
+    | T
+    | {
+        autoplay?: T;
+        loop?: T;
+        speed?: T;
       };
   id?: T;
   blockName?: T;
