@@ -1,6 +1,8 @@
+import type { StaticImageData } from 'next/image'
 import React from 'react'
 import { MediaGridBlock } from '@/payload-types'
 import { Media } from '@/components/Media'
+import { cn } from 'src/utilities/cn'
 
 const getGridCols = (itemCount: number): string => {
   switch (itemCount) {
@@ -20,7 +22,13 @@ const getGridCols = (itemCount: number): string => {
   }
 }
 
-export const MediaGrid: React.FC<MediaGridBlock> = ({ items, layout = 'grid' }) => {
+type Props = MediaGridBlock & {
+  className?: string
+  imgClassName?: string
+  staticImage?: StaticImageData
+}
+
+export const MediaGrid: React.FC<Props> = ({ items, layout = 'grid', className, imgClassName }) => {
   if (!items?.length) return null
 
   const gridCols = getGridCols(items.length)
@@ -30,7 +38,7 @@ export const MediaGrid: React.FC<MediaGridBlock> = ({ items, layout = 'grid' }) 
       : 'columns-1 md:columns-2 lg:columns-3 gap-4 md:gap-6 [&>*]:mb-4 md:[&>*]:mb-6'
 
   return (
-    <div className="w-full">
+    <div className={cn('w-full', className)}>
       <div className={containerClasses}>
         {items.map((item, i) => {
           if (!item?.media) return null
@@ -41,11 +49,17 @@ export const MediaGrid: React.FC<MediaGridBlock> = ({ items, layout = 'grid' }) 
           return (
             <div
               key={i}
-              className={`relative overflow-hidden ${aspectRatioClass} ${
-                layout === 'masonry' ? 'break-inside-avoid' : ''
-              }`}
+              className={cn(
+                'relative overflow-hidden',
+                aspectRatioClass,
+                layout === 'masonry' ? 'break-inside-avoid' : '',
+              )}
             >
-              <Media resource={item.media} imgClassName="object-cover w-full h-full" fill />
+              <Media
+                resource={item.media}
+                imgClassName={cn('object-cover w-full h-full', imgClassName)}
+                fill
+              />
             </div>
           )
         })}

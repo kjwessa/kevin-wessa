@@ -121,7 +121,7 @@ export interface Page {
   /**
    * Add content blocks to build out this page.
    */
-  layout: (MediaBlock | SplitContentBlock | ContentBlock | ContentBetaBlock | MediaGridBlock)[];
+  layout: (MediaBlock | SplitContentBlock | ContentBlock | ContentBetaBlock | MediaGridBlock | BioBlock)[];
   meta?: {
     title?: string | null;
     /**
@@ -365,6 +365,45 @@ export interface MediaGridBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'mediaGrid';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "BioBlock".
+ */
+export interface BioBlock {
+  title: {
+    primary: string;
+    /**
+     * Will be displayed with emphasis/highlight
+     */
+    secondary: string;
+  };
+  content: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  media: {
+    avatar: string | Media;
+    secondaryImage: string | Media;
+    /**
+     * Text that will appear vertically alongside the images
+     */
+    verticalText?: string | null;
+  };
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'bioBlock';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -833,6 +872,7 @@ export interface PagesSelect<T extends boolean = true> {
         content?: T | ContentBlockSelect<T>;
         contentBeta?: T | ContentBetaBlockSelect<T>;
         mediaGrid?: T | MediaGridBlockSelect<T>;
+        bioBlock?: T | BioBlockSelect<T>;
       };
   meta?:
     | T
@@ -960,6 +1000,28 @@ export interface MediaGridBlockSelect<T extends boolean = true> {
         id?: T;
       };
   layout?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "BioBlock_select".
+ */
+export interface BioBlockSelect<T extends boolean = true> {
+  title?:
+    | T
+    | {
+        primary?: T;
+        secondary?: T;
+      };
+  content?: T;
+  media?:
+    | T
+    | {
+        avatar?: T;
+        secondaryImage?: T;
+        verticalText?: T;
+      };
   id?: T;
   blockName?: T;
 }
