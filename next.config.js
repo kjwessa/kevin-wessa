@@ -82,20 +82,6 @@ const nextConfig = {
       ],
     },
   ],
-  // Webpack optimizations
-  webpack: (config, { isServer }) => {
-    // Optimize CSS
-    if (!isServer) {
-      config.optimization.splitChunks.cacheGroups.styles = {
-        name: 'styles',
-        test: /\.(css|scss)$/,
-        chunks: 'all',
-        enforce: true,
-      }
-    }
-
-    return config
-  },
   redirects,
 }
 

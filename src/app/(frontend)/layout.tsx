@@ -2,8 +2,6 @@ import type { Metadata } from 'next'
 import { cn } from 'src/utilities/cn'
 import React from 'react'
 import { AdminBar } from '@/components/AdminBar'
-import { Footer } from '@/globals/Footer/Component'
-import { Header } from '@/globals/Header/Component'
 import { InitTheme } from '@/providers/Theme/InitTheme'
 import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
 import { draftMode } from 'next/headers'
@@ -27,10 +25,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             preview: isEnabled,
           }}
         />
-
-        <Header />
         {children}
-        <Footer />
       </body>
     </html>
   )
