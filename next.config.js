@@ -83,15 +83,9 @@ const nextConfig = {
     },
   ],
   // Webpack optimizations
-  webpack: (config, { dev, isServer }) => {
-    // Optimize SVG imports
-    config.module.rules.push({
-      test: /\.svg$/,
-      use: ['@svgr/webpack'],
-    })
-
+  webpack: (config, { isServer }) => {
     // Optimize CSS
-    if (!dev && !isServer) {
+    if (!isServer) {
       config.optimization.splitChunks.cacheGroups.styles = {
         name: 'styles',
         test: /\.(css|scss)$/,
