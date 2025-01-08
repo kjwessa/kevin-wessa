@@ -21,6 +21,8 @@ import {
 // Block Imports
 import { MediaBlock } from '@/blocks/MediaBlock/config'
 import { config as VerticalsHero } from '@/heros/VerticalsHero/config'
+import { SplitContent } from '@/blocks/SplitContent/config'
+import { Content } from '@/blocks/Content/config'
 
 // Utilities Imports
 import { generatePreviewPath } from '@/utilities/generatePreviewPath'
@@ -75,7 +77,7 @@ const contentFields: Field[] = [
     required: true,
     minRows: 1,
     maxRows: 20,
-    blocks: [MediaBlock] as Block[],
+    blocks: [MediaBlock, SplitContent, Content] as Block[],
     admin: {
       description: 'Add content blocks to build out this page.',
     },

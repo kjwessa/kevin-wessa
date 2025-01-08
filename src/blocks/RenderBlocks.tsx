@@ -1,6 +1,6 @@
 'use client'
 // React Imports
-import React, { Fragment } from 'react'
+import React from 'react'
 import type { Page } from '@/payload-types'
 // Utilities
 import { toKebabCase } from '@root/utilities/toKebabCase'
@@ -8,15 +8,18 @@ import { toKebabCase } from '@root/utilities/toKebabCase'
 import type { FormBlockType } from '@/blocks/Form/index'
 import { FormBlock } from '@/blocks/Form/index'
 import { MediaBlock } from '@/blocks/MediaBlock/index'
+import { SplitContent } from '@/blocks/SplitContent/Component'
+import { ContentBlock } from '@/blocks/Content/Component'
 
 type BlockType = NonNullable<Page['layout']>[number]
-
-type Block = { blockType: 'formBlock' } & FormBlockType
 
 const blockComponents = {
   formBlock: FormBlock,
   mediaBlock: MediaBlock,
+  splitContent: SplitContent,
+  content: ContentBlock,
 } as const
+
 type Props = {
   blocks: BlockType[]
   customId?: string | null
@@ -37,16 +40,14 @@ export const RenderBlocks: React.FC<Props> = (props) => {
           const { blockName, blockType } = block
 
           if (blockType && blockType in blockComponents) {
-            const Block = blockComponents[blockType]
+            const Block = blockComponents[blockType as keyof typeof blockComponents]
 
             if (Block) {
               return (
                 <Block
-                  id={blockName ? toKebabCase(blockName) : undefined}
                   key={index}
-                  {...block}
-                  // disableGrid={disableGrid}
-                  // disableGutter={disableGutter}
+                  {...(block as any)}
+                  id={blockName ? toKebabCase(blockName) : undefined}
                 />
               )
             }
