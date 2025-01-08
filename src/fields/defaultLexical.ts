@@ -3,6 +3,7 @@ import {
   BoldFeature,
   ItalicFeature,
   LinkFeature,
+  StrikethroughFeature,
   ParagraphFeature,
   lexicalEditor,
   UnderlineFeature,
@@ -15,8 +16,26 @@ export const defaultLexical: Config['editor'] = lexicalEditor({
       UnderlineFeature(),
       BoldFeature(),
       ItalicFeature(),
+      StrikethroughFeature(),
       LinkFeature({
-        enabledCollections: ['pages', 'posts'],
+        enabledCollections: [
+          // 'pages',
+          // 'posts',
+          // 'categories',
+          // 'locations',
+          // 'brands',
+          // 'faq',
+          // 'industries',
+          // 'journeys',
+          // 'locations',
+          // 'pillars',
+          // 'play',
+          // 'results',
+          // 'services',
+          // 'team',
+          // 'technologies',
+          // 'work',
+        ],
         fields: ({ defaultFields }) => {
           const defaultFieldsWithoutUrl = defaultFields.filter((field) => {
             if ('name' in field && field.name === 'url') return false
