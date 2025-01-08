@@ -10,11 +10,11 @@ import { plugins } from './plugins'
 import { defaultLexical } from './fields/defaultLexical'
 
 //* Import Collections
-import { Categories } from './collections/Categories'
-import { Media } from './collections/Media'
+import { Categories } from './collections/Categories/config'
+import { Media } from './collections/Media/config'
 import { Pages } from './collections/Pages/config'
 import { Posts } from './collections/Posts/config'
-import { Users } from './collections/Users'
+import { Users } from './collections/Users/config'
 
 //* Import Globals
 import { Footer } from './globals/Footer/config'
