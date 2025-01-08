@@ -5,12 +5,13 @@ import type { Page } from '@/payload-types'
 // Utilities
 import { toKebabCase } from '@root/utilities/toKebabCase'
 
-import type { FormBlockType } from '@/blocks/Form/index'
-import { FormBlock } from '@/blocks/Form/index'
-import { MediaBlock } from '@/blocks/MediaBlock/index'
+import type { FormBlockType } from '@/blocks/Form/Component'
+import { FormBlock } from '@/blocks/Form/Component'
+import { MediaBlock } from '@/blocks/MediaBlock/Component'
 import { SplitContent } from '@/blocks/SplitContent/Component'
 import { ContentBlock } from '@/blocks/Content/Component'
 import { ContentBeta } from '@/blocks/ContentBeta/Component'
+import { MediaGrid } from '@/blocks/MediaGrid/Component'
 
 type BlockType = NonNullable<Page['layout']>[number]
 
@@ -20,6 +21,7 @@ const blockComponents = {
   splitContent: SplitContent,
   content: ContentBlock,
   contentBeta: ContentBeta,
+  mediaGrid: MediaGrid,
 } as const
 
 type Props = {

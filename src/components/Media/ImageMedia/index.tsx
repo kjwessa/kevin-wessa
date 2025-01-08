@@ -47,7 +47,10 @@ export const ImageMedia: React.FC<MediaProps> = (props) => {
     height = fullHeight!
     alt = altFromResource || ''
 
-    src = `${getClientSideURL()}${url}`
+    // Handle URLs that are already absolute
+    if (url) {
+      src = url.startsWith('http') ? url : `${getClientSideURL()}${url}`
+    }
   }
 
   const loading = loadingFromProps || (!priority ? 'lazy' : undefined)

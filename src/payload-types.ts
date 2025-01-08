@@ -121,7 +121,7 @@ export interface Page {
   /**
    * Add content blocks to build out this page.
    */
-  layout: (MediaBlock | SplitContentBlock | ContentBlock | ContentBetaBlock)[];
+  layout: (MediaBlock | SplitContentBlock | ContentBlock | ContentBetaBlock | MediaGridBlock)[];
   meta?: {
     title?: string | null;
     /**
@@ -349,6 +349,22 @@ export interface ContentBetaBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'contentBeta';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "MediaGridBlock".
+ */
+export interface MediaGridBlock {
+  items: {
+    media: string | Media;
+    aspectRatio?: ('auto' | '1:1' | '3:4' | '4:3' | '16:9') | null;
+    size?: ('small' | 'medium' | 'large') | null;
+    id?: string | null;
+  }[];
+  layout?: ('grid' | 'masonry') | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'mediaGrid';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -816,6 +832,7 @@ export interface PagesSelect<T extends boolean = true> {
         splitContent?: T | SplitContentBlockSelect<T>;
         content?: T | ContentBlockSelect<T>;
         contentBeta?: T | ContentBetaBlockSelect<T>;
+        mediaGrid?: T | MediaGridBlockSelect<T>;
       };
   meta?:
     | T
@@ -926,6 +943,23 @@ export interface ContentBetaBlockSelect<T extends boolean = true> {
               color?: T;
             };
       };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "MediaGridBlock_select".
+ */
+export interface MediaGridBlockSelect<T extends boolean = true> {
+  items?:
+    | T
+    | {
+        media?: T;
+        aspectRatio?: T;
+        size?: T;
+        id?: T;
+      };
+  layout?: T;
   id?: T;
   blockName?: T;
 }

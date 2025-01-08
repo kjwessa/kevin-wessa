@@ -20,18 +20,18 @@ export const ContentBeta: React.FC<ContentBetaBlock> = (props) => {
 
   if (layout === 'centered' && center) {
     return (
-      <div className="container my-16">
-        <div className="mx-auto max-w-3xl text-center">
+      <section className="container mx-auto py-24">
+        <div className="grid grid-cols-12 gap-4">
           <RichText
             data={center.richText as RichTextProps['data']}
             preset="default"
-            className={cn('prose prose-lg max-w-none', {
+            className={cn('prose prose-lg col-span-12 max-w-none text-center', {
               'text-primary': center.highlight?.enabled && center.highlight.color === 'primary',
               'text-secondary': center.highlight?.enabled && center.highlight.color === 'secondary',
             })}
           />
         </div>
-      </div>
+      </section>
     )
   }
 
