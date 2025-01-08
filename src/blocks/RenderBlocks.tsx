@@ -10,6 +10,7 @@ import { FormBlock } from '@/blocks/Form/index'
 import { MediaBlock } from '@/blocks/MediaBlock/index'
 import { SplitContent } from '@/blocks/SplitContent/Component'
 import { ContentBlock } from '@/blocks/Content/Component'
+import { ContentBeta } from '@/blocks/ContentBeta/Component'
 
 type BlockType = NonNullable<Page['layout']>[number]
 
@@ -18,6 +19,7 @@ const blockComponents = {
   mediaBlock: MediaBlock,
   splitContent: SplitContent,
   content: ContentBlock,
+  contentBeta: ContentBeta,
 } as const
 
 type Props = {
