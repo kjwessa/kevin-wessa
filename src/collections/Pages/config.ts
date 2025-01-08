@@ -4,7 +4,6 @@ import type { CollectionConfig, Field, Block } from 'payload'
 // Access Imports
 import { authenticated } from '@/access/authenticated'
 import { authenticatedOrPublished } from '@/access/authenticatedOrPublished'
-import { MediaBlock } from '@/blocks/MediaBlock/config'
 
 // Hooks Imports
 import { revalidatePage, revalidateDelete } from './hooks/revalidatePage'
@@ -20,7 +19,8 @@ import {
 } from '@payloadcms/plugin-seo/fields'
 
 // Block Imports
-import { hero } from '@/heros/config'
+import { MediaBlock } from '@/blocks/MediaBlock/config'
+import { config as VerticalsHero } from '@/heros/VerticalsHero/config'
 
 // Utilities Imports
 import { generatePreviewPath } from '@/utilities/generatePreviewPath'
@@ -29,13 +29,39 @@ const contentFields: Field[] = [
   {
     name: 'hero',
     type: 'blocks',
-    blocks: [hero],
+    blocks: [VerticalsHero],
     required: true,
     minRows: 1,
     maxRows: 1,
     defaultValue: [
       {
-        blockType: 'hero',
+        blockType: 'verticals',
+        verticals: {
+          firstVertical: {
+            firstTitle: 'Brand',
+            firstSubtitle: 'Strategy & Identity',
+            firstDescription:
+              'A tool to shape perceptions, craft meaningful stories, and build lasting connections with audiences.',
+          },
+          secondVertical: {
+            secondTitle: 'Design',
+            secondSubtitle: 'UX Designer',
+            secondDescription:
+              'A tool to create experiences, guide journeys, and empathize with the needs of others.',
+          },
+          thirdVertical: {
+            thirdTitle: 'Code',
+            thirdSubtitle: 'Full Stack Developer',
+            thirdDescription:
+              'A tool to give the order to the chaos, commit to the bigger picture, and git ship done.',
+          },
+          fourthVertical: {
+            fourthTitle: 'Build',
+            fourthSubtitle: 'Company Leadership',
+            fourthDescription:
+              'A tool to transform ideas into ventures, navigate growth challenges, and scale meaningful businesses.',
+          },
+        },
       },
     ],
     admin: {

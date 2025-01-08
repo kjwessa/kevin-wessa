@@ -88,7 +88,7 @@ export default async function Page({ params: paramsPromise }: Args) {
       {/* Render the live preview listener if in draft mode */}
       {draft && <LivePreviewListener />}
       {/* Render the hero section if it exists */}
-      {hero && <RenderHero hero={hero} />}
+      {currentHero && <RenderHero {...currentHero} />}
       {/* Render the page content blocks */}
       <RenderBlocks blocks={layout || []} />
     </article>

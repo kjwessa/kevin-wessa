@@ -116,31 +116,23 @@ function VerticalCard({ title, subtitle, description, isLast }: VerticalCardProp
   )
 }
 
-export function VerticalsHeroClient() {
+type VerticalsHeroClientProps = {
+  cards: VerticalCardProps[]
+}
+
+export function VerticalsHeroClient({ cards }: VerticalsHeroClientProps) {
   return (
     <div className="relative col-span-4 flex h-screen flex-col items-center justify-center bg-[#B43435]">
       <div className="container mx-auto grid h-full grid-cols-4 items-center">
-        <VerticalCard
-          title="Brand"
-          subtitle="Strategy & Identity"
-          description="A tool to shape perceptions, craft meaningful stories, and build lasting connections with audiences."
-        />
-        <VerticalCard
-          title="Design"
-          subtitle="UX Designer"
-          description="A tool to create experiences, guide journeys, and empathize with the needs of others."
-        />
-        <VerticalCard
-          title="Code"
-          subtitle="Full Stack Developer"
-          description="A tool to give the order to the chaos, commit to the bigger picture, and git ship done."
-        />
-        <VerticalCard
-          title="Build"
-          subtitle="Company Leadership"
-          description="A tool to transform ideas into ventures, navigate growth challenges, and scale meaningful businesses."
-          isLast
-        />
+        {cards.map((card, index) => (
+          <VerticalCard
+            key={card.title}
+            title={card.title}
+            subtitle={card.subtitle}
+            description={card.description}
+            isLast={index === cards.length - 1}
+          />
+        ))}
       </div>
       <div className="absolute right-0 bottom-0 left-0 h-8 rounded-tl-2xl rounded-tr-2xl bg-[#F5E2CA]"></div>
     </div>

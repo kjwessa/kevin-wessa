@@ -92,45 +92,31 @@ export interface Page {
    * The hero section for this page.
    */
   hero: {
-    type: 'none' | 'highImpact' | 'mediumImpact' | 'lowImpact';
-    richText?: {
-      root: {
-        type: string;
-        children: {
-          type: string;
-          version: number;
-          [k: string]: unknown;
-        }[];
-        direction: ('ltr' | 'rtl') | null;
-        format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-        indent: number;
-        version: number;
+    verticals: {
+      firstVertical: {
+        firstTitle: string;
+        firstSubtitle: string;
+        firstDescription: string;
       };
-      [k: string]: unknown;
-    } | null;
-    links?:
-      | {
-          link?: {
-            type?: ('reference' | 'custom') | null;
-            label?: string | null;
-            reference?:
-              | ({
-                  relationTo: 'pages';
-                  value: string | Page;
-                } | null)
-              | ({
-                  relationTo: 'posts';
-                  value: string | Post;
-                } | null);
-            url?: string | null;
-          };
-          id?: string | null;
-        }[]
-      | null;
-    media?: (string | null) | Media;
+      secondVertical: {
+        secondTitle: string;
+        secondSubtitle: string;
+        secondDescription: string;
+      };
+      thirdVertical: {
+        thirdTitle: string;
+        thirdSubtitle: string;
+        thirdDescription: string;
+      };
+      fourthVertical: {
+        fourthTitle: string;
+        fourthSubtitle: string;
+        fourthDescription: string;
+      };
+    };
     id?: string | null;
     blockName?: string | null;
-    blockType: 'hero';
+    blockType: 'verticals';
   }[];
   /**
    * Add content blocks to build out this page.
@@ -153,6 +139,71 @@ export interface Page {
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "MediaBlock".
+ */
+export interface MediaBlock {
+  position?: ('default' | 'fullscreen') | null;
+  media: string | Media;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'mediaBlock';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "media".
+ */
+export interface Media {
+  id: string;
+  /**
+   * This is the alt text for the image
+   */
+  alt: string;
+  /**
+   * This is the caption for the image. Optional, but helpful for Blog Posts requiring a caption.
+   */
+  caption?: string | null;
+  fileHash?: string | null;
+  prefix?: string | null;
+  updatedAt: string;
+  createdAt: string;
+  url?: string | null;
+  thumbnailURL?: string | null;
+  filename?: string | null;
+  mimeType?: string | null;
+  filesize?: number | null;
+  width?: number | null;
+  height?: number | null;
+  focalX?: number | null;
+  focalY?: number | null;
+  sizes?: {
+    thumbnail?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+    square?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+    full?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+  };
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -214,60 +265,6 @@ export interface Post {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "media".
- */
-export interface Media {
-  id: string;
-  /**
-   * This is the alt text for the image
-   */
-  alt: string;
-  /**
-   * This is the caption for the image. Optional, but helpful for Blog Posts requiring a caption.
-   */
-  caption?: string | null;
-  fileHash?: string | null;
-  prefix?: string | null;
-  updatedAt: string;
-  createdAt: string;
-  url?: string | null;
-  thumbnailURL?: string | null;
-  filename?: string | null;
-  mimeType?: string | null;
-  filesize?: number | null;
-  width?: number | null;
-  height?: number | null;
-  focalX?: number | null;
-  focalY?: number | null;
-  sizes?: {
-    thumbnail?: {
-      url?: string | null;
-      width?: number | null;
-      height?: number | null;
-      mimeType?: string | null;
-      filesize?: number | null;
-      filename?: string | null;
-    };
-    square?: {
-      url?: string | null;
-      width?: number | null;
-      height?: number | null;
-      mimeType?: string | null;
-      filesize?: number | null;
-      filename?: string | null;
-    };
-    full?: {
-      url?: string | null;
-      width?: number | null;
-      height?: number | null;
-      mimeType?: string | null;
-      filesize?: number | null;
-      filename?: string | null;
-    };
-  };
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "categories".
  */
 export interface Category {
@@ -285,17 +282,6 @@ export interface Category {
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "MediaBlock".
- */
-export interface MediaBlock {
-  position?: ('default' | 'fullscreen') | null;
-  media: string | Media;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'mediaBlock';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -639,25 +625,41 @@ export interface PagesSelect<T extends boolean = true> {
   hero?:
     | T
     | {
-        hero?:
+        verticals?:
           | T
           | {
-              type?: T;
-              richText?: T;
-              links?:
+              verticals?:
                 | T
                 | {
-                    link?:
+                    firstVertical?:
                       | T
                       | {
-                          type?: T;
-                          label?: T;
-                          reference?: T;
-                          url?: T;
+                          firstTitle?: T;
+                          firstSubtitle?: T;
+                          firstDescription?: T;
                         };
-                    id?: T;
+                    secondVertical?:
+                      | T
+                      | {
+                          secondTitle?: T;
+                          secondSubtitle?: T;
+                          secondDescription?: T;
+                        };
+                    thirdVertical?:
+                      | T
+                      | {
+                          thirdTitle?: T;
+                          thirdSubtitle?: T;
+                          thirdDescription?: T;
+                        };
+                    fourthVertical?:
+                      | T
+                      | {
+                          fourthTitle?: T;
+                          fourthSubtitle?: T;
+                          fourthDescription?: T;
+                        };
                   };
-              media?: T;
               id?: T;
               blockName?: T;
             };
