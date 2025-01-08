@@ -56,6 +56,29 @@ export const MediaSlider: Block = {
           ],
         },
         {
+          name: 'slidesVisible',
+          type: 'select',
+          defaultValue: '1.25',
+          admin: {
+            description: 'Number of slides visible at once (for centered variant)',
+            condition: (_, { variant } = {}) => variant === 'centered',
+          },
+          options: [
+            {
+              label: 'Narrow (1.25)',
+              value: '1.25',
+            },
+            {
+              label: 'Medium (1.5)',
+              value: '1.5',
+            },
+            {
+              label: 'Wide (1.75)',
+              value: '1.75',
+            },
+          ],
+        },
+        {
           name: 'gap',
           type: 'select',
           defaultValue: 'medium',
@@ -80,7 +103,11 @@ export const MediaSlider: Block = {
           defaultValue: '4/3',
           options: [
             {
-              label: '4:3 (Standard)',
+              label: '3:2 (Standard)',
+              value: '3/2',
+            },
+            {
+              label: '4:3 (Classic)',
               value: '4/3',
             },
             {

@@ -13,6 +13,8 @@ import * as migration_20250108_204350_add_bio_block from './20250108_204350_add_
 import * as migration_20250108_213244_add_mediaslider_block from './20250108_213244_add_mediaslider_block';
 import * as migration_20250108_215525_add_layout_options_to_mediaslider from './20250108_215525_add_layout_options_to_mediaslider';
 import * as migration_20250108_220303_add_gap_to_mediaslider from './20250108_220303_add_gap_to_mediaslider';
+import * as migration_20250108_220835_add_3_2_aspect_ratio from './20250108_220835_add_3_2_aspect_ratio';
+import * as migration_20250108_221324_add_slides_visible from './20250108_221324_add_slides_visible';
 
 export const migrations = [
   {
@@ -88,6 +90,16 @@ export const migrations = [
   {
     up: migration_20250108_220303_add_gap_to_mediaslider.up,
     down: migration_20250108_220303_add_gap_to_mediaslider.down,
-    name: '20250108_220303_add_gap_to_mediaslider'
+    name: '20250108_220303_add_gap_to_mediaslider',
+  },
+  {
+    up: migration_20250108_220835_add_3_2_aspect_ratio.up,
+    down: migration_20250108_220835_add_3_2_aspect_ratio.down,
+    name: '20250108_220835_add_3_2_aspect_ratio',
+  },
+  {
+    up: migration_20250108_221324_add_slides_visible.up,
+    down: migration_20250108_221324_add_slides_visible.down,
+    name: '20250108_221324_add_slides_visible'
   },
 ];
