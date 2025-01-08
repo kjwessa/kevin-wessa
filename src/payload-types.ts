@@ -427,6 +427,9 @@ export interface MediaSliderBlock {
     id?: string | null;
   }[];
   settings?: {
+    variant?: ('centered' | 'grid' | 'contained') | null;
+    gap?: ('small' | 'medium' | 'large') | null;
+    aspectRatio?: ('4/3' | '16/9' | '1/1' | '3/4') | null;
     autoplay?: boolean | null;
     loop?: boolean | null;
     /**
@@ -1074,6 +1077,9 @@ export interface MediaSliderBlockSelect<T extends boolean = true> {
   settings?:
     | T
     | {
+        variant?: T;
+        gap?: T;
+        aspectRatio?: T;
         autoplay?: T;
         loop?: T;
         speed?: T;

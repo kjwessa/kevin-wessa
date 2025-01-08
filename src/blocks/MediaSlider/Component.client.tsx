@@ -19,16 +19,69 @@ export const MediaSliderClient: React.FC<Props> = ({ slides, settings, className
   const autoplay = settings?.autoplay ?? true
   const loop = settings?.loop ?? true
   const speed = settings?.speed ?? 500
+  const variant = settings?.variant ?? 'centered'
+  const aspectRatio = settings?.aspectRatio ?? '4/3'
+  const gap = settings?.gap ?? 'medium'
+
+  const getGapSize = (size: string): number => {
+    switch (size) {
+      case 'small':
+        return 8
+      case 'large':
+        return 24
+      case 'medium':
+      default:
+        return 16
+    }
+  }
+
+  const getAspectRatioClass = (ratio: string) => {
+    switch (ratio) {
+      case '16/9':
+        return 'aspect-video'
+      case '1/1':
+        return 'aspect-square'
+      case '3/4':
+        return 'aspect-[3/4]'
+      case '4/3':
+      default:
+        return 'aspect-[4/3]'
+    }
+  }
+
+  const variantStyles = {
+    centered: {
+      container: '-mx-[20vw]',
+      swiper: '!overflow-visible px-[20vw]',
+      slide: 'opacity-50 transition-opacity',
+      activeSlide: 'opacity-100',
+    },
+    grid: {
+      container: 'w-full',
+      swiper: '',
+      slide: '',
+      activeSlide: '',
+    },
+    contained: {
+      container: 'max-w-7xl',
+      swiper: '',
+      slide: '',
+      activeSlide: '',
+    },
+  }
+
+  const currentStyles = variantStyles[variant]
 
   return (
-    <section className={cn('relative container mx-auto py-12', className)}>
+    <section className={cn('relative mx-auto py-12', currentStyles.container, className)}>
       <Swiper
         modules={[Autoplay, Navigation]}
-        spaceBetween={24}
-        slidesPerView={1}
+        spaceBetween={getGapSize(gap)}
+        slidesPerView={variant === 'centered' ? 1.5 : 1}
+        centeredSlides={variant === 'centered'}
         breakpoints={{
-          640: { slidesPerView: 2 },
-          1024: { slidesPerView: 3 },
+          640: { slidesPerView: variant === 'centered' ? 1.5 : 2 },
+          1024: { slidesPerView: variant === 'centered' ? 1.5 : 3 },
         }}
         autoplay={autoplay ? { delay: 3000, disableOnInteraction: false } : false}
         loop={loop}
@@ -37,11 +90,29 @@ export const MediaSliderClient: React.FC<Props> = ({ slides, settings, className
           prevEl: '.swiper-button-prev',
           nextEl: '.swiper-button-next',
         }}
-        className="!overflow-visible"
+        className={cn('!overflow-visible', currentStyles.swiper)}
+        onSlideChange={(swiper) => {
+          if (variant === 'centered') {
+            document.querySelectorAll('.swiper-slide').forEach((slide) => {
+              slide.classList.remove('opacity-100')
+              slide.classList.add('opacity-50')
+            })
+            const activeSlide = document.querySelector('.swiper-slide-active')
+            if (activeSlide) {
+              activeSlide.classList.remove('opacity-50')
+              activeSlide.classList.add('opacity-100')
+            }
+          }
+        }}
       >
         {slides?.map((slide, index) => (
-          <SwiperSlide key={index}>
-            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-sm">
+          <SwiperSlide key={index} className={currentStyles.slide}>
+            <div
+              className={cn(
+                'relative overflow-hidden rounded-sm',
+                getAspectRatioClass(aspectRatio),
+              )}
+            >
               <Media
                 resource={slide.media}
                 fill

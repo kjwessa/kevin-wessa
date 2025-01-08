@@ -11,6 +11,8 @@ import * as migration_20250108_200408_update_contentbeta_layout from './20250108
 import * as migration_20250108_202005_add_mediagrid_block_option from './20250108_202005_add_mediagrid_block_option';
 import * as migration_20250108_204350_add_bio_block from './20250108_204350_add_bio_block';
 import * as migration_20250108_213244_add_mediaslider_block from './20250108_213244_add_mediaslider_block';
+import * as migration_20250108_215525_add_layout_options_to_mediaslider from './20250108_215525_add_layout_options_to_mediaslider';
+import * as migration_20250108_220303_add_gap_to_mediaslider from './20250108_220303_add_gap_to_mediaslider';
 
 export const migrations = [
   {
@@ -76,6 +78,16 @@ export const migrations = [
   {
     up: migration_20250108_213244_add_mediaslider_block.up,
     down: migration_20250108_213244_add_mediaslider_block.down,
-    name: '20250108_213244_add_mediaslider_block'
+    name: '20250108_213244_add_mediaslider_block',
+  },
+  {
+    up: migration_20250108_215525_add_layout_options_to_mediaslider.up,
+    down: migration_20250108_215525_add_layout_options_to_mediaslider.down,
+    name: '20250108_215525_add_layout_options_to_mediaslider',
+  },
+  {
+    up: migration_20250108_220303_add_gap_to_mediaslider.up,
+    down: migration_20250108_220303_add_gap_to_mediaslider.down,
+    name: '20250108_220303_add_gap_to_mediaslider'
   },
 ];
