@@ -4,6 +4,8 @@ import * as migration_20250108_005316_update_media from './20250108_005316_updat
 import * as migration_20250108_024136_update_blocks from './20250108_024136_update_blocks';
 import * as migration_20250108_171830_add_verticals_hero from './20250108_171830_add_verticals_hero';
 import * as migration_20250108_174630_update_verticals_hero from './20250108_174630_update_verticals_hero';
+import * as migration_20250108_193214_add_splitcontent_block from './20250108_193214_add_splitcontent_block';
+import * as migration_20250108_194106_add_content_block from './20250108_194106_add_content_block';
 
 export const migrations = [
   {
@@ -34,6 +36,16 @@ export const migrations = [
   {
     up: migration_20250108_174630_update_verticals_hero.up,
     down: migration_20250108_174630_update_verticals_hero.down,
-    name: '20250108_174630_update_verticals_hero'
+    name: '20250108_174630_update_verticals_hero',
+  },
+  {
+    up: migration_20250108_193214_add_splitcontent_block.up,
+    down: migration_20250108_193214_add_splitcontent_block.down,
+    name: '20250108_193214_add_splitcontent_block',
+  },
+  {
+    up: migration_20250108_194106_add_content_block.up,
+    down: migration_20250108_194106_add_content_block.down,
+    name: '20250108_194106_add_content_block'
   },
 ];
