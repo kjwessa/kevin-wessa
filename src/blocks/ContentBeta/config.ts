@@ -40,13 +40,41 @@ const columnFields: Field[] = [
       features: ({ rootFeatures }) => {
         return [
           ...rootFeatures,
-          HeadingFeature({ enabledHeadingSizes: ['h2', 'h3', 'h4'] }),
+          HeadingFeature({ enabledHeadingSizes: ['h1', 'h2', 'h3', 'h4'] }),
           FixedToolbarFeature(),
           InlineToolbarFeature(),
         ]
       },
     }),
     label: false,
+  },
+  {
+    name: 'highlight',
+    type: 'group',
+    fields: [
+      {
+        name: 'enabled',
+        type: 'checkbox',
+        label: 'Enable Text Highlight',
+      },
+      {
+        name: 'color',
+        type: 'select',
+        admin: {
+          condition: (_, { enabled }) => Boolean(enabled),
+        },
+        options: [
+          {
+            label: 'Primary',
+            value: 'primary',
+          },
+          {
+            label: 'Secondary',
+            value: 'secondary',
+          },
+        ],
+      },
+    ],
   },
   {
     name: 'enableLink',
@@ -70,12 +98,83 @@ export const ContentBeta: Block = {
   },
   fields: [
     {
+      name: 'layout',
+      type: 'select',
+      defaultValue: 'grid',
+      options: [
+        {
+          label: 'Grid Layout',
+          value: 'grid',
+        },
+        {
+          label: 'Centered Content',
+          value: 'centered',
+        },
+        {
+          label: 'Split Content',
+          value: 'split',
+        },
+      ],
+    },
+    {
       name: 'columns',
       type: 'array',
       admin: {
         initCollapsed: true,
+        condition: (_, { layout }) => layout === 'grid' || layout === 'split',
       },
       fields: columnFields,
+    },
+    {
+      name: 'center',
+      type: 'group',
+      admin: {
+        condition: (_, { layout }) => layout === 'centered',
+      },
+      fields: [
+        {
+          name: 'richText',
+          type: 'richText',
+          editor: lexicalEditor({
+            features: ({ rootFeatures }) => {
+              return [
+                ...rootFeatures,
+                HeadingFeature({ enabledHeadingSizes: ['h1', 'h2', 'h3'] }),
+                FixedToolbarFeature(),
+                InlineToolbarFeature(),
+              ]
+            },
+          }),
+        },
+        {
+          name: 'highlight',
+          type: 'group',
+          fields: [
+            {
+              name: 'enabled',
+              type: 'checkbox',
+              label: 'Enable Text Highlight',
+            },
+            {
+              name: 'color',
+              type: 'select',
+              admin: {
+                condition: (_, { enabled }) => Boolean(enabled),
+              },
+              options: [
+                {
+                  label: 'Primary',
+                  value: 'primary',
+                },
+                {
+                  label: 'Secondary',
+                  value: 'secondary',
+                },
+              ],
+            },
+          ],
+        },
+      ],
     },
   ],
 }

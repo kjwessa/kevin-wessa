@@ -1,13 +1,15 @@
 import { cn } from 'src/utilities/cn'
 import React from 'react'
 import { RichText } from '@/components/RichText'
-
 import type { ContentBetaBlock } from '@/payload-types'
+import type { SerializedEditorState } from '@payloadcms/richtext-lexical/lexical'
 
 import { CMSLink } from '../../components/Link'
 
+type RichTextProps = React.ComponentProps<typeof RichText>
+
 export const ContentBeta: React.FC<ContentBetaBlock> = (props) => {
-  const { columns } = props
+  const { columns, layout = 'grid', center } = props
 
   const colsSpanClasses = {
     full: '12',
@@ -16,27 +18,57 @@ export const ContentBeta: React.FC<ContentBetaBlock> = (props) => {
     twoThirds: '8',
   }
 
+  if (layout === 'centered' && center) {
+    return (
+      <div className="container my-16">
+        <div className="mx-auto max-w-3xl text-center">
+          <RichText
+            data={center.richText as RichTextProps['data']}
+            preset="default"
+            className={cn('prose prose-lg max-w-none', {
+              'text-primary': center.highlight?.enabled && center.highlight.color === 'primary',
+              'text-secondary': center.highlight?.enabled && center.highlight.color === 'secondary',
+            })}
+          />
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div className="container my-16">
-      <div className="grid grid-cols-4 gap-x-16 gap-y-8 lg:grid-cols-12">
-        {columns &&
-          columns.length > 0 &&
-          columns.map((col, index) => {
-            const { enableLink, link, richText, size } = col
+      <div
+        className={cn('grid gap-x-16 gap-y-8', {
+          'grid-cols-4 lg:grid-cols-12': layout === 'grid',
+          'grid-cols-1 lg:grid-cols-2': layout === 'split',
+        })}
+      >
+        {columns?.map((col, index) => {
+          const { enableLink, link, richText, size, highlight } = col
 
-            return (
-              <div
-                className={cn(`col-span-4 lg:col-span-${colsSpanClasses[size!]}`, {
-                  'md:col-span-2': size !== 'full',
-                })}
-                key={index}
-              >
-                {richText && <RichText data={richText} enableGutter={false} />}
-
-                {enableLink && <CMSLink {...link} />}
-              </div>
-            )
-          })}
+          return (
+            <div
+              className={cn({
+                [`col-span-4 lg:col-span-${colsSpanClasses[size!]}`]: layout === 'grid',
+                'md:col-span-2': size !== 'full' && layout === 'grid',
+                'col-span-1': layout === 'split',
+              })}
+              key={index}
+            >
+              {richText && (
+                <RichText
+                  data={richText as RichTextProps['data']}
+                  preset="default"
+                  className={cn('prose prose-lg max-w-none', {
+                    'text-primary': highlight?.enabled && highlight.color === 'primary',
+                    'text-secondary': highlight?.enabled && highlight.color === 'secondary',
+                  })}
+                />
+              )}
+              {enableLink && link && <CMSLink {...link} />}
+            </div>
+          )
+        })}
       </div>
     </div>
   )

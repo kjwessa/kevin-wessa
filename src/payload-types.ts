@@ -284,6 +284,7 @@ export interface ContentBlock {
  * via the `definition` "ContentBetaBlock".
  */
 export interface ContentBetaBlock {
+  layout?: ('grid' | 'centered' | 'split') | null;
   columns?:
     | {
         size?: ('oneThird' | 'half' | 'twoThirds' | 'full') | null;
@@ -302,6 +303,10 @@ export interface ContentBetaBlock {
           };
           [k: string]: unknown;
         } | null;
+        highlight?: {
+          enabled?: boolean | null;
+          color?: ('primary' | 'secondary') | null;
+        };
         enableLink?: boolean | null;
         link?: {
           type?: ('reference' | 'custom') | null;
@@ -320,6 +325,27 @@ export interface ContentBetaBlock {
         id?: string | null;
       }[]
     | null;
+  center?: {
+    richText?: {
+      root: {
+        type: string;
+        children: {
+          type: string;
+          version: number;
+          [k: string]: unknown;
+        }[];
+        direction: ('ltr' | 'rtl') | null;
+        format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+        indent: number;
+        version: number;
+      };
+      [k: string]: unknown;
+    } | null;
+    highlight?: {
+      enabled?: boolean | null;
+      color?: ('primary' | 'secondary') | null;
+    };
+  };
   id?: string | null;
   blockName?: string | null;
   blockType: 'contentBeta';
@@ -864,11 +890,18 @@ export interface ContentBlockSelect<T extends boolean = true> {
  * via the `definition` "ContentBetaBlock_select".
  */
 export interface ContentBetaBlockSelect<T extends boolean = true> {
+  layout?: T;
   columns?:
     | T
     | {
         size?: T;
         richText?: T;
+        highlight?:
+          | T
+          | {
+              enabled?: T;
+              color?: T;
+            };
         enableLink?: T;
         link?:
           | T
@@ -881,6 +914,17 @@ export interface ContentBetaBlockSelect<T extends boolean = true> {
               appearance?: T;
             };
         id?: T;
+      };
+  center?:
+    | T
+    | {
+        richText?: T;
+        highlight?:
+          | T
+          | {
+              enabled?: T;
+              color?: T;
+            };
       };
   id?: T;
   blockName?: T;
