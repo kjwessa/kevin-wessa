@@ -1,12 +1,12 @@
 import type { TextField } from '@payloadcms/plugin-form-builder/types'
 import type { FieldErrorsImpl, FieldValues, UseFormRegister } from 'react-hook-form'
 
-import { Label } from '@/components/ui/label'
-import { Textarea as TextAreaComponent } from '@/components/ui/textarea'
+import { Label } from '@/components/ui/Label/index'
+import { Textarea as TextAreaComponent } from '@/components/ui/Textarea/index'
 import React from 'react'
 
-import { Error } from '../Error'
-import { Width } from '../Width'
+import { Error } from '@/blocks/Form/Error'
+import { Width } from '@/blocks/Form/Width'
 
 export const Textarea: React.FC<
   TextField & {
@@ -17,6 +17,7 @@ export const Textarea: React.FC<
     >
     register: UseFormRegister<FieldValues>
     rows?: number
+    placeholder?: string
   }
 > = ({
   name,
@@ -27,15 +28,20 @@ export const Textarea: React.FC<
   required: requiredFromProps,
   rows = 3,
   width,
+  placeholder,
 }) => {
   return (
     <Width width={width}>
-      <Label htmlFor={name}>{label}</Label>
+      <Label htmlFor={name}>
+        {label}
+        {requiredFromProps && <span className="text-destructive ml-1">*</span>}
+      </Label>
 
       <TextAreaComponent
         defaultValue={defaultValue}
         id={name}
         rows={rows}
+        placeholder={placeholder}
         {...register(name, { required: requiredFromProps })}
       />
 

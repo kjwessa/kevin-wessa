@@ -4,7 +4,7 @@ import type { Page, Media, Post } from '@/payload-types'
 
 import { CMSLink } from '@/components/Link'
 import { Media as MediaComponent } from '@/components/Media'
-import RichText from '@/components/RichText'
+import { RichText } from '@/components/RichText'
 
 type MediumImpactHeroProps = {
   links?: {

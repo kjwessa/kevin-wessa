@@ -1,19 +1,19 @@
 import type { StateField } from '@payloadcms/plugin-form-builder/types'
 import type { Control, FieldErrorsImpl, FieldValues } from 'react-hook-form'
 
-import { Label } from '@/components/ui/label'
+import { Label } from '@/components/ui/Label/index'
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/select'
+} from '@/components/ui/Select/index'
 import React from 'react'
 import { Controller } from 'react-hook-form'
 
-import { Error } from '../Error'
-import { Width } from '../Width'
+import { Error } from '@/blocks/Form/Error'
+import { Width } from '@/blocks/Form/Width'
 import { stateOptions } from './options'
 
 export const State: React.FC<
@@ -28,7 +28,10 @@ export const State: React.FC<
 > = ({ name, control, errors, label, required, width }) => {
   return (
     <Width width={width}>
-      <Label htmlFor={name}>{label}</Label>
+      <Label htmlFor={name}>
+        {label}
+        {required && <span className="text-destructive ml-1">*</span>}
+      </Label>
       <Controller
         control={control}
         defaultValue=""
@@ -53,7 +56,6 @@ export const State: React.FC<
             </Select>
           )
         }}
-        rules={{ required }}
       />
       {required && errors[name] && <Error />}
     </Width>

@@ -3,7 +3,7 @@ import React from 'react'
 import type { Page } from '@/payload-types'
 import type { SerializedEditorState } from '@payloadcms/richtext-lexical/lexical'
 
-import RichText from '@/components/RichText'
+import { RichText } from '@/components/RichText'
 
 type LowImpactHeroType =
   | {

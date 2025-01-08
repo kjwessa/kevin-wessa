@@ -2,9 +2,9 @@ import { cn } from 'src/utilities/cn'
 import React, { Fragment } from 'react'
 
 import type { Page } from '@/payload-types'
-import type { FormBlockType } from '@/blocks/Form/Component'
+import type { FormBlockType } from '@/blocks/Form/index'
 
-import { FormBlock } from '@/blocks/Form/Component'
+import { FormBlock } from '@/blocks/Form/index'
 
 type BlockComponents = {
   formBlock: typeof FormBlock

@@ -3,12 +3,12 @@ import type { FieldErrorsImpl, FieldValues, UseFormRegister } from 'react-hook-f
 
 import { useFormContext } from 'react-hook-form'
 
-import { Checkbox as CheckboxUi } from '@/components/ui/checkbox'
-import { Label } from '@/components/ui/label'
+import { Checkbox as CheckboxUi } from '@/components/ui/Checkbox/index'
+import { Label } from '@/components/ui/Label/index'
 import React from 'react'
 
-import { Error } from '../Error'
-import { Width } from '../Width'
+import { Error } from '@/blocks/Form/Error'
+import { Width } from '@/blocks/Form/Width'
 
 export const Checkbox: React.FC<
   CheckboxField & {
@@ -36,7 +36,10 @@ export const Checkbox: React.FC<
             setValue(props.name, checked)
           }}
         />
-        <Label htmlFor={name}>{label}</Label>
+        <Label htmlFor={name}>
+          {label}
+          {requiredFromProps && <span className="text-destructive ml-1">*</span>}
+        </Label>
       </div>
       {requiredFromProps && errors[name] && <Error />}
     </Width>
