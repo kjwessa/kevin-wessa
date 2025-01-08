@@ -23,13 +23,13 @@
   --tracking-widest: 0.1em;
 
   /* Font Families */
-  --font-primary: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-secondary: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-primary: var(--font-bebas-neue), ui-sans-serif, system-ui, sans-serif;
+  --font-secondary: var(--font-bebas-neue), ui-sans-serif, system-ui, sans-serif;
 
   /* Typography - Font Families */
-  --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-mono: var(--font-bebas-neue), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-    'Liberation Mono', 'Courier New', monospace;
+  --font-sans: var(--font-bebas-neue), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+    'Courier New', monospace;
 
   /* Display Styles */
   --text-display-large: clamp(2.89rem, 1.47rem + 7.1vw, 9.31rem);
