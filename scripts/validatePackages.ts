@@ -19,18 +19,38 @@ interface PackageJSON {
   peerDependencies?: Record<string, string>
 }
 
-const REQUIRED_SCRIPTS = ['dev', 'build', 'start', 'lint', 'format', 'db:generate', 'db:migrate']
+const REQUIRED_SCRIPTS = [
+  'dev',
+  'build',
+  'start',
+  'lint',
+  'db:generate',
+  'db:migrate',
+  'validate:config',
+  'validate:blocks',
+  'validate:packages',
+]
 
 const REQUIRED_PACKAGES = {
-  dependencies: ['@payloadcms/next', '@payloadcms/ui', 'next', 'payload', 'react', 'react-dom'],
+  dependencies: [
+    '@payloadcms/next',
+    '@payloadcms/ui',
+    'next',
+    'payload',
+    'react',
+    'react-dom',
+    '@payloadcms/db-postgres',
+    '@payloadcms/richtext-lexical',
+  ],
   devDependencies: [
     '@types/node',
     '@types/react',
-    '@typescript-eslint/eslint-plugin',
-    '@typescript-eslint/parser',
+    '@types/react-dom',
     'eslint',
     'prettier',
     'typescript',
+    'tsx',
+    'tailwindcss',
   ],
 }
 
@@ -39,6 +59,11 @@ const PACKAGE_VERSION_WARNINGS = {
   react: '19.0.0',
   'react-dom': '19.0.0',
   typescript: '5.0.0',
+  payload: '3.14.0',
+  '@payloadcms/next': '3.14.0',
+  '@payloadcms/ui': '3.14.0',
+  tsx: '4.19.0',
+  tailwindcss: '4.0.0-beta.5',
 }
 
 function validatePackageJSON(packageJSON: PackageJSON): boolean {
