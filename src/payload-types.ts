@@ -433,7 +433,7 @@ export interface MediaSliderBlock {
      */
     slidesVisible?: ('1.25' | '1.5' | '1.75') | null;
     gap?: ('small' | 'medium' | 'large') | null;
-    aspectRatio?: ('3/2' | '4/3' | '16/9' | '1/1' | '3/4') | null;
+    aspectRatio?: ('4/3' | '16/9' | '1/1' | '3/4') | null;
     autoplay?: boolean | null;
     loop?: boolean | null;
     /**

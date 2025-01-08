@@ -103,10 +103,6 @@ export const MediaSlider: Block = {
           defaultValue: '4/3',
           options: [
             {
-              label: '3:2 (Standard)',
-              value: '3/2',
-            },
-            {
               label: '4:3 (Classic)',
               value: '4/3',
             },
