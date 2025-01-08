@@ -1,4 +1,4 @@
-import type { Field } from 'payload'
+import type { Block } from 'payload'
 
 import {
   FixedToolbarFeature,
@@ -9,9 +9,12 @@ import {
 
 import { linkGroup } from '@/fields/linkGroup'
 
-export const hero: Field = {
-  name: 'hero',
-  type: 'group',
+export const hero: Block = {
+  slug: 'hero',
+  labels: {
+    singular: 'Hero',
+    plural: 'Heroes',
+  },
   fields: [
     {
       name: 'type',
@@ -53,11 +56,46 @@ export const hero: Field = {
       }),
       label: false,
     },
-    linkGroup({
-      overrides: {
-        maxRows: 2,
-      },
-    }),
+    {
+      name: 'links',
+      type: 'array',
+      label: 'Links',
+      fields: [
+        {
+          name: 'link',
+          type: 'group',
+          fields: [
+            {
+              name: 'type',
+              type: 'select',
+              options: [
+                { label: 'Reference', value: 'reference' },
+                { label: 'Custom', value: 'custom' },
+              ],
+            },
+            {
+              name: 'label',
+              type: 'text',
+            },
+            {
+              name: 'reference',
+              type: 'relationship',
+              relationTo: ['pages', 'posts'],
+              admin: {
+                condition: (_, { type } = {}) => type === 'reference',
+              },
+            },
+            {
+              name: 'url',
+              type: 'text',
+              admin: {
+                condition: (_, { type } = {}) => type === 'custom',
+              },
+            },
+          ],
+        },
+      ],
+    },
     {
       name: 'media',
       type: 'upload',
@@ -68,5 +106,4 @@ export const hero: Field = {
       required: true,
     },
   ],
-  label: false,
 }

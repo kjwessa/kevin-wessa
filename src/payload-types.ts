@@ -91,11 +91,51 @@ export interface Page {
   /**
    * The hero section for this page.
    */
-  hero: unknown[];
+  hero: {
+    type: 'none' | 'highImpact' | 'mediumImpact' | 'lowImpact';
+    richText?: {
+      root: {
+        type: string;
+        children: {
+          type: string;
+          version: number;
+          [k: string]: unknown;
+        }[];
+        direction: ('ltr' | 'rtl') | null;
+        format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+        indent: number;
+        version: number;
+      };
+      [k: string]: unknown;
+    } | null;
+    links?:
+      | {
+          link?: {
+            type?: ('reference' | 'custom') | null;
+            label?: string | null;
+            reference?:
+              | ({
+                  relationTo: 'pages';
+                  value: string | Page;
+                } | null)
+              | ({
+                  relationTo: 'posts';
+                  value: string | Post;
+                } | null);
+            url?: string | null;
+          };
+          id?: string | null;
+        }[]
+      | null;
+    media?: (string | null) | Media;
+    id?: string | null;
+    blockName?: string | null;
+    blockType: 'hero';
+  }[];
   /**
    * Add content blocks to build out this page.
    */
-  layout: unknown[];
+  layout: MediaBlock[];
   meta?: {
     title?: string | null;
     /**
@@ -106,6 +146,64 @@ export interface Page {
   };
   /**
    * Advanced settings for controlling page visibility and behavior.
+   */
+  advanced?: {
+    excludeFromSitemap?: boolean | null;
+  };
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "posts".
+ */
+export interface Post {
+  id: string;
+  /**
+   * The title of the article as it appears around the site.
+   */
+  title: string;
+  slug?: string | null;
+  slugLock?: boolean | null;
+  /**
+   * The tagline of the article as it appears around the site.
+   */
+  tagline?: string | null;
+  /**
+   * The description of the article as it appears around the site.
+   */
+  description?: string | null;
+  publishedOn: string;
+  image: string | Media;
+  featured?: boolean | null;
+  readTime?: number | null;
+  categories: (string | Category)[];
+  content: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  meta?: {
+    title?: string | null;
+    /**
+     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
+     */
+    image?: (string | null) | Media;
+    description?: string | null;
+  };
+  /**
+   * Advanced settings for controlling post visibility and behavior.
    */
   advanced?: {
     excludeFromSitemap?: boolean | null;
@@ -170,64 +268,6 @@ export interface Media {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "posts".
- */
-export interface Post {
-  id: string;
-  /**
-   * The title of the article as it appears around the site.
-   */
-  title: string;
-  slug?: string | null;
-  slugLock?: boolean | null;
-  /**
-   * The tagline of the article as it appears around the site.
-   */
-  tagline?: string | null;
-  /**
-   * The description of the article as it appears around the site.
-   */
-  description?: string | null;
-  publishedOn: string;
-  image: string | Media;
-  featured?: boolean | null;
-  readTime?: number | null;
-  categories: (string | Category)[];
-  content: {
-    root: {
-      type: string;
-      children: {
-        type: string;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  };
-  meta?: {
-    title?: string | null;
-    /**
-     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
-     */
-    image?: (string | null) | Media;
-    description?: string | null;
-  };
-  /**
-   * Advanced settings for controlling post visibility and behavior.
-   */
-  advanced?: {
-    excludeFromSitemap?: boolean | null;
-  };
-  updatedAt: string;
-  createdAt: string;
-  _status?: ('draft' | 'published') | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "categories".
  */
 export interface Category {
@@ -245,6 +285,17 @@ export interface Category {
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "MediaBlock".
+ */
+export interface MediaBlock {
+  position?: ('default' | 'fullscreen') | null;
+  media: string | Media;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'mediaBlock';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -585,8 +636,37 @@ export interface PagesSelect<T extends boolean = true> {
   title?: T;
   slug?: T;
   slugLock?: T;
-  hero?: T | {};
-  layout?: T | {};
+  hero?:
+    | T
+    | {
+        hero?:
+          | T
+          | {
+              type?: T;
+              richText?: T;
+              links?:
+                | T
+                | {
+                    link?:
+                      | T
+                      | {
+                          type?: T;
+                          label?: T;
+                          reference?: T;
+                          url?: T;
+                        };
+                    id?: T;
+                  };
+              media?: T;
+              id?: T;
+              blockName?: T;
+            };
+      };
+  layout?:
+    | T
+    | {
+        mediaBlock?: T | MediaBlockSelect<T>;
+      };
   meta?:
     | T
     | {
@@ -602,6 +682,16 @@ export interface PagesSelect<T extends boolean = true> {
   updatedAt?: T;
   createdAt?: T;
   _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "MediaBlock_select".
+ */
+export interface MediaBlockSelect<T extends boolean = true> {
+  position?: T;
+  media?: T;
+  id?: T;
+  blockName?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

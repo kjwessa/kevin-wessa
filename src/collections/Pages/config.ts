@@ -4,6 +4,7 @@ import type { CollectionConfig, Field, Block } from 'payload'
 // Access Imports
 import { authenticated } from '@/access/authenticated'
 import { authenticatedOrPublished } from '@/access/authenticatedOrPublished'
+import { MediaBlock } from '@/blocks/MediaBlock/config'
 
 // Hooks Imports
 import { revalidatePage, revalidateDelete } from './hooks/revalidatePage'
@@ -19,7 +20,7 @@ import {
 } from '@payloadcms/plugin-seo/fields'
 
 // Block Imports
-
+import { hero } from '@/heros/config'
 
 // Utilities Imports
 import { generatePreviewPath } from '@/utilities/generatePreviewPath'
@@ -28,13 +29,13 @@ const contentFields: Field[] = [
   {
     name: 'hero',
     type: 'blocks',
-    blocks: [],
+    blocks: [hero],
     required: true,
     minRows: 1,
     maxRows: 1,
     defaultValue: [
       {
-        blockType: 'landingHero',
+        blockType: 'hero',
       },
     ],
     admin: {
@@ -48,9 +49,7 @@ const contentFields: Field[] = [
     required: true,
     minRows: 1,
     maxRows: 20,
-    blocks: [
-  
-    ] as Block[],
+    blocks: [MediaBlock] as Block[],
     admin: {
       description: 'Add content blocks to build out this page.',
     },
