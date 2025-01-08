@@ -11,7 +11,7 @@ import '@/styles/globals.css'
 import { getServerSideURL } from '@/utilities/getURL'
 
 const bebasNeue = localFont({
-  src: '../fonts/BebasNeue.ttf',
+  src: '../../fonts/BebasNeue-Regular.ttf',
   variable: '--font-bebas-neue',
 })
 
