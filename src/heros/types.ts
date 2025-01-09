@@ -34,15 +34,14 @@ export type VerticalsHeroProps = BaseHeroProps & {
 
 export type AboutHeroProps = BaseHeroProps & {
   blockType: 'aboutHero'
-  breadcrumbs: Array<{ text: string }>
+  breadcrumbs?: Array<{
+    text: string
+    id?: string | null
+  }> | null
   title: string
-  description?: string
-  image?: {
-    id: string
-    alt: string
-    url: string
-  }
-  theme?: 'light' | 'dark'
+  description?: string | null
+  image?: string | Media | null
+  theme?: 'light' | 'dark' | null
 }
 
 export type HeroProps = VerticalsHeroProps | AboutHeroProps
