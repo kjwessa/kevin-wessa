@@ -24,6 +24,12 @@ This document tracks the evolution of the Omnia layout system, recording key cha
 ## Changelog
 
 ### 2025-01-09
+#### BlockContainerBeta
+- Introduced container system for managing content width and horizontal padding
+- Implemented size variants: small (max-w-4xl), medium (max-w-6xl), large (max-w-9xl), full (max-w-none)
+- Added automatic horizontal padding with responsive behavior
+- Designed to work seamlessly with BlockWrapperBeta for complete layout control
+
 #### BlockSpacingBeta
 - Initial implementation of spacing system with customizable padding and margin
 - Added support for responsive spacing variants
@@ -65,6 +71,29 @@ This document tracks the evolution of the Omnia layout system, recording key cha
 - [ ] Standardize spacing scale across all components
 - [ ] Consider automatic spacing adjustment based on viewport
 - [ ] Evaluate negative margin use cases
+
+### BlockSpacingBeta Future
+With the introduction of padding controls in BlockWrapperBeta, the role of BlockSpacingBeta needs to be reevaluated:
+
+1. **Current Redundancy**
+   - BlockWrapperBeta now handles vertical padding effectively
+   - Most spacing needs are covered by the wrapper component
+   - No clear unique value proposition for BlockSpacingBeta
+
+2. **Potential Future Uses**
+   - Could be repurposed for more specific spacing needs?
+   - Might be useful for component-level spacing rather than block-level?
+   - Consider deprecating if no clear use case emerges
+
+3. **Decision Points**
+   - Should we maintain two components with overlapping functionality?
+   - Is there a specific use case we're missing that would justify keeping BlockSpacingBeta?
+   - Would component composition be clearer without this additional abstraction?
+
+### Next Steps
+- Monitor usage patterns in existing implementations
+- Gather feedback on spacing needs not covered by BlockWrapperBeta
+- Consider deprecation timeline if no compelling use case is identified
 
 ### Future Improvements
 - [ ] Component composition guidelines
