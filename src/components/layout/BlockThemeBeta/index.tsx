@@ -6,37 +6,34 @@ import { cva, type VariantProps } from 'class-variance-authority'
 
 /**
  * Theme types for block-specific theming
- * @default 'light'
+ * @default 'inherit'
  */
-type BlockThemeType = 'light' | 'dark' | 'primary' | 'secondary'
+type BlockThemeType = 'light' | 'dark' | 'inherit' | 'invert'
 
 /**
- * Overlay types for adding overlays to blocks
- * @default 'none'
+ * Background types for semantic color application
+ * @default 'default'
  */
-type OverlayType = 'none' | 'light' | 'medium' | 'dark'
+type BackgroundType = 'default' | 'primary' | 'secondary' | 'accent'
 
 const blockThemeBetaVariants = cva('relative w-full transition-colors duration-200', {
   variants: {
     theme: {
-      light: 'bg-base-0 text-base-1000',
-      dark: 'bg-base-1000 text-base-0',
-      primary: 'bg-primary-500 text-white',
-      secondary: 'bg-secondary-500 text-white',
+      light: '[data-theme="light"]',
+      dark: '[data-theme="dark"]',
+      inherit: '',
+      invert: '[data-theme-invert]',
     },
-    overlay: {
-      none: '',
-      light: 'before:absolute before:inset-0 before:bg-current/10 before:pointer-events-none',
-      medium: 'before:absolute before:inset-0 before:bg-current/20 before:pointer-events-none',
-      dark: 'before:absolute before:inset-0 before:bg-current/40 before:pointer-events-none',
-    },
-    glass: {
-      true: 'backdrop-blur-sm bg-current/10',
+    background: {
+      default: 'bg-background text-foreground',
+      primary: 'bg-primary text-primary-foreground',
+      secondary: 'bg-secondary text-secondary-foreground',
+      accent: 'bg-accent text-accent-foreground',
     },
   },
   defaultVariants: {
     theme: 'light',
-    overlay: 'none',
+    background: 'default',
   },
 })
 
@@ -59,11 +56,10 @@ export const BlockThemeBeta = forwardRef<HTMLElement, BlockThemeBetaProps>(
   (
     {
       as: Component = 'div',
-      children,
-      theme = 'light',
-      overlay = 'none',
-      glass,
+      theme = 'inherit',
+      background = 'default',
       className,
+      children,
       ...props
     },
     ref,
@@ -71,7 +67,7 @@ export const BlockThemeBeta = forwardRef<HTMLElement, BlockThemeBetaProps>(
     return (
       <Component
         ref={ref}
-        className={cn(blockThemeBetaVariants({ theme, overlay, glass }), className)}
+        className={cn(blockThemeBetaVariants({ theme, background }), className)}
         {...props}
       >
         {children}

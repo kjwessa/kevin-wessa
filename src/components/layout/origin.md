@@ -24,6 +24,13 @@ This document tracks the evolution of the Omnia layout system, recording key cha
 ## Changelog
 
 ### 2025-01-09
+#### BlockThemeBeta
+- Updated to use globals.css theme colors for consistent theming
+- Aligned API with ThemeBeta component for unified theme handling
+- Replaced custom theme/overlay system with standard theme variants
+- Removed overlay and glass effects in favor of simpler, more consistent approach
+- Changed default theme to 'inherit' for better theme cascading
+
 #### BlockContainerBeta
 - Introduced container system for managing content width and horizontal padding
 - Implemented size variants: small (max-w-4xl), medium (max-w-6xl), large (max-w-9xl), full (max-w-none)
@@ -34,12 +41,6 @@ This document tracks the evolution of the Omnia layout system, recording key cha
 - Initial implementation of spacing system with customizable padding and margin
 - Added support for responsive spacing variants
 - Integrated with BlockWrapper for consistent spacing patterns
-
-#### BlockThemeBeta
-- Implemented base theming system with light/dark variants
-- Added primary/secondary theme support
-- Introduced overlay system with light/medium/dark options
-- Added glass effect support
 
 #### BlockWrapperBeta
 - Created base wrapper component for standardizing block structure
