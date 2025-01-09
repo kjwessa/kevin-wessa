@@ -4,8 +4,8 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '@root/utilities/cn'
 
 export type PaddingProps = {
-  top?: 'large' | 'small' | 'hero'
-  bottom?: 'large' | 'small'
+  top?: 'none' | 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge'
+  bottom?: 'none' | 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge'
 }
 
 const blockWrapperBetaVariants = cva('relative', {
@@ -13,6 +13,8 @@ const blockWrapperBetaVariants = cva('relative', {
     theme: {
       dark: 'bg-base-1000',
       light: 'bg-base-0',
+      primary: 'bg-primary-500',
+      secondary: 'bg-secondary-500',
     },
     background: {
       gradientUp:
@@ -22,13 +24,20 @@ const blockWrapperBetaVariants = cva('relative', {
       transparent: 'bg-transparent',
     },
     paddingTop: {
-      hero: 'pt-[calc(2rem+var(--page-padding-top))]',
-      large: 'pt-32 md:pt-20',
-      small: 'pt-16 md:pt-10',
+      none: 'pt-0',
+      xsmall: 'pt-4 md:pt-6',
+      small: 'pt-8 md:pt-12',
+      medium: 'pt-16 md:pt-20',
+      large: 'pt-24 md:pt-32',
+      xlarge: 'pt-32 md:pt-40',
     },
     paddingBottom: {
-      large: 'pb-32 md:pb-20',
-      small: 'pb-16 md:pb-10',
+      none: 'pb-0',
+      xsmall: 'pb-4 md:pb-6',
+      small: 'pb-8 md:pb-12',
+      medium: 'pb-16 md:pb-20',
+      large: 'pb-24 md:pb-32',
+      xlarge: 'pb-32 md:pb-40',
     },
     hideBackground: {
       true: 'bg-transparent',

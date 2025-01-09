@@ -16,6 +16,8 @@ import * as migration_20250108_220303_add_gap_to_mediaslider from './20250108_22
 import * as migration_20250108_220835_add_3_2_aspect_ratio from './20250108_220835_add_3_2_aspect_ratio';
 import * as migration_20250108_221324_add_slides_visible from './20250108_221324_add_slides_visible';
 import * as migration_20250108_223806_cleanup_aspect_ratio from './20250108_223806_cleanup_aspect_ratio';
+import * as migration_20250109_002417_add_contentlayout_block from './20250109_002417_add_contentlayout_block';
+import * as migration_20250109_145715_remove_contentlayout_block from './20250109_145715_remove_contentlayout_block';
 
 export const migrations = [
   {
@@ -106,6 +108,16 @@ export const migrations = [
   {
     up: migration_20250108_223806_cleanup_aspect_ratio.up,
     down: migration_20250108_223806_cleanup_aspect_ratio.down,
-    name: '20250108_223806_cleanup_aspect_ratio'
+    name: '20250108_223806_cleanup_aspect_ratio',
+  },
+  {
+    up: migration_20250109_002417_add_contentlayout_block.up,
+    down: migration_20250109_002417_add_contentlayout_block.down,
+    name: '20250109_002417_add_contentlayout_block',
+  },
+  {
+    up: migration_20250109_145715_remove_contentlayout_block.up,
+    down: migration_20250109_145715_remove_contentlayout_block.down,
+    name: '20250109_145715_remove_contentlayout_block'
   },
 ];
