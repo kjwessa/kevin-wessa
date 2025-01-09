@@ -1,7 +1,8 @@
 'use client'
+
 import React from 'react'
 import { cva, type VariantProps } from 'class-variance-authority'
-import { cn } from '@root/utilities/cn'
+import { cn } from '@/utilities/cn'
 
 export type PaddingProps = {
   top?: 'none' | 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge'
@@ -39,26 +40,20 @@ const blockWrapperBetaVariants = cva('relative', {
       large: 'pb-24 md:pb-32',
       xlarge: 'pb-32 md:pb-40',
     },
-    hideBackground: {
-      true: 'bg-transparent',
-    },
-    setPadding: {
-      true: '',
-      false: 'p-0',
-    },
   },
   defaultVariants: {
-    theme: 'light',
-    setPadding: true,
+    paddingTop: 'medium',
+    paddingBottom: 'medium',
   },
 })
 
-type BlockWrapperBetaProps = VariantProps<typeof blockWrapperBetaVariants> & {
+interface BlockWrapperBetaProps extends VariantProps<typeof blockWrapperBetaVariants> {
   className?: string
   children: React.ReactNode
   padding?: PaddingProps
   background?: 'gradientUp' | 'gradientDown' | 'transparent'
-} & React.HTMLAttributes<HTMLDivElement>
+  hideBackground?: boolean
+}
 
 export const BlockWrapperBeta: React.FC<BlockWrapperBetaProps> = ({
   className,
@@ -74,17 +69,14 @@ export const BlockWrapperBeta: React.FC<BlockWrapperBetaProps> = ({
     <div
       className={cn(
         blockWrapperBetaVariants({
-          theme,
+          theme: hideBackground ? undefined : theme,
           background,
-          paddingTop: padding?.top,
-          paddingBottom: padding?.bottom,
-          hideBackground,
-          setPadding,
+          paddingTop: setPadding ? padding?.top : 'none',
+          paddingBottom: setPadding ? padding?.bottom : 'none',
         }),
-        className,
+        className
       )}
       {...rest}
-      {...(theme ? { 'data-theme': theme } : {})}
     >
       {children}
     </div>
