@@ -18,6 +18,7 @@ import * as migration_20250108_221324_add_slides_visible from './20250108_221324
 import * as migration_20250108_223806_cleanup_aspect_ratio from './20250108_223806_cleanup_aspect_ratio';
 import * as migration_20250109_002417_add_contentlayout_block from './20250109_002417_add_contentlayout_block';
 import * as migration_20250109_145715_remove_contentlayout_block from './20250109_145715_remove_contentlayout_block';
+import * as migration_20250109_221538_add_abouthero_block from './20250109_221538_add_abouthero_block';
 
 export const migrations = [
   {
@@ -118,6 +119,11 @@ export const migrations = [
   {
     up: migration_20250109_145715_remove_contentlayout_block.up,
     down: migration_20250109_145715_remove_contentlayout_block.down,
-    name: '20250109_145715_remove_contentlayout_block'
+    name: '20250109_145715_remove_contentlayout_block',
+  },
+  {
+    up: migration_20250109_221538_add_abouthero_block.up,
+    down: migration_20250109_221538_add_abouthero_block.down,
+    name: '20250109_221538_add_abouthero_block'
   },
 ];

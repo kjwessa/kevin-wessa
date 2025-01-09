@@ -1,6 +1,6 @@
 import { Block } from 'payload'
 
-export const AboutHeroBlock: Block = {
+export const config: Block = {
   slug: 'aboutHero',
   labels: {
     singular: 'About Hero',

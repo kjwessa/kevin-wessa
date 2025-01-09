@@ -91,33 +91,53 @@ export interface Page {
   /**
    * The hero section for this page.
    */
-  hero: {
-    verticals: {
-      firstVertical: {
-        firstTitle: string;
-        firstSubtitle: string;
-        firstDescription: string;
-      };
-      secondVertical: {
-        secondTitle: string;
-        secondSubtitle: string;
-        secondDescription: string;
-      };
-      thirdVertical: {
-        thirdTitle: string;
-        thirdSubtitle: string;
-        thirdDescription: string;
-      };
-      fourthVertical: {
-        fourthTitle: string;
-        fourthSubtitle: string;
-        fourthDescription: string;
-      };
-    };
-    id?: string | null;
-    blockName?: string | null;
-    blockType: 'verticals';
-  }[];
+  hero: (
+    | {
+        verticals: {
+          firstVertical: {
+            firstTitle: string;
+            firstSubtitle: string;
+            firstDescription: string;
+          };
+          secondVertical: {
+            secondTitle: string;
+            secondSubtitle: string;
+            secondDescription: string;
+          };
+          thirdVertical: {
+            thirdTitle: string;
+            thirdSubtitle: string;
+            thirdDescription: string;
+          };
+          fourthVertical: {
+            fourthTitle: string;
+            fourthSubtitle: string;
+            fourthDescription: string;
+          };
+        };
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'verticals';
+      }
+    | {
+        /**
+         * Enter two text items that will alternate in the header (e.g., "KEVIN WESSA", "MY STORY")
+         */
+        breadcrumbs?:
+          | {
+              text: string;
+              id?: string | null;
+            }[]
+          | null;
+        title: string;
+        description?: string | null;
+        image?: (string | null) | Media;
+        theme?: ('light' | 'dark') | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'aboutHero';
+      }
+  )[];
   /**
    * Add content blocks to build out this page.
    */
@@ -147,17 +167,6 @@ export interface Page {
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "MediaBlock".
- */
-export interface MediaBlock {
-  position?: ('default' | 'fullscreen') | null;
-  media: string | Media;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'mediaBlock';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -212,6 +221,17 @@ export interface Media {
       filename?: string | null;
     };
   };
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "MediaBlock".
+ */
+export interface MediaBlock {
+  position?: ('default' | 'fullscreen') | null;
+  media: string | Media;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'mediaBlock';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -900,6 +920,22 @@ export interface PagesSelect<T extends boolean = true> {
                           fourthDescription?: T;
                         };
                   };
+              id?: T;
+              blockName?: T;
+            };
+        aboutHero?:
+          | T
+          | {
+              breadcrumbs?:
+                | T
+                | {
+                    text?: T;
+                    id?: T;
+                  };
+              title?: T;
+              description?: T;
+              image?: T;
+              theme?: T;
               id?: T;
               blockName?: T;
             };

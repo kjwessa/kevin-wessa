@@ -3,10 +3,11 @@ import type { Media } from '@/payload-types'
 type BaseHeroProps = {
   id?: string | null
   blockName?: string | null
-  blockType: 'verticals'
+  blockType: 'verticals' | 'aboutHero'
 }
 
 export type VerticalsHeroProps = BaseHeroProps & {
+  blockType: 'verticals'
   verticals: {
     firstVertical: {
       firstTitle: string
@@ -31,4 +32,17 @@ export type VerticalsHeroProps = BaseHeroProps & {
   }
 }
 
-export type HeroProps = VerticalsHeroProps
+export type AboutHeroProps = BaseHeroProps & {
+  blockType: 'aboutHero'
+  breadcrumbs: Array<{ text: string }>
+  title: string
+  description?: string
+  image?: {
+    id: string
+    alt: string
+    url: string
+  }
+  theme?: 'light' | 'dark'
+}
+
+export type HeroProps = VerticalsHeroProps | AboutHeroProps

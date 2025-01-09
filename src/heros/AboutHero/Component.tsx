@@ -7,19 +7,11 @@ import { BlockSpacingBeta } from '@/components/layout/BlockSpacingBeta'
 import { BlockWrapperBeta } from '@/components/layout/BlockWrapperBeta'
 import { cn } from '@/utilities/cn'
 import '@/styles/animations.css'
+import type { HeroProps } from '../types'
 
-interface IAboutHeroProps {
-  breadcrumbs: Array<{ text: string }>
-  title: string
-  description?: string
-  image?: {
-    src: string
-    alt: string
-  }
-  theme?: 'light' | 'dark'
-}
+type Props = Omit<Extract<HeroProps, { blockType: 'aboutHero' }>, 'blockType'>
 
-export const AboutHero: React.FC<IAboutHeroProps> = ({
+export const AboutHero: React.FC<Props> = ({
   breadcrumbs,
   title,
   description,
@@ -69,7 +61,7 @@ export const AboutHero: React.FC<IAboutHeroProps> = ({
               {image && (
                 <div className="relative aspect-square rounded-lg overflow-hidden">
                   <Image
-                    src={image.src}
+                    src={image.url}
                     alt={image.alt}
                     fill
                     className="object-cover"

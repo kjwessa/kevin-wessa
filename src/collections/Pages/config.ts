@@ -21,6 +21,7 @@ import {
 // Block Imports
 import { MediaBlock } from '@/blocks/MediaBlock/config'
 import { config as VerticalsHero } from '@/heros/VerticalsHero/config'
+import { config as AboutHero } from '@/heros/AboutHero/config'
 import { SplitContent } from '@/blocks/SplitContent/config'
 import { Content } from '@/blocks/Content/config'
 import { ContentBeta } from '@/blocks/ContentBeta/config'
@@ -35,7 +36,7 @@ const contentFields: Field[] = [
   {
     name: 'hero',
     type: 'blocks',
-    blocks: [VerticalsHero],
+    blocks: [VerticalsHero, AboutHero],
     required: true,
     minRows: 1,
     maxRows: 1,
