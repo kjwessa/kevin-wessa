@@ -6,17 +6,17 @@ import { BlockThemeBeta } from '@/components/layout/BlockThemeBeta'
 type WordPair = {
   primary: {
     text: string
-    color: 'accent' | 'base'
+    color: 'foreground' | 'primary'
     underline: string
   }
   secondary: {
     text: string
-    color: 'accent' | 'base'
+    color: 'foreground' | 'primary'
     underline: string
   }
   tertiary: {
     text: string
-    color: 'accent' | 'base'
+    color: 'foreground' | 'primary'
     underline: string
   }
 }
@@ -57,7 +57,8 @@ const AnimatedWord: React.FC<AnimatedWordProps> = ({ pair }) => {
     }
   }, [])
 
-  const colorClass = pair.primary.color === 'accent' ? 'text-primary-500' : 'text-primary-900'
+  const colorClass =
+    pair.primary.color === 'primary' ? 'text-theme-primary' : 'text-theme-foreground'
 
   const AnimatedText: React.FC<AnimatedTextProps> = ({
     text,
