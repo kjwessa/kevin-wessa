@@ -59,7 +59,7 @@ const AnimatedWord: React.FC<AnimatedWordProps> = ({ pair }) => {
   }, [])
 
   const getColorClass = (color: 'foreground' | 'primary') => {
-    return color === 'primary' ? 'text-primary' : 'text-foreground'
+    return `text-${color}`
   }
 
   const AnimatedText: React.FC<AnimatedTextProps> = ({
