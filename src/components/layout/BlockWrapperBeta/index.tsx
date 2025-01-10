@@ -51,6 +51,7 @@ interface BlockWrapperBetaProps extends VariantProps<typeof blockWrapperBetaVari
   className?: string
   children: React.ReactNode
   padding?: PaddingProps
+  setPadding?: boolean
   background?: 'gradientUp' | 'gradientDown' | 'transparent'
   hideBackground?: boolean
 }
@@ -74,7 +75,7 @@ export const BlockWrapperBeta: React.FC<BlockWrapperBetaProps> = ({
           paddingTop: setPadding ? padding?.top : 'none',
           paddingBottom: setPadding ? padding?.bottom : 'none',
         }),
-        className
+        className,
       )}
       {...rest}
     >
