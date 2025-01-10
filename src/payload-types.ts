@@ -149,6 +149,7 @@ export interface Page {
     | MediaGridBlock
     | BioBlock
     | MediaSliderBlock
+    | CalloutTextBlock
   )[];
   meta?: {
     title?: string | null;
@@ -464,6 +465,34 @@ export interface MediaSliderBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'mediaSlider';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CalloutTextBlock".
+ */
+export interface CalloutTextBlock {
+  text: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  /**
+   * Optional attribution text
+   */
+  attribution?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'calloutText';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -950,6 +979,7 @@ export interface PagesSelect<T extends boolean = true> {
         mediaGrid?: T | MediaGridBlockSelect<T>;
         bioBlock?: T | BioBlockSelect<T>;
         mediaSlider?: T | MediaSliderBlockSelect<T>;
+        calloutText?: T | CalloutTextBlockSelect<T>;
       };
   meta?:
     | T
@@ -1125,6 +1155,16 @@ export interface MediaSliderBlockSelect<T extends boolean = true> {
         loop?: T;
         speed?: T;
       };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CalloutTextBlock_select".
+ */
+export interface CalloutTextBlockSelect<T extends boolean = true> {
+  text?: T;
+  attribution?: T;
   id?: T;
   blockName?: T;
 }
