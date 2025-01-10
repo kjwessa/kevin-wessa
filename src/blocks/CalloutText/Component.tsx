@@ -8,7 +8,7 @@ import { RichText } from '@/components/RichText'
 
 export const CalloutText: React.FC<CalloutTextBlock> = ({ text, attribution }) => {
   return (
-    <BlockWrapperBeta paddingTop="large" paddingBottom="large">
+    <BlockWrapperBeta padding={{ top: 'large', bottom: 'large' }}>
       <BlockContainerBeta size="medium">
         <div className="flex flex-col items-center gap-10">
           <div className="prose prose-xl text-center">
