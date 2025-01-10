@@ -3,7 +3,7 @@ import type { Media } from '@/payload-types'
 type BaseHeroProps = {
   id?: string | null
   blockName?: string | null
-  blockType: 'verticals' | 'aboutHero'
+  blockType: 'verticals' | 'aboutHero' | 'homeHero'
 }
 
 export type VerticalsHeroProps = BaseHeroProps & {
@@ -44,4 +44,8 @@ export type AboutHeroProps = BaseHeroProps & {
   theme?: 'light' | 'dark' | null
 }
 
-export type HeroProps = VerticalsHeroProps | AboutHeroProps
+export type HomeHeroProps = BaseHeroProps & {
+  blockType: 'homeHero'
+}
+
+export type HeroProps = VerticalsHeroProps | AboutHeroProps | HomeHeroProps

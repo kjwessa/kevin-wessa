@@ -1,9 +1,10 @@
 'use client'
 
 import React from 'react'
-import type { HeroProps, VerticalsHeroProps, AboutHeroProps } from './types'
+import type { HeroProps, VerticalsHeroProps, AboutHeroProps, HomeHeroProps } from './types'
 import { VerticalsHero } from './VerticalsHero/Component'
 import { AboutHero } from './AboutHero/Component'
+import { AnimatedHero } from './HomeHero/Component'
 
 /**
  * RenderHero Component
@@ -23,6 +24,10 @@ export const RenderHero: React.FC<HeroProps> = (props) => {
   if (props.blockType === 'aboutHero') {
     const { blockType, ...rest } = props as AboutHeroProps
     return <AboutHero {...rest} />
+  }
+
+  if (props.blockType === 'homeHero') {
+    return <AnimatedHero />
   }
 
   return null

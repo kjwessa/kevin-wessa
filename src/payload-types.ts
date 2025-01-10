@@ -137,6 +137,11 @@ export interface Page {
         blockName?: string | null;
         blockType: 'aboutHero';
       }
+    | {
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'homeHero';
+      }
   )[];
   /**
    * Add content blocks to build out this page.
@@ -1067,6 +1072,12 @@ export interface PagesSelect<T extends boolean = true> {
               description?: T;
               image?: T;
               theme?: T;
+              id?: T;
+              blockName?: T;
+            };
+        homeHero?:
+          | T
+          | {
               id?: T;
               blockName?: T;
             };

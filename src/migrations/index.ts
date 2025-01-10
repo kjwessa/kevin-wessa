@@ -23,6 +23,7 @@ import * as migration_20250110_213949_add_callouttext_block from './20250110_213
 import * as migration_20250110_214939_add_aboutintro_block from './20250110_214939_add_aboutintro_block';
 import * as migration_20250110_220351_add_banner_to_aboutintro_block from './20250110_220351_add_banner_to_aboutintro_block';
 import * as migration_20250110_222154_add_fourcards_block from './20250110_222154_add_fourcards_block';
+import * as migration_20250110_224944_add_homehero_block from './20250110_224944_add_homehero_block';
 
 export const migrations = [
   {
@@ -148,6 +149,11 @@ export const migrations = [
   {
     up: migration_20250110_222154_add_fourcards_block.up,
     down: migration_20250110_222154_add_fourcards_block.down,
-    name: '20250110_222154_add_fourcards_block'
+    name: '20250110_222154_add_fourcards_block',
+  },
+  {
+    up: migration_20250110_224944_add_homehero_block.up,
+    down: migration_20250110_224944_add_homehero_block.down,
+    name: '20250110_224944_add_homehero_block'
   },
 ];
