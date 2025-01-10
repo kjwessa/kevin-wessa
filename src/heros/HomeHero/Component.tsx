@@ -31,6 +31,7 @@ type AnimatedTextProps = {
   isFlipped: boolean
   isSecondary?: boolean
   isSubtitle?: boolean
+  color: 'foreground' | 'primary'
 }
 
 import wordPairs from './wordPairs.json'
@@ -57,8 +58,9 @@ const AnimatedWord: React.FC<AnimatedWordProps> = ({ pair }) => {
     }
   }, [])
 
-  const colorClass =
-    pair.primary.color === 'primary' ? 'text-theme-primary' : 'text-theme-foreground'
+  const getColorClass = (color: 'foreground' | 'primary') => {
+    return color === 'primary' ? 'text-primary' : 'text-foreground'
+  }
 
   const AnimatedText: React.FC<AnimatedTextProps> = ({
     text,
@@ -66,9 +68,12 @@ const AnimatedWord: React.FC<AnimatedWordProps> = ({ pair }) => {
     isFlipped,
     isSecondary = false,
     isSubtitle = false,
+    color,
   }) => (
     <div
-      className={`w-full text-center lowercase transition-all duration-1000 ${
+      className={`w-full text-center lowercase transition-all duration-1000 ${getColorClass(
+        color,
+      )} ${
         isVisible
           ? isFlipped
             ? 'translate-y-full opacity-20'
@@ -99,14 +104,20 @@ const AnimatedWord: React.FC<AnimatedWordProps> = ({ pair }) => {
   )
 
   return (
-    <div className={`flex flex-col items-center ${colorClass} px-6 py-3`}>
+    <div className="flex flex-col items-center px-6 py-3">
       <div className="relative overflow-hidden" style={{ height: 'calc(3.5vw + 1.5vw + 1em)' }}>
-        <AnimatedText text={pair.primary.text} isVisible={isVisible} isFlipped={isFlipped} />
+        <AnimatedText
+          text={pair.primary.text}
+          isVisible={isVisible}
+          isFlipped={isFlipped}
+          color={pair.primary.color}
+        />
         <AnimatedText
           text={pair.secondary.text}
           isVisible={isVisible}
           isFlipped={!isFlipped}
           isSecondary={true}
+          color={pair.secondary.color}
         />
         {pair.primary.underline && (
           <div className="mt-2">
@@ -115,6 +126,7 @@ const AnimatedWord: React.FC<AnimatedWordProps> = ({ pair }) => {
               isVisible={isVisible}
               isFlipped={isFlipped}
               isSubtitle={true}
+              color={pair.primary.color}
             />
             <AnimatedText
               text={pair.secondary.underline}
@@ -122,6 +134,7 @@ const AnimatedWord: React.FC<AnimatedWordProps> = ({ pair }) => {
               isFlipped={!isFlipped}
               isSecondary={true}
               isSubtitle={true}
+              color={pair.secondary.color}
             />
           </div>
         )}
