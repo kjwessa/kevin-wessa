@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState, useEffect, useRef } from 'react'
+import { BlockThemeBeta } from '@/components/layout/BlockThemeBeta'
 
 type WordPair = {
   primary: {
@@ -56,7 +57,7 @@ const AnimatedWord: React.FC<AnimatedWordProps> = ({ pair }) => {
     }
   }, [])
 
-  const colorClass = pair.primary.color === 'accent' ? 'text-red-500' : 'text-prussian-medium'
+  const colorClass = pair.primary.color === 'accent' ? 'text-primary-500' : 'text-primary-900'
 
   const AnimatedText: React.FC<AnimatedTextProps> = ({
     text,
@@ -140,8 +141,8 @@ export function AnimatedHero() {
   }, [])
 
   return (
-    <div className="bg-champagne-light flex min-h-screen flex-col justify-center px-4 pt-[50vh]">
-      <div className="w-full">
+    <BlockThemeBeta theme="light">
+      <div className="flex min-h-screen flex-col justify-center px-4 pt-[50vh]">
         {rows.map((row, rowIndex) => (
           <div key={rowIndex} className="mb-8 flex justify-between font-light">
             {row.map((pair, index) => (
@@ -150,6 +151,6 @@ export function AnimatedHero() {
           </div>
         ))}
       </div>
-    </div>
+    </BlockThemeBeta>
   )
 }
