@@ -150,6 +150,7 @@ export interface Page {
     | BioBlock
     | MediaSliderBlock
     | CalloutTextBlock
+    | AboutIntroBlock
   )[];
   meta?: {
     title?: string | null;
@@ -493,6 +494,40 @@ export interface CalloutTextBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'calloutText';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "AboutIntroBlock".
+ */
+export interface AboutIntroBlock {
+  mainText: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  description: string;
+  cta: {
+    text: string;
+    link: string;
+  };
+  gridItems: {
+    title: string;
+    icon: string;
+    id?: string | null;
+  }[];
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'aboutIntro';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -980,6 +1015,7 @@ export interface PagesSelect<T extends boolean = true> {
         bioBlock?: T | BioBlockSelect<T>;
         mediaSlider?: T | MediaSliderBlockSelect<T>;
         calloutText?: T | CalloutTextBlockSelect<T>;
+        aboutIntro?: T | AboutIntroBlockSelect<T>;
       };
   meta?:
     | T
@@ -1165,6 +1201,29 @@ export interface MediaSliderBlockSelect<T extends boolean = true> {
 export interface CalloutTextBlockSelect<T extends boolean = true> {
   text?: T;
   attribution?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "AboutIntroBlock_select".
+ */
+export interface AboutIntroBlockSelect<T extends boolean = true> {
+  mainText?: T;
+  description?: T;
+  cta?:
+    | T
+    | {
+        text?: T;
+        link?: T;
+      };
+  gridItems?:
+    | T
+    | {
+        title?: T;
+        icon?: T;
+        id?: T;
+      };
   id?: T;
   blockName?: T;
 }

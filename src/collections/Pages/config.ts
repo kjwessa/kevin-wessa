@@ -29,6 +29,7 @@ import { MediaGrid } from '@/blocks/MediaGrid/config'
 import { Bio } from '@/blocks/Bio/config'
 import { MediaSlider } from '@/blocks/MediaSlider/config'
 import { CalloutText } from '@/blocks/CalloutText/config'
+import { AboutIntro } from '@/blocks/AboutIntro/config'
 
 // Utilities Imports
 import { generatePreviewPath } from '@/utilities/generatePreviewPath'
@@ -80,6 +81,7 @@ const contentFields: Field[] = [
       Bio,
       MediaSlider,
       CalloutText,
+      AboutIntro,
     ] as Block[],
     admin: {
       description: 'Add content blocks to build out this page.',
