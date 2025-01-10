@@ -151,6 +151,8 @@ export interface Page {
     | MediaSliderBlock
     | CalloutTextBlock
     | AboutIntroBlock
+    | FourCardsBlock
+    | FormBlock
   )[];
   meta?: {
     title?: string | null;
@@ -549,30 +551,33 @@ export interface AboutIntroBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "posts".
+ * via the `definition` "FourCardsBlock".
  */
-export interface Post {
-  id: string;
+export interface FourCardsBlock {
   /**
-   * The title of the article as it appears around the site.
+   * Exactly 4 cards are required
    */
-  title: string;
-  slug?: string | null;
-  slugLock?: boolean | null;
-  /**
-   * The tagline of the article as it appears around the site.
-   */
-  tagline?: string | null;
-  /**
-   * The description of the article as it appears around the site.
-   */
-  description?: string | null;
-  publishedOn: string;
-  image: string | Media;
-  featured?: boolean | null;
-  readTime?: number | null;
-  categories: (string | Category)[];
-  content: {
+  cards: {
+    /**
+     * Number displayed at the top (e.g., "01")
+     */
+    number: string;
+    title: string;
+    description: string;
+    id?: string | null;
+  }[];
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'fourCards';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "FormBlock".
+ */
+export interface FormBlock {
+  form: string | Form;
+  enableIntro?: boolean | null;
+  introContent?: {
     root: {
       type: string;
       children: {
@@ -586,88 +591,10 @@ export interface Post {
       version: number;
     };
     [k: string]: unknown;
-  };
-  meta?: {
-    title?: string | null;
-    /**
-     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
-     */
-    image?: (string | null) | Media;
-    description?: string | null;
-  };
-  /**
-   * Advanced settings for controlling post visibility and behavior.
-   */
-  advanced?: {
-    excludeFromSitemap?: boolean | null;
-  };
-  updatedAt: string;
-  createdAt: string;
-  _status?: ('draft' | 'published') | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "categories".
- */
-export interface Category {
-  id: string;
-  /**
-   * The title of the category as it appears around the site.
-   */
-  title: string;
-  slug?: string | null;
-  slugLock?: boolean | null;
-  relatedPosts?: {
-    docs?: (string | Post)[] | null;
-    hasNextPage?: boolean | null;
   } | null;
-  updatedAt: string;
-  createdAt: string;
-  _status?: ('draft' | 'published') | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "users".
- */
-export interface User {
-  id: string;
-  name: string;
-  updatedAt: string;
-  createdAt: string;
-  email: string;
-  resetPasswordToken?: string | null;
-  resetPasswordExpiration?: string | null;
-  salt?: string | null;
-  hash?: string | null;
-  loginAttempts?: number | null;
-  lockUntil?: string | null;
-  password?: string | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "redirects".
- */
-export interface Redirect {
-  id: string;
-  /**
-   * You will need to rebuild the website when changing this field.
-   */
-  from: string;
-  to?: {
-    type?: ('reference' | 'custom') | null;
-    reference?:
-      | ({
-          relationTo: 'pages';
-          value: string | Page;
-        } | null)
-      | ({
-          relationTo: 'posts';
-          value: string | Post;
-        } | null);
-    url?: string | null;
-  };
-  updatedAt: string;
-  createdAt: string;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'formBlock';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -860,6 +787,128 @@ export interface Form {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "posts".
+ */
+export interface Post {
+  id: string;
+  /**
+   * The title of the article as it appears around the site.
+   */
+  title: string;
+  slug?: string | null;
+  slugLock?: boolean | null;
+  /**
+   * The tagline of the article as it appears around the site.
+   */
+  tagline?: string | null;
+  /**
+   * The description of the article as it appears around the site.
+   */
+  description?: string | null;
+  publishedOn: string;
+  image: string | Media;
+  featured?: boolean | null;
+  readTime?: number | null;
+  categories: (string | Category)[];
+  content: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  meta?: {
+    title?: string | null;
+    /**
+     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
+     */
+    image?: (string | null) | Media;
+    description?: string | null;
+  };
+  /**
+   * Advanced settings for controlling post visibility and behavior.
+   */
+  advanced?: {
+    excludeFromSitemap?: boolean | null;
+  };
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "categories".
+ */
+export interface Category {
+  id: string;
+  /**
+   * The title of the category as it appears around the site.
+   */
+  title: string;
+  slug?: string | null;
+  slugLock?: boolean | null;
+  relatedPosts?: {
+    docs?: (string | Post)[] | null;
+    hasNextPage?: boolean | null;
+  } | null;
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "users".
+ */
+export interface User {
+  id: string;
+  name: string;
+  updatedAt: string;
+  createdAt: string;
+  email: string;
+  resetPasswordToken?: string | null;
+  resetPasswordExpiration?: string | null;
+  salt?: string | null;
+  hash?: string | null;
+  loginAttempts?: number | null;
+  lockUntil?: string | null;
+  password?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "redirects".
+ */
+export interface Redirect {
+  id: string;
+  /**
+   * You will need to rebuild the website when changing this field.
+   */
+  from: string;
+  to?: {
+    type?: ('reference' | 'custom') | null;
+    reference?:
+      | ({
+          relationTo: 'pages';
+          value: string | Page;
+        } | null)
+      | ({
+          relationTo: 'posts';
+          value: string | Post;
+        } | null);
+    url?: string | null;
+  };
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "form-submissions".
  */
 export interface FormSubmission {
@@ -1034,6 +1083,8 @@ export interface PagesSelect<T extends boolean = true> {
         mediaSlider?: T | MediaSliderBlockSelect<T>;
         calloutText?: T | CalloutTextBlockSelect<T>;
         aboutIntro?: T | AboutIntroBlockSelect<T>;
+        fourCards?: T | FourCardsBlockSelect<T>;
+        formBlock?: T | FormBlockSelect<T>;
       };
   meta?:
     | T
@@ -1243,6 +1294,33 @@ export interface AboutIntroBlockSelect<T extends boolean = true> {
         icon?: T;
         id?: T;
       };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "FourCardsBlock_select".
+ */
+export interface FourCardsBlockSelect<T extends boolean = true> {
+  cards?:
+    | T
+    | {
+        number?: T;
+        title?: T;
+        description?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "FormBlock_select".
+ */
+export interface FormBlockSelect<T extends boolean = true> {
+  form?: T;
+  enableIntro?: T;
+  introContent?: T;
   id?: T;
   blockName?: T;
 }

@@ -30,6 +30,8 @@ import { Bio } from '@/blocks/Bio/config'
 import { MediaSlider } from '@/blocks/MediaSlider/config'
 import { CalloutText } from '@/blocks/CalloutText/config'
 import { AboutIntro } from '@/blocks/AboutIntro/config'
+import { FourCards } from '@/blocks/FourCards/config'
+import { FormBlock } from '@/blocks/Form/config'
 
 // Utilities Imports
 import { generatePreviewPath } from '@/utilities/generatePreviewPath'
@@ -82,6 +84,8 @@ const contentFields: Field[] = [
       MediaSlider,
       CalloutText,
       AboutIntro,
+      FourCards,
+      FormBlock,
     ] as Block[],
     admin: {
       description: 'Add content blocks to build out this page.',

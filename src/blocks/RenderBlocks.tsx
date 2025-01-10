@@ -16,6 +16,7 @@ import { Bio } from '@/blocks/Bio/Component'
 import { MediaSlider } from '@/blocks/MediaSlider/Component'
 import { CalloutText } from '@/blocks/CalloutText/Component'
 import { AboutIntro } from '@/blocks/AboutIntro/Component'
+import { FourCards } from '@/blocks/FourCards/Component'
 
 type BlockType = NonNullable<Page['layout']>[number]
 
@@ -30,6 +31,7 @@ const blockComponents = {
   mediaSlider: MediaSlider,
   calloutText: CalloutText,
   aboutIntro: AboutIntro,
+  fourCards: FourCards,
 } as const
 
 type Props = {
