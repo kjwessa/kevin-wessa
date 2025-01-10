@@ -10,6 +10,14 @@ export const AboutIntro: Block = {
   },
   fields: [
     {
+      name: 'bannerText',
+      type: 'richText',
+      required: true,
+      admin: {
+        description: 'Text displayed in the top banner section',
+      },
+    },
+    {
       name: 'mainText',
       type: 'richText',
       required: true,

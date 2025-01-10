@@ -500,6 +500,24 @@ export interface CalloutTextBlock {
  * via the `definition` "AboutIntroBlock".
  */
 export interface AboutIntroBlock {
+  /**
+   * Text displayed in the top banner section
+   */
+  bannerText: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
   mainText: {
     root: {
       type: string;
@@ -1209,6 +1227,7 @@ export interface CalloutTextBlockSelect<T extends boolean = true> {
  * via the `definition` "AboutIntroBlock_select".
  */
 export interface AboutIntroBlockSelect<T extends boolean = true> {
+  bannerText?: T;
   mainText?: T;
   description?: T;
   cta?:
