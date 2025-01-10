@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { type CalloutTextBlock } from './config'
+import type { CalloutTextBlock } from '@/payload-types'
 import { BlockWrapperBeta } from '@/components/layout/BlockWrapperBeta'
 import { BlockContainerBeta } from '@/components/layout/BlockContainerBeta'
 import { RichText } from '@/components/RichText'
@@ -12,7 +12,7 @@ export const CalloutText: React.FC<CalloutTextBlock> = ({ text, attribution }) =
       <BlockContainerBeta size="medium">
         <div className="flex flex-col items-center gap-10">
           <div className="prose prose-xl text-center">
-            <RichText content={text} />
+            <RichText data={text} preset="default" />
           </div>
 
           {attribution && (

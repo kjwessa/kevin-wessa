@@ -28,6 +28,7 @@ import { ContentBeta } from '@/blocks/ContentBeta/config'
 import { MediaGrid } from '@/blocks/MediaGrid/config'
 import { Bio } from '@/blocks/Bio/config'
 import { MediaSlider } from '@/blocks/MediaSlider/config'
+import { CalloutText } from '@/blocks/CalloutText/config'
 
 // Utilities Imports
 import { generatePreviewPath } from '@/utilities/generatePreviewPath'
@@ -48,25 +49,13 @@ const contentFields: Field[] = [
             firstTitle: 'Brand',
             firstSubtitle: 'Strategy & Identity',
             firstDescription:
-              'A tool to shape perceptions, craft meaningful stories, and build lasting connections with audiences.',
+              'Crafting compelling brand stories and visual identities that resonate with your audience.',
           },
           secondVertical: {
-            secondTitle: 'Design',
-            secondSubtitle: 'UX Designer',
+            secondTitle: 'Digital',
+            secondSubtitle: 'Design & Development',
             secondDescription:
-              'A tool to create experiences, guide journeys, and empathize with the needs of others.',
-          },
-          thirdVertical: {
-            thirdTitle: 'Code',
-            thirdSubtitle: 'Full Stack Developer',
-            thirdDescription:
-              'A tool to give the order to the chaos, commit to the bigger picture, and git ship done.',
-          },
-          fourthVertical: {
-            fourthTitle: 'Build',
-            fourthSubtitle: 'Company Leadership',
-            fourthDescription:
-              'A tool to transform ideas into ventures, navigate growth challenges, and scale meaningful businesses.',
+              'Building beautiful, performant digital experiences that drive results.',
           },
         },
       },
@@ -90,6 +79,7 @@ const contentFields: Field[] = [
       MediaGrid,
       Bio,
       MediaSlider,
+      CalloutText,
     ] as Block[],
     admin: {
       description: 'Add content blocks to build out this page.',

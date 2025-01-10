@@ -1,14 +1,8 @@
 import type { Block } from 'payload'
 import { HeadingFeature, LinkFeature, lexicalEditor } from '@payloadcms/richtext-lexical'
 
-export type CalloutTextBlock = {
-  text: string
-  attribution?: string
-  blockType: 'callout-text'
-}
-
 export const CalloutText: Block = {
-  slug: 'callout-text',
+  slug: 'calloutText',
   interfaceName: 'CalloutTextBlock',
   labels: {
     singular: 'Callout Text',
