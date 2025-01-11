@@ -159,6 +159,7 @@ export interface Page {
     | AboutIntroBlock
     | FourCardsBlock
     | FormBlock
+    | ContactBlock
   )[];
   meta?: {
     title?: string | null;
@@ -807,6 +808,20 @@ export interface Form {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ContactBlock".
+ */
+export interface ContactBlock {
+  title: string;
+  /**
+   * Select a form to display in this block
+   */
+  form: string | Form;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'contactBlock';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "posts".
  */
 export interface Post {
@@ -1112,6 +1127,7 @@ export interface PagesSelect<T extends boolean = true> {
         aboutIntro?: T | AboutIntroBlockSelect<T>;
         fourCards?: T | FourCardsBlockSelect<T>;
         formBlock?: T | FormBlockSelect<T>;
+        contactBlock?: T | ContactBlockSelect<T>;
       };
   meta?:
     | T
@@ -1363,6 +1379,16 @@ export interface FormBlockSelect<T extends boolean = true> {
   form?: T;
   enableIntro?: T;
   introContent?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ContactBlock_select".
+ */
+export interface ContactBlockSelect<T extends boolean = true> {
+  title?: T;
+  form?: T;
   id?: T;
   blockName?: T;
 }

@@ -2,6 +2,7 @@
 
 import React from 'react'
 import { cn } from '@/utilities/cn'
+import { Title } from '@/components/ui/Title'
 import '@/styles/animations.css'
 
 type Props = {
@@ -21,23 +22,25 @@ export function ScrollingHeroClient({ scrollingText = [], theme = 'light' }: Pro
     .join(' / ')
 
   return (
-    <div className="overflow-hidden text-9xl whitespace-nowrap">
-      <div
-        className={cn(
-          'animate-scroll inline-block font-medium tracking-wider',
-          theme === 'dark' ? 'text-primary-400' : 'text-primary-600',
-        )}
-      >
-        {scrollTextString}
-      </div>
-      <div
-        className={cn(
-          'animate-scroll-delayed inline-block font-medium tracking-wider',
-          theme === 'dark' ? 'text-primary-400' : 'text-primary-600',
-        )}
-      >
-        {scrollTextString}
-      </div>
+    <div className="overflow-hidden whitespace-nowrap">
+      <Title size="display-small" el="h3" className="inline-block">
+        <span
+          className={cn(
+            'animate-scroll inline-block font-medium tracking-wider',
+            theme === 'dark' ? 'text-primary-400' : 'text-primary-600',
+          )}
+        >
+          {scrollTextString}
+        </span>
+        <span
+          className={cn(
+            'animate-scroll-delayed inline-block font-medium tracking-wider',
+            theme === 'dark' ? 'text-primary-400' : 'text-primary-600',
+          )}
+        >
+          {scrollTextString}
+        </span>
+      </Title>
     </div>
   )
 }
