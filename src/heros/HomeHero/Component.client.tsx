@@ -153,7 +153,14 @@ const AnimatedWord: React.FC<AnimatedWordProps> = ({ pair }) => {
 
 export function AnimatedHeroClient({ wordPairs }: { wordPairs: WordPair[] }) {
   const rows = wordPairs.reduce<WordPair[][]>((acc, curr, index) => {
-    const rowIndex = Math.floor(index / 3)
+    let rowIndex = 0
+    if (index < 3) {
+      rowIndex = 0
+    } else if (index < 7) {
+      rowIndex = 1
+    } else {
+      rowIndex = Math.floor((index - 7) / 3) + 2
+    }
     if (!acc[rowIndex]) {
       acc[rowIndex] = []
     }

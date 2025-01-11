@@ -6,21 +6,21 @@
       "underline": "Hi, that's me!"
     },
     "secondary": {
-      "text": "Husband & Father",
+      "text": "Family Man",
       "color": "foreground",
-      "underline": ""
+      "underline": "My most important role"
     }
   },
   {
     "primary": {
-      "text": "Husband & Father",
-      "color": "primary",
-      "underline": "Innovator"
+      "text": "Full Stack Creative",
+      "color": "foreground",
+      "underline": ""
     },
     "secondary": {
-      "text": "Visual Design",
+      "text": "Problem Solver",
       "color": "foreground",
-      "underline": "Leader"
+      "underline": ""
     }
   },
   {
@@ -37,24 +37,61 @@
   },
   {
     "primary": {
-      "text": "web dev",
+      "text": "Web Dev",
+      "color": "primary",
+      "underline": ""
+    },
+    "secondary": {
+      "text": "Next JS",
+      "color": "foreground",
+      "underline": "Framework of choice"
+    }
+  },
+  {
+    "primary": {
+      "text": "Story Teller",
+      "color": "foreground",
+      "underline": ""
+    },
+    "secondary": {
+      "text": "Minimalist",
+      "color": "foreground",
+      "underline": ""
+    }
+  },
+  {
+    "primary": {
+      "text": "minimalism",
+      "color": "primary",
+      "underline": "Less is more"
+    },
+    "secondary": {
+      "text": "people-centric",
+      "color": "foreground",
+      "underline": "Leader"
+    }
+  },
+
+  {
+    "primary": {
+      "text": "impact",
       "color": "primary",
       "underline": "Innovator"
     },
     "secondary": {
-      "text": "full stack",
+      "text": "positive change",
       "color": "foreground",
       "underline": "Leader"
     }
   },
   {
     "primary": {
-      "text": "embracing complexity",
+      "text": "Photographer",
       "color": "primary",
       "underline": "Innovator"
     },
     "secondary": {
-      "text": "simplifying complexity",
+      "text": "Sony Shooter",
       "color": "foreground",
       "underline": "Leader"
     }
@@ -73,28 +110,17 @@
   },
   {
     "primary": {
-      "text": "Full Stack",
+      "text": "Brewww Studio",
       "color": "primary",
       "underline": "Innovator"
     },
     "secondary": {
-      "text": "Code Architect",
+      "text": "Entrepreneur",
       "color": "foreground",
       "underline": "Leader"
     }
   },
-  {
-    "primary": {
-      "text": "minimalism",
-      "color": "primary",
-      "underline": "Innovator"
-    },
-    "secondary": {
-      "text": "people-centric",
-      "color": "foreground",
-      "underline": "Leader"
-    }
-  },
+
   {
     "primary": {
       "text": "Photography",
@@ -107,30 +133,7 @@
       "underline": "Leader"
     }
   },
-  {
-    "primary": {
-      "text": "impact",
-      "color": "primary",
-      "underline": "Innovator"
-    },
-    "secondary": {
-      "text": "positive change",
-      "color": "foreground",
-      "underline": "Leader"
-    }
-  },
-  {
-    "primary": {
-      "text": "Story Teller",
-      "color": "primary",
-      "underline": "Innovator"
-    },
-    "secondary": {
-      "text": "Moment Capturer",
-      "color": "foreground",
-      "underline": "Leader"
-    }
-  },
+
   {
     "primary": {
       "text": "Family Man",
