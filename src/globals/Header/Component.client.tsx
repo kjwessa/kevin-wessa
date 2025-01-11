@@ -67,7 +67,7 @@ export function HeaderClient({ navItems = [] }: HeaderClientProps) {
         {/* Menu content */}
         <div
           className={cn(
-            'absolute inset-x-4 top-4 bottom-4 rounded-2xl bg-[#F2F2F2] transition-all duration-500',
+            'absolute inset-x-4 top-4 h-[400px] rounded-2xl bg-[#F2F2F2] transition-all duration-500',
             isOpen ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0',
           )}
         >
@@ -84,7 +84,7 @@ export function HeaderClient({ navItems = [] }: HeaderClientProps) {
                     key={i}
                     href={href}
                     onClick={() => setIsOpen(false)}
-                    className="group border-foreground/10 relative border-l px-8 pt-32 first:border-l-0"
+                    className="group border-foreground/10 relative border-l px-8 pt-20 first:border-l-0"
                   >
                     <span
                       className={cn(
@@ -94,7 +94,7 @@ export function HeaderClient({ navItems = [] }: HeaderClientProps) {
                     >
                       {item.link.label}
                     </span>
-                    <span className="absolute top-32 right-8 text-xl opacity-0 transition-opacity group-hover:opacity-100">
+                    <span className="absolute top-20 right-8 text-xl opacity-0 transition-opacity group-hover:opacity-100">
                       ↗
                     </span>
                   </Link>
