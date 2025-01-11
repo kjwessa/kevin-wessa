@@ -16,6 +16,13 @@ const bebasNeue = localFont({
   display: 'swap',
 })
 
+const roboto = localFont({
+  src: '../../fonts/Roboto.ttf',
+  variable: '--font-roboto',
+  preload: true,
+  display: 'swap',
+})
+
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const { isEnabled } = await draftMode()
 
@@ -25,7 +32,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <link href="/favicon.ico" rel="icon" sizes="32x32" />
         <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
       </head>
-      <body className={cn(bebasNeue.variable, 'antialiased')}>
+      <body className={cn(bebasNeue.variable, roboto.variable, 'antialiased')}>
         <AdminBar
           adminBarProps={{
             preview: isEnabled,

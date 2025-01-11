@@ -23,11 +23,11 @@
   --tracking-widest: 0.1em;
 
   /* Font Families */
-  --font-primary: var(--font-bebas-neue), ui-sans-serif, system-ui, sans-serif;
+  --font-primary: var(--font-roboto), ui-sans-serif, system-ui, sans-serif;
   --font-secondary: var(--font-bebas-neue), ui-sans-serif, system-ui, sans-serif;
 
   /* Typography - Font Families */
-  --font-sans: var(--font-bebas-neue), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-roboto), ui-sans-serif, system-ui, sans-serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
     'Courier New', monospace;
 
@@ -162,46 +162,46 @@
   --color-brand-light-text: oklch(20% 0 0);
 
   /* Light Theme Colors */
-  --color-background-light: #F5E2CA;
+  --color-background-light: #f5e2ca;
   --color-foreground-light: #161616;
-  --color-card-light: #F5E2CA;
+  --color-card-light: #f5e2ca;
   --color-card-foreground-light: #161616;
-  --color-popover-light: #F5E2CA;
+  --color-popover-light: #f5e2ca;
   --color-popover-foreground-light: #161616;
-  --color-primary-light: #9F2021;
-  --color-primary-foreground-light: #FFFFFF;
-  --color-secondary-light: #FFFFFF;
+  --color-primary-light: #9f2021;
+  --color-primary-foreground-light: #ffffff;
+  --color-secondary-light: #ffffff;
   --color-secondary-foreground-light: #161616;
-  --color-muted-light: #F5E2CA;
+  --color-muted-light: #f5e2ca;
   --color-muted-foreground-light: #161616;
-  --color-accent-light: #9F2021;
-  --color-accent-foreground-light: #FFFFFF;
-  --color-destructive-light: #9F2021;
-  --color-destructive-foreground-light: #FFFFFF;
+  --color-accent-light: #9f2021;
+  --color-accent-foreground-light: #ffffff;
+  --color-destructive-light: #9f2021;
+  --color-destructive-foreground-light: #ffffff;
   --color-border-light: #161616;
   --color-input-light: #161616;
-  --color-ring-light: #9F2021;
+  --color-ring-light: #9f2021;
 
   /* Dark Theme Colors */
   --color-background-dark: #161616;
-  --color-foreground-dark: #F5E2CA;
+  --color-foreground-dark: #f5e2ca;
   --color-card-dark: #161616;
-  --color-card-foreground-dark: #F5E2CA;
+  --color-card-foreground-dark: #f5e2ca;
   --color-popover-dark: #161616;
-  --color-popover-foreground-dark: #F5E2CA;
-  --color-primary-dark: #9F2021;
-  --color-primary-foreground-dark: #FFFFFF;
-  --color-secondary-dark: #F5E2CA;
+  --color-popover-foreground-dark: #f5e2ca;
+  --color-primary-dark: #9f2021;
+  --color-primary-foreground-dark: #ffffff;
+  --color-secondary-dark: #f5e2ca;
   --color-secondary-foreground-dark: #161616;
-  --color-muted-dark: #F5E2CA;
+  --color-muted-dark: #f5e2ca;
   --color-muted-foreground-dark: #161616;
-  --color-accent-dark: #9F2021;
-  --color-accent-foreground-dark: #FFFFFF;
-  --color-destructive-dark: #9F2021;
-  --color-destructive-foreground-dark: #FFFFFF;
-  --color-border-dark: #F5E2CA;
-  --color-input-dark: #F5E2CA;
-  --color-ring-dark: #9F2021;
+  --color-accent-dark: #9f2021;
+  --color-accent-foreground-dark: #ffffff;
+  --color-destructive-dark: #9f2021;
+  --color-destructive-foreground-dark: #ffffff;
+  --color-border-dark: #f5e2ca;
+  --color-input-dark: #f5e2ca;
+  --color-ring-dark: #9f2021;
 
   /* Default theme colors (pointing to light theme) */
   --color-background: var(--color-background-light);
