@@ -4,9 +4,9 @@
 'use client'
 
 import React, { useState, useEffect, useRef } from 'react'
-import { BlockThemeBeta } from '@/components/layout/BlockThemeBeta'
 import { WordPair } from './types'
-import wordPairs from './wordPairs.json'
+import { Title } from '@/components/ui/Title'
+import { Text } from '@/components/ui/Text'
 
 type AnimatedWordProps = {
   pair: WordPair
@@ -56,9 +56,7 @@ const AnimatedWord: React.FC<AnimatedWordProps> = ({ pair }) => {
     color,
   }) => (
     <div
-      className={`w-full text-center lowercase transition-all duration-1000 ${getColorClass(
-        color,
-      )} ${
+      className={`transition-all duration-1000 ${getColorClass(color)} ${
         isVisible
           ? isFlipped
             ? 'translate-y-full opacity-20'
@@ -66,61 +64,89 @@ const AnimatedWord: React.FC<AnimatedWordProps> = ({ pair }) => {
           : isSecondary
           ? '-translate-y-full opacity-0'
           : 'translate-y-full opacity-0'
-      } ${isSubtitle ? 'text-[1.5vw]' : 'text-[3.5vw]'} tracking-tighter`}
-      style={{ letterSpacing: '-3px' }}
+      }`}
       aria-hidden={!isVisible || isFlipped}
     >
-      {text
-        .toLowerCase()
-        .split('')
-        .map((char, charIndex) => (
-          <span
-            key={charIndex}
-            className="inline-block transition-transform duration-500"
-            style={{
-              transitionDelay: `${charIndex * 30}ms`,
-              transform: isVisible && !isFlipped ? 'translateY(0)' : 'translateY(100%)',
-            }}
-          >
-            {char === ' ' ? '\u00A0' : char}
-          </span>
-        ))}
+      {isSubtitle ? (
+        <Text size="body-medium" className="tracking-tighter uppercase opacity-80">
+          {text.split('').map((char, charIndex) => (
+            <span
+              key={charIndex}
+              className="inline-block transition-transform duration-500"
+              style={{
+                transitionDelay: `${charIndex * 30}ms`,
+                transform: isVisible && !isFlipped ? 'translateY(0)' : 'translateY(100%)',
+              }}
+            >
+              {char === ' ' ? '\u00A0' : char}
+            </span>
+          ))}
+        </Text>
+      ) : (
+        <Title el="h3" size="display-small" className="font-condensed tracking-tighter">
+          {text.split('').map((char, charIndex) => (
+            <span
+              key={charIndex}
+              className="inline-block transition-transform duration-500"
+              style={{
+                transitionDelay: `${charIndex * 30}ms`,
+                transform: isVisible && !isFlipped ? 'translateY(0)' : 'translateY(100%)',
+              }}
+            >
+              {char === ' ' ? '\u00A0' : char}
+            </span>
+          ))}
+        </Title>
+      )}
     </div>
   )
 
   return (
-    <div className="flex flex-col items-center px-6 py-3">
-      <div className="relative overflow-hidden" style={{ height: 'calc(3.5vw + 1.5vw + 1em)' }}>
-        <AnimatedText
-          text={pair.primary.text}
-          isVisible={isVisible}
-          isFlipped={isFlipped}
-          color={pair.primary.color}
-        />
-        <AnimatedText
-          text={pair.secondary.text}
-          isVisible={isVisible}
-          isFlipped={!isFlipped}
-          isSecondary={true}
-          color={pair.secondary.color}
-        />
-        {pair.primary.underline && (
-          <div className="mt-2">
+    <div className="relative">
+      <span className="placeholder box-border inline text-left opacity-0">
+        <Title el="h3" size="display-small" className="font-condensed tracking-tighter">
+          {pair.primary.text}
+        </Title>
+      </span>
+      <div className="absolute top-0 left-0 w-full">
+        <div className="relative">
+          <AnimatedText
+            text={pair.primary.text}
+            isVisible={isVisible}
+            isFlipped={isFlipped}
+            color={pair.primary.color}
+          />
+          <div className="absolute top-0 left-0 w-full">
             <AnimatedText
-              text={pair.primary.underline}
-              isVisible={isVisible}
-              isFlipped={isFlipped}
-              isSubtitle={true}
-              color={pair.primary.color}
-            />
-            <AnimatedText
-              text={pair.secondary.underline}
+              text={pair.secondary.text}
               isVisible={isVisible}
               isFlipped={!isFlipped}
               isSecondary={true}
-              isSubtitle={true}
               color={pair.secondary.color}
             />
+          </div>
+        </div>
+        {pair.primary.underline && (
+          <div className="mt-[-2px]">
+            <div className="relative">
+              <AnimatedText
+                text={pair.primary.underline}
+                isVisible={isVisible}
+                isFlipped={isFlipped}
+                isSubtitle={true}
+                color={pair.primary.color}
+              />
+              <div className="absolute top-0 left-0 w-full">
+                <AnimatedText
+                  text={pair.secondary.underline}
+                  isVisible={isVisible}
+                  isFlipped={!isFlipped}
+                  isSecondary={true}
+                  isSubtitle={true}
+                  color={pair.secondary.color}
+                />
+              </div>
+            </div>
           </div>
         )}
       </div>
@@ -128,10 +154,16 @@ const AnimatedWord: React.FC<AnimatedWordProps> = ({ pair }) => {
   )
 }
 
-export function AnimatedHeroClient({ wordPairs }: { wordPairs: WordPair[] }) {
-  // Create rows with approximately 3 words each
+export function AnimatedHeroArchive({ wordPairs }: { wordPairs: WordPair[] }) {
   const rows = wordPairs.reduce<WordPair[][]>((acc, curr, index) => {
-    const rowIndex = Math.floor(index / 3)
+    let rowIndex = 0
+    if (index < 3) {
+      rowIndex = 0
+    } else if (index < 7) {
+      rowIndex = 1
+    } else {
+      rowIndex = Math.floor((index - 7) / 3) + 2
+    }
     if (!acc[rowIndex]) {
       acc[rowIndex] = []
     }
@@ -140,22 +172,17 @@ export function AnimatedHeroClient({ wordPairs }: { wordPairs: WordPair[] }) {
   }, [])
 
   return (
-    <div className="flex min-h-screen flex-col justify-center px-4 pt-[50vh]">
+    <div className="flex min-h-screen flex-col justify-center px-8 pt-[50vh] md:px-16">
       {rows.map((row, rowIndex) => (
-        <div key={rowIndex} className="mb-8 flex justify-between font-light">
+        <div
+          key={rowIndex}
+          className="my-3 flex h-[140px] items-center justify-between overflow-hidden font-light whitespace-nowrap"
+        >
           {row.map((pair, index) => (
             <AnimatedWord key={index} pair={pair} />
           ))}
         </div>
       ))}
     </div>
-  )
-}
-
-export function AnimatedHero() {
-  return (
-    <BlockThemeBeta theme="light">
-      <AnimatedHeroClient wordPairs={wordPairs as WordPair[]} />
-    </BlockThemeBeta>
   )
 }
