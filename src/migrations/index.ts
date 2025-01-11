@@ -28,6 +28,7 @@ import * as migration_20250111_200204_add_scrollinghero_block from './20250111_2
 import * as migration_20250111_203502_add_contact_block_option from './20250111_203502_add_contact_block_option';
 import * as migration_20250111_204224_add_faq_collection from './20250111_204224_add_faq_collection';
 import * as migration_20250111_205205_add_faq_block from './20250111_205205_add_faq_block';
+import * as migration_20250111_210246_add_theme_to_faq_block from './20250111_210246_add_theme_to_faq_block';
 
 export const migrations = [
   {
@@ -178,6 +179,11 @@ export const migrations = [
   {
     up: migration_20250111_205205_add_faq_block.up,
     down: migration_20250111_205205_add_faq_block.down,
-    name: '20250111_205205_add_faq_block'
+    name: '20250111_205205_add_faq_block',
+  },
+  {
+    up: migration_20250111_210246_add_theme_to_faq_block.up,
+    down: migration_20250111_210246_add_theme_to_faq_block.down,
+    name: '20250111_210246_add_theme_to_faq_block'
   },
 ];

@@ -11,9 +11,25 @@ export const FAQBlock: Block = {
     {
       name: 'title',
       type: 'text',
+      label: 'Title',
       required: true,
-      label: 'Section Title',
       defaultValue: 'Frequently Asked Questions',
+    },
+    {
+      name: 'theme',
+      type: 'select',
+      label: 'Theme',
+      defaultValue: 'light',
+      options: [
+        {
+          label: 'Light',
+          value: 'light',
+        },
+        {
+          label: 'Dark',
+          value: 'dark',
+        },
+      ],
     },
   ],
 }

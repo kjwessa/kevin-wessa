@@ -829,6 +829,7 @@ export interface ContactBlock {
  */
 export interface FAQBlock {
   title: string;
+  theme?: ('light' | 'dark') | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'faqBlock';
@@ -1442,6 +1443,7 @@ export interface ContactBlockSelect<T extends boolean = true> {
  */
 export interface FAQBlockSelect<T extends boolean = true> {
   title?: T;
+  theme?: T;
   id?: T;
   blockName?: T;
 }
