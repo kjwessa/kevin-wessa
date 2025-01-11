@@ -9,11 +9,6 @@
       "text": "Visual Design",
       "color": "foreground",
       "underline": "Leader"
-    },
-    "tertiary": {
-      "text": "Product Design",
-      "color": "foreground",
-      "underline": "Leader"
     }
   },
   {
@@ -24,11 +19,6 @@
     },
     "secondary": {
       "text": "Husband",
-      "color": "foreground",
-      "underline": "Leader"
-    },
-    "tertiary": {
-      "text": "Proud Father",
       "color": "foreground",
       "underline": "Leader"
     }
@@ -43,11 +33,6 @@
       "text": "Pensacola, FL",
       "color": "foreground",
       "underline": "Leader"
-    },
-    "tertiary": {
-      "text": "Creative Director",
-      "color": "foreground",
-      "underline": "Leader"
     }
   },
   {
@@ -58,11 +43,6 @@
     },
     "secondary": {
       "text": "full stack",
-      "color": "foreground",
-      "underline": "Leader"
-    },
-    "tertiary": {
-      "text": "data science",
       "color": "foreground",
       "underline": "Leader"
     }
@@ -77,11 +57,6 @@
       "text": "simplifying complexity",
       "color": "foreground",
       "underline": "Leader"
-    },
-    "tertiary": {
-      "text": "embracing simplicity",
-      "color": "foreground",
-      "underline": "Leader"
     }
   },
   {
@@ -92,11 +67,6 @@
     },
     "secondary": {
       "text": "Problem Solver",
-      "color": "foreground",
-      "underline": "Leader"
-    },
-    "tertiary": {
-      "text": "Creative Director",
       "color": "foreground",
       "underline": "Leader"
     }
@@ -111,11 +81,6 @@
       "text": "Code Architect",
       "color": "foreground",
       "underline": "Leader"
-    },
-    "tertiary": {
-      "text": "Data Scientist",
-      "color": "foreground",
-      "underline": "Leader"
     }
   },
   {
@@ -126,11 +91,6 @@
     },
     "secondary": {
       "text": "people-centric",
-      "color": "foreground",
-      "underline": "Leader"
-    },
-    "tertiary": {
-      "text": "creative direction",
       "color": "foreground",
       "underline": "Leader"
     }
@@ -145,11 +105,6 @@
       "text": "Videography",
       "color": "foreground",
       "underline": "Leader"
-    },
-    "tertiary": {
-      "text": "Creative Direction",
-      "color": "foreground",
-      "underline": "Leader"
     }
   },
   {
@@ -160,11 +115,6 @@
     },
     "secondary": {
       "text": "positive change",
-      "color": "foreground",
-      "underline": "Leader"
-    },
-    "tertiary": {
-      "text": "buzzwords",
       "color": "foreground",
       "underline": "Leader"
     }
@@ -179,11 +129,6 @@
       "text": "Moment Capturer",
       "color": "foreground",
       "underline": "Leader"
-    },
-    "tertiary": {
-      "text": "Creative Director",
-      "color": "foreground",
-      "underline": "Leader"
     }
   },
   {
@@ -194,11 +139,6 @@
     },
     "secondary": {
       "text": "Work-Life Balance",
-      "color": "foreground",
-      "underline": "Leader"
-    },
-    "tertiary": {
-      "text": "Economics",
       "color": "foreground",
       "underline": "Leader"
     }
@@ -213,11 +153,6 @@
       "text": "Trendsetter",
       "color": "foreground",
       "underline": "Leader"
-    },
-    "tertiary": {
-      "text": "Philosophy",
-      "color": "foreground",
-      "underline": "Leader"
     }
   },
   {
@@ -228,11 +163,6 @@
     },
     "secondary": {
       "text": "Tech Explorer",
-      "color": "foreground",
-      "underline": "Leader"
-    },
-    "tertiary": {
-      "text": "Unbounded Branding",
       "color": "foreground",
       "underline": "Leader"
     }
@@ -247,11 +177,6 @@
       "text": "Adaptive",
       "color": "foreground",
       "underline": "Leader"
-    },
-    "tertiary": {
-      "text": "Pixel Perfect",
-      "color": "foreground",
-      "underline": "Leader"
     }
   },
   {
@@ -262,11 +187,6 @@
     },
     "secondary": {
       "text": "Lifelong Learner",
-      "color": "foreground",
-      "underline": "Leader"
-    },
-    "tertiary": {
-      "text": "Creative Director",
       "color": "foreground",
       "underline": "Leader"
     }
@@ -281,11 +201,6 @@
       "text": "Creative Problem Solver",
       "color": "foreground",
       "underline": "Leader"
-    },
-    "tertiary": {
-      "text": "Creative Director",
-      "color": "foreground",
-      "underline": "Leader"
     }
   },
   {
@@ -296,11 +211,6 @@
     },
     "secondary": {
       "text": "Inclusive Design",
-      "color": "foreground",
-      "underline": "Leader"
-    },
-    "tertiary": {
-      "text": "Creative Director",
       "color": "foreground",
       "underline": "Leader"
     }
