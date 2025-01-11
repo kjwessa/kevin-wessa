@@ -1,6 +1,6 @@
 import type { Block } from 'payload'
 
-export const config: Block = {
+export const ScrollingHeroBlock: Block = {
   slug: 'scrollingHero',
   interfaceName: 'ScrollingHeroBlock',
   labels: {

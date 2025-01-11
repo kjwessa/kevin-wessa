@@ -36,7 +36,7 @@ import { FormBlock } from '@/blocks/Form/config'
 import { config as VerticalsHero } from '@/heros/VerticalsHero/config'
 import { config as AboutHero } from '@/heros/AboutHero/config'
 import { config as HomeHero } from '@/heros/HomeHero/config'
-import { config as ScrollingHero } from '@/heros/ScrollingHero/config'
+import { ScrollingHeroBlock } from '@/heros/ScrollingHero/config'
 
 // Utilities Imports
 import { generatePreviewPath } from '@/utilities/generatePreviewPath'
@@ -45,7 +45,7 @@ const contentFields: Field[] = [
   {
     name: 'hero',
     type: 'blocks',
-    blocks: [VerticalsHero, AboutHero, HomeHero, ScrollingHero],
+    blocks: [VerticalsHero, AboutHero, HomeHero, ScrollingHeroBlock],
     required: true,
     minRows: 1,
     maxRows: 1,
