@@ -124,7 +124,7 @@ const AnimatedWord: React.FC<AnimatedWordProps> = ({ pair }) => {
           </div>
         </div>
         {pair.primary.underline && (
-          <div className="mt-[2px]">
+          <div className="mt-[-2px]">
             <div className="relative">
               <AnimatedText
                 text={pair.primary.underline}
