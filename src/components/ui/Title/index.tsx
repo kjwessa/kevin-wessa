@@ -75,7 +75,7 @@ const headingVariants = cva('title', {
 interface TitleProps
   extends React.HTMLAttributes<HTMLHeadingElement>,
     Omit<VariantProps<typeof headingVariants>, 'el'> {
-  el?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
+  el?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p'
   children?: React.ReactNode
 }
 

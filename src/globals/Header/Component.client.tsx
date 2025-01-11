@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation'
 import { cn } from '@/utilities/cn'
 import type { NavItem } from '@/types/navigation'
 import { useState } from 'react'
+import { Title } from '@/components/ui/Title'
 
 type HeaderClientProps = {
   navItems?: NavItem[]
@@ -86,14 +87,17 @@ export function HeaderClient({ navItems = [] }: HeaderClientProps) {
                     onClick={() => setIsOpen(false)}
                     className="group border-foreground/10 relative border-l px-8 pt-20 first:border-l-0"
                   >
-                    <span
+                    <Title
+                      el="p"
+                      size="headline-small"
+                      weight="light"
                       className={cn(
-                        'text-foreground/60 group-hover:text-foreground text-2xl font-light transition-colors',
+                        'text-foreground/60 group-hover:text-foreground transition-colors',
                         pathname === href ? 'text-foreground' : '',
                       )}
                     >
                       {item.link.label}
-                    </span>
+                    </Title>
                     <span className="absolute top-20 right-8 text-xl opacity-0 transition-opacity group-hover:opacity-100">
                       ↗
                     </span>
