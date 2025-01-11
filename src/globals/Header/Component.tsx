@@ -1,11 +1,31 @@
 import { HeaderClient } from './Component.client'
-import { getCachedGlobal } from '@/utilities/getGlobals'
-import React from 'react'
+import type { NavItem } from '@/types/navigation'
 
-import type { Header } from '@/payload-types'
+const defaultNavItems: NavItem[] = [
+  {
+    link: {
+      type: 'custom' as const,
+      url: '/about',
+      label: 'About',
+    },
+  },
+  {
+    link: {
+      type: 'custom' as const,
+      url: '/work',
+      label: 'Work',
+    },
+  },
+  {
+    link: {
+      type: 'custom' as const,
+      url: '/contact',
+      label: 'Contact',
+    },
+  },
+]
 
-export async function Header() {
-  const headerData: Header = await getCachedGlobal('header', 1)()
-
-  return <HeaderClient data={headerData} />
+export function Header() {
+  // We'll wire this up to the CMS later
+  return <HeaderClient navItems={defaultNavItems} />
 }

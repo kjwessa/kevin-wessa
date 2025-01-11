@@ -54,6 +54,7 @@
       "@/public/*": ["./public/*"],
       "@root/*": ["src/*"],
       "@/styles/*": ["src/styles/*"],
+      "@/types/*": ["src/types/*"],
       "@/payload-types": ["./src/payload-types.ts"],
       "@/utilities/*": ["src/utilities/*"]
     }

@@ -1,7 +1,5 @@
 import type { GlobalConfig } from 'payload'
-
 import { link } from '@/fields/link'
-import { revalidateFooter } from './hooks/revalidateFooter'
 
 export const Footer: GlobalConfig = {
   slug: 'footer',
@@ -17,9 +15,9 @@ export const Footer: GlobalConfig = {
           appearances: false,
         }),
       ],
+      admin: {
+        initCollapsed: true,
+      },
     },
   ],
-  hooks: {
-    afterChange: [revalidateFooter],
-  },
 }

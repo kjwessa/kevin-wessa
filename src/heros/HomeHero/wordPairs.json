@@ -56,7 +56,7 @@
     "secondary": {
       "text": "Minimalist",
       "color": "foreground",
-      "underline": ""
+      "underline": "less is more"
     }
   },
   {
@@ -75,12 +75,12 @@
     "primary": {
       "text": "Photographer",
       "color": "primary",
-      "underline": "Innovator"
+      "underline": "Slow down and notice"
     },
     "secondary": {
       "text": "Sony Shooter",
       "color": "foreground",
-      "underline": "Leader"
+      "underline": ""
     }
   },
   {

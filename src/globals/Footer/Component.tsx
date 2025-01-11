@@ -1,17 +1,13 @@
 import React from 'react'
 import { getCachedGlobal } from '@/utilities/getGlobals'
 import Link from 'next/link'
-
-import type { Footer } from '@/payload-types'
-
-import { CMSLink } from '@/components/Link'
-import { Logo } from '@/components/Logo/Logo'
+import type { NavItem } from '@/types/navigation'
 import { FacebookIcon, GitHubIcon, InstagramIcon, LinkedInIcon } from '@/icons/index'
+import type { Footer as FooterType } from '@/payload-types'
 
 export async function Footer() {
-  const footerData: Footer = await getCachedGlobal('footer', 1)()
-
-  const navItems = footerData?.navItems || []
+  const footerData = (await getCachedGlobal('footer', 1)()) as FooterType
+  const navItems = (footerData?.navItems || []) as NavItem[]
 
   return (
     <footer className="mt-auto">
@@ -88,18 +84,18 @@ export async function Footer() {
           </Link>
 
           <nav className="flex gap-10">
-            <Link href="/" className="text-base font-medium">
-              Home
-            </Link>
-            <Link href="/about" className="text-base font-medium">
-              About
-            </Link>
-            <Link href="/portfolio" className="text-base font-medium">
-              Portfolio
-            </Link>
-            <Link href="/contact" className="text-base font-medium">
-              Contact
-            </Link>
+            {navItems.map((item, i) => {
+              const href =
+                item.link.type === 'reference'
+                  ? `/${item.link.reference?.value}`
+                  : item.link.url || '/'
+
+              return (
+                <Link key={i} href={href} className="text-base font-medium">
+                  {item.link.label}
+                </Link>
+              )
+            })}
           </nav>
 
           <div className="flex gap-6">
