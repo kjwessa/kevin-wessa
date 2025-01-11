@@ -15,6 +15,7 @@ import { Media } from './collections/Media/config'
 import { Pages } from './collections/Pages/config'
 import { Posts } from './collections/Posts/config'
 import { Users } from './collections/Users/config'
+import { FAQ } from './collections/FAQ/config'
 
 //* Import Globals
 import { Footer } from './globals/Footer/config'
@@ -76,7 +77,7 @@ export default buildConfig({
     migrationDir: './src/migrations',
     idType: 'uuid',
   }),
-  collections: [Pages, Posts, Media, Categories, Users],
+  collections: [Pages, Posts, Media, Categories, Users, FAQ],
   editor: defaultLexical,
   globals: [Header, Footer],
   plugins: [...plugins],

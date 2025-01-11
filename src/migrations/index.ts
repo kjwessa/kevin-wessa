@@ -26,6 +26,7 @@ import * as migration_20250110_222154_add_fourcards_block from './20250110_22215
 import * as migration_20250110_224944_add_homehero_block from './20250110_224944_add_homehero_block';
 import * as migration_20250111_200204_add_scrollinghero_block from './20250111_200204_add_scrollinghero_block';
 import * as migration_20250111_203502_add_contact_block_option from './20250111_203502_add_contact_block_option';
+import * as migration_20250111_204224_add_faq_collection from './20250111_204224_add_faq_collection';
 
 export const migrations = [
   {
@@ -166,6 +167,11 @@ export const migrations = [
   {
     up: migration_20250111_203502_add_contact_block_option.up,
     down: migration_20250111_203502_add_contact_block_option.down,
-    name: '20250111_203502_add_contact_block_option'
+    name: '20250111_203502_add_contact_block_option',
+  },
+  {
+    up: migration_20250111_204224_add_faq_collection.up,
+    down: migration_20250111_204224_add_faq_collection.down,
+    name: '20250111_204224_add_faq_collection'
   },
 ];
