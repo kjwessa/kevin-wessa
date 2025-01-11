@@ -9,9 +9,4 @@ export type WordPair = {
     color: 'foreground' | 'primary'
     underline: string
   }
-  tertiary: {
-    text: string
-    color: 'foreground' | 'primary'
-    underline: string
-  }
 }
