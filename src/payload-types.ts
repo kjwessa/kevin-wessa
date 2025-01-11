@@ -1659,8 +1659,16 @@ export interface Header {
   id: string;
   navItems?:
     | {
-        label: string;
-        link: string;
+        link: {
+          type?: ('reference' | 'custom') | null;
+          newTab?: boolean | null;
+          reference?: {
+            relationTo: 'pages';
+            value: string | Page;
+          } | null;
+          url?: string | null;
+          label: string;
+        };
         id?: string | null;
       }[]
     | null;
@@ -1699,8 +1707,15 @@ export interface HeaderSelect<T extends boolean = true> {
   navItems?:
     | T
     | {
-        label?: T;
-        link?: T;
+        link?:
+          | T
+          | {
+              type?: T;
+              newTab?: T;
+              reference?: T;
+              url?: T;
+              label?: T;
+            };
         id?: T;
       };
   updatedAt?: T;
