@@ -58,7 +58,9 @@ const headingVariants = cva('title', {
       widest: 'tracking-widest',
     },
     font: {
-      sans: 'font-sans',
+      inherit: '',
+      primary: 'font-primary',
+      secondary: 'font-secondary',
       mono: 'font-mono',
     },
     italic: {
@@ -69,6 +71,7 @@ const headingVariants = cva('title', {
     size: 'headline-large',
     textWrap: 'normal',
     el: 'h2',
+    font: 'inherit',
   },
 })
 
