@@ -53,9 +53,7 @@ const AnimatedWord: React.FC<AnimatedWordProps> = ({ pair }) => {
     color,
   }) => (
     <div
-      className={`w-full text-center lowercase transition-all duration-1000 ${getColorClass(
-        color,
-      )} ${
+      className={`transition-all duration-1000 ${getColorClass(color)} ${
         isVisible
           ? isFlipped
             ? 'translate-y-full opacity-20'
@@ -101,8 +99,13 @@ const AnimatedWord: React.FC<AnimatedWordProps> = ({ pair }) => {
   )
 
   return (
-    <div className="flex flex-col items-center px-6 py-6">
-      <div className="relative h-48 overflow-hidden">
+    <div className="relative">
+      <span className="placeholder box-border inline text-left opacity-0">
+        <Title el="h3" size="display-small" className="font-condensed tracking-tighter">
+          {pair.primary.text}
+        </Title>
+      </span>
+      <div className="absolute inset-0">
         <AnimatedText
           text={pair.primary.text}
           isVisible={isVisible}
