@@ -67,48 +67,42 @@ const AnimatedWord: React.FC<AnimatedWordProps> = ({ pair }) => {
       aria-hidden={!isVisible || isFlipped}
     >
       {isSubtitle ? (
-        <Text size="body-medium" className="tracking-tighter opacity-80">
-          {text
-            .toLowerCase()
-            .split('')
-            .map((char, charIndex) => (
-              <span
-                key={charIndex}
-                className="inline-block transition-transform duration-500"
-                style={{
-                  transitionDelay: `${charIndex * 30}ms`,
-                  transform: isVisible && !isFlipped ? 'translateY(0)' : 'translateY(100%)',
-                }}
-              >
-                {char === ' ' ? '\u00A0' : char}
-              </span>
-            ))}
+        <Text size="body-medium" className="tracking-tighter uppercase opacity-80">
+          {text.split('').map((char, charIndex) => (
+            <span
+              key={charIndex}
+              className="inline-block transition-transform duration-500"
+              style={{
+                transitionDelay: `${charIndex * 30}ms`,
+                transform: isVisible && !isFlipped ? 'translateY(0)' : 'translateY(100%)',
+              }}
+            >
+              {char === ' ' ? '\u00A0' : char}
+            </span>
+          ))}
         </Text>
       ) : (
-        <Title el="h3" size="headline-medium" className="tracking-tighter">
-          {text
-            .toLowerCase()
-            .split('')
-            .map((char, charIndex) => (
-              <span
-                key={charIndex}
-                className="inline-block transition-transform duration-500"
-                style={{
-                  transitionDelay: `${charIndex * 30}ms`,
-                  transform: isVisible && !isFlipped ? 'translateY(0)' : 'translateY(100%)',
-                }}
-              >
-                {char === ' ' ? '\u00A0' : char}
-              </span>
-            ))}
+        <Title el="h3" size="display-small" className="font-condensed tracking-tighter">
+          {text.split('').map((char, charIndex) => (
+            <span
+              key={charIndex}
+              className="inline-block transition-transform duration-500"
+              style={{
+                transitionDelay: `${charIndex * 30}ms`,
+                transform: isVisible && !isFlipped ? 'translateY(0)' : 'translateY(100%)',
+              }}
+            >
+              {char === ' ' ? '\u00A0' : char}
+            </span>
+          ))}
         </Title>
       )}
     </div>
   )
 
   return (
-    <div className="flex flex-col items-center px-6 py-3">
-      <div className="relative h-40 overflow-hidden">
+    <div className="flex flex-col items-center px-6 py-6">
+      <div className="relative h-48 overflow-hidden">
         <AnimatedText
           text={pair.primary.text}
           isVisible={isVisible}
@@ -160,7 +154,7 @@ export function AnimatedHeroClient({ wordPairs }: { wordPairs: WordPair[] }) {
   return (
     <div className="flex min-h-screen flex-col justify-center px-4 pt-[50vh]">
       {rows.map((row, rowIndex) => (
-        <div key={rowIndex} className="mb-8 flex justify-between font-light">
+        <div key={rowIndex} className="mb-16 flex justify-between font-light">
           {row.map((pair, index) => (
             <AnimatedWord key={index} pair={pair} />
           ))}
