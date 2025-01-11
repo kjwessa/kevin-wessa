@@ -85,7 +85,7 @@ export function HeaderClient({ navItems = [] }: HeaderClientProps) {
                     key={i}
                     href={href}
                     onClick={() => setIsOpen(false)}
-                    className="group border-foreground/10 relative border-l px-8 pt-20 first:border-l-0"
+                    className="group border-foreground/10 relative flex flex-col justify-end border-l px-8 pb-20 first:border-l-0"
                   >
                     <Title
                       el="p"
@@ -98,7 +98,7 @@ export function HeaderClient({ navItems = [] }: HeaderClientProps) {
                     >
                       {item.link.label}
                     </Title>
-                    <span className="absolute top-20 right-8 text-xl opacity-0 transition-opacity group-hover:opacity-100">
+                    <span className="absolute right-8 bottom-20 text-xl opacity-0 transition-opacity group-hover:opacity-100">
                       ↗
                     </span>
                   </Link>
