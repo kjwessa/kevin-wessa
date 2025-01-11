@@ -154,7 +154,10 @@ export function AnimatedHeroClient({ wordPairs }: { wordPairs: WordPair[] }) {
   return (
     <div className="flex min-h-screen flex-col justify-center px-4 pt-[50vh]">
       {rows.map((row, rowIndex) => (
-        <div key={rowIndex} className="mb-8 flex justify-between font-light">
+        <div
+          key={rowIndex}
+          className="mb-8 flex h-[110px] items-center justify-between font-light whitespace-nowrap"
+        >
           {row.map((pair, index) => (
             <AnimatedWord key={index} pair={pair} />
           ))}
