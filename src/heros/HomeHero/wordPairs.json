@@ -18,21 +18,21 @@
       "underline": "Hi, that's me!"
     },
     "secondary": {
-      "text": "Husband",
+      "text": "Husband & Father",
       "color": "foreground",
-      "underline": "Leader"
+      "underline": ""
     }
   },
   {
     "primary": {
       "text": "Cleveland, OH",
-      "color": "primary",
-      "underline": "Innovator"
+      "color": "foreground",
+      "underline": "Born & Raised"
     },
     "secondary": {
       "text": "Pensacola, FL",
-      "color": "foreground",
-      "underline": "Leader"
+      "color": "primary",
+      "underline": "True hometown"
     }
   },
   {
@@ -175,42 +175,6 @@
     },
     "secondary": {
       "text": "Adaptive",
-      "color": "foreground",
-      "underline": "Leader"
-    }
-  },
-  {
-    "primary": {
-      "text": "Mentor",
-      "color": "primary",
-      "underline": "Innovator"
-    },
-    "secondary": {
-      "text": "Lifelong Learner",
-      "color": "foreground",
-      "underline": "Leader"
-    }
-  },
-  {
-    "primary": {
-      "text": "Design Thinker",
-      "color": "primary",
-      "underline": "Innovator"
-    },
-    "secondary": {
-      "text": "Creative Problem Solver",
-      "color": "foreground",
-      "underline": "Leader"
-    }
-  },
-  {
-    "primary": {
-      "text": "Ethical Design",
-      "color": "primary",
-      "underline": "Innovator"
-    },
-    "secondary": {
-      "text": "Inclusive Design",
       "color": "foreground",
       "underline": "Leader"
     }
