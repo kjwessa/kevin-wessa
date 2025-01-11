@@ -21,7 +21,7 @@ const createVerticalFields = (position: string): Field[] => [
   } as Field,
 ]
 
-export const config: Block = {
+export const VerticalsHero: Block = {
   slug: 'verticals',
   labels: {
     singular: 'Verticals Hero',

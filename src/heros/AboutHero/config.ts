@@ -1,6 +1,6 @@
 import { Block } from 'payload'
 
-export const config: Block = {
+export const AboutHero: Block = {
   slug: 'aboutHero',
   labels: {
     singular: 'About Hero',
@@ -25,7 +25,8 @@ export const config: Block = {
         },
       ],
       admin: {
-        description: 'Enter two text items that will alternate in the header (e.g., "KEVIN WESSA", "MY STORY")',
+        description:
+          'Enter two text items that will alternate in the header (e.g., "KEVIN WESSA", "MY STORY")',
       },
     },
     {

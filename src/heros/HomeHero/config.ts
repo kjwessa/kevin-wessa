@@ -1,6 +1,6 @@
-import type { Block } from 'payload'
+import { Block } from 'payload'
 
-export const config: Block = {
+export const HomeHero: Block = {
   slug: 'homeHero',
   labels: {
     singular: 'Home Hero',

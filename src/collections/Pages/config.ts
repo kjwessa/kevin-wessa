@@ -33,10 +33,10 @@ import { FourCards } from '@/blocks/FourCards/config'
 import { FormBlock } from '@/blocks/Form/config'
 
 // Hero Imports
-import { config as VerticalsHero } from '@/heros/VerticalsHero/config'
-import { config as AboutHero } from '@/heros/AboutHero/config'
-import { config as HomeHero } from '@/heros/HomeHero/config'
-import { ScrollingHeroBlock } from '@/heros/ScrollingHero/config'
+import { VerticalsHero } from '@/heros/VerticalsHero/config'
+import { AboutHero } from '@/heros/AboutHero/config'
+import { HomeHero } from '@/heros/HomeHero/config'
+import { ScrollingHero } from '@/heros/ScrollingHero/config'
 
 // Utilities Imports
 import { generatePreviewPath } from '@/utilities/generatePreviewPath'
@@ -45,7 +45,7 @@ const contentFields: Field[] = [
   {
     name: 'hero',
     type: 'blocks',
-    blocks: [VerticalsHero, AboutHero, HomeHero, ScrollingHeroBlock],
+    blocks: [VerticalsHero, AboutHero, HomeHero, ScrollingHero],
     required: true,
     minRows: 1,
     maxRows: 1,
