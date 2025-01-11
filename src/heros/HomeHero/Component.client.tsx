@@ -105,37 +105,45 @@ const AnimatedWord: React.FC<AnimatedWordProps> = ({ pair }) => {
           {pair.primary.text}
         </Title>
       </span>
-      <div className="absolute inset-0">
-        <AnimatedText
-          text={pair.primary.text}
-          isVisible={isVisible}
-          isFlipped={isFlipped}
-          color={pair.primary.color}
-        />
-        <AnimatedText
-          text={pair.secondary.text}
-          isVisible={isVisible}
-          isFlipped={!isFlipped}
-          isSecondary={true}
-          color={pair.secondary.color}
-        />
-        {pair.primary.underline && (
-          <div className="mt-[2px]">
+      <div className="absolute top-0 left-0 w-full overflow-hidden">
+        <div className="relative">
+          <AnimatedText
+            text={pair.primary.text}
+            isVisible={isVisible}
+            isFlipped={isFlipped}
+            color={pair.primary.color}
+          />
+          <div className="absolute top-0 left-0 w-full">
             <AnimatedText
-              text={pair.primary.underline}
-              isVisible={isVisible}
-              isFlipped={isFlipped}
-              isSubtitle={true}
-              color={pair.primary.color}
-            />
-            <AnimatedText
-              text={pair.secondary.underline}
+              text={pair.secondary.text}
               isVisible={isVisible}
               isFlipped={!isFlipped}
               isSecondary={true}
-              isSubtitle={true}
               color={pair.secondary.color}
             />
+          </div>
+        </div>
+        {pair.primary.underline && (
+          <div className="mt-[2px]">
+            <div className="relative">
+              <AnimatedText
+                text={pair.primary.underline}
+                isVisible={isVisible}
+                isFlipped={isFlipped}
+                isSubtitle={true}
+                color={pair.primary.color}
+              />
+              <div className="absolute top-0 left-0 w-full">
+                <AnimatedText
+                  text={pair.secondary.underline}
+                  isVisible={isVisible}
+                  isFlipped={!isFlipped}
+                  isSecondary={true}
+                  isSubtitle={true}
+                  color={pair.secondary.color}
+                />
+              </div>
+            </div>
           </div>
         )}
       </div>
