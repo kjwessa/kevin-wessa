@@ -5,6 +5,7 @@ import type { HeroProps, VerticalsHeroProps, AboutHeroProps, HomeHeroProps } fro
 import { VerticalsHero } from './VerticalsHero/Component'
 import { AboutHero } from './AboutHero/Component'
 import { AnimatedHero } from './HomeHero/Component'
+import { ScrollingHero } from './ScrollingHero/Component'
 
 /**
  * RenderHero Component
@@ -28,6 +29,10 @@ export const RenderHero: React.FC<HeroProps> = (props) => {
 
   if (props.blockType === 'homeHero') {
     return <AnimatedHero />
+  }
+
+  if (props.blockType === 'scrollingHero') {
+    return <ScrollingHero {...props} />
   }
 
   return null

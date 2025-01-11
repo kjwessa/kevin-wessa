@@ -3,7 +3,7 @@ import type { Media } from '@/payload-types'
 type BaseHeroProps = {
   id?: string | null
   blockName?: string | null
-  blockType: 'verticals' | 'aboutHero' | 'homeHero'
+  blockType: 'verticals' | 'aboutHero' | 'homeHero' | 'scrollingHero'
 }
 
 export type VerticalsHeroProps = BaseHeroProps & {
@@ -48,4 +48,13 @@ export type HomeHeroProps = BaseHeroProps & {
   blockType: 'homeHero'
 }
 
-export type HeroProps = VerticalsHeroProps | AboutHeroProps | HomeHeroProps
+export type ScrollingHeroProps = BaseHeroProps & {
+  blockType: 'scrollingHero'
+  scrollingText: Array<{
+    text: string
+    id?: string | null
+  }>
+  theme?: 'light' | 'dark' | null
+}
+
+export type HeroProps = VerticalsHeroProps | AboutHeroProps | HomeHeroProps | ScrollingHeroProps

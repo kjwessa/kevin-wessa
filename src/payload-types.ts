@@ -142,6 +142,7 @@ export interface Page {
         blockName?: string | null;
         blockType: 'homeHero';
       }
+    | ScrollingHeroBlock
   )[];
   /**
    * Add content blocks to build out this page.
@@ -230,6 +231,20 @@ export interface Media {
       filename?: string | null;
     };
   };
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ScrollingHeroBlock".
+ */
+export interface ScrollingHeroBlock {
+  scrollingText: {
+    text: string;
+    id?: string | null;
+  }[];
+  theme?: ('light' | 'dark') | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'scrollingHero';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1081,6 +1096,7 @@ export interface PagesSelect<T extends boolean = true> {
               id?: T;
               blockName?: T;
             };
+        scrollingHero?: T | ScrollingHeroBlockSelect<T>;
       };
   layout?:
     | T
@@ -1112,6 +1128,21 @@ export interface PagesSelect<T extends boolean = true> {
   updatedAt?: T;
   createdAt?: T;
   _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ScrollingHeroBlock_select".
+ */
+export interface ScrollingHeroBlockSelect<T extends boolean = true> {
+  scrollingText?:
+    | T
+    | {
+        text?: T;
+        id?: T;
+      };
+  theme?: T;
+  id?: T;
+  blockName?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

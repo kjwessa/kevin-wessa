@@ -20,9 +20,7 @@ import {
 
 // Block Imports
 import { MediaBlock } from '@/blocks/MediaBlock/config'
-import { config as VerticalsHero } from '@/heros/VerticalsHero/config'
-import { config as AboutHero } from '@/heros/AboutHero/config'
-import { config as HomeHero } from '@/heros/HomeHero/config'
+
 import { SplitContent } from '@/blocks/SplitContent/config'
 import { Content } from '@/blocks/Content/config'
 import { ContentBeta } from '@/blocks/ContentBeta/config'
@@ -34,6 +32,12 @@ import { AboutIntro } from '@/blocks/AboutIntro/config'
 import { FourCards } from '@/blocks/FourCards/config'
 import { FormBlock } from '@/blocks/Form/config'
 
+// Hero Imports
+import { config as VerticalsHero } from '@/heros/VerticalsHero/config'
+import { config as AboutHero } from '@/heros/AboutHero/config'
+import { config as HomeHero } from '@/heros/HomeHero/config'
+import { config as ScrollingHero } from '@/heros/ScrollingHero/config'
+
 // Utilities Imports
 import { generatePreviewPath } from '@/utilities/generatePreviewPath'
 
@@ -41,7 +45,7 @@ const contentFields: Field[] = [
   {
     name: 'hero',
     type: 'blocks',
-    blocks: [VerticalsHero, AboutHero, HomeHero],
+    blocks: [VerticalsHero, AboutHero, HomeHero, ScrollingHero],
     required: true,
     minRows: 1,
     maxRows: 1,
