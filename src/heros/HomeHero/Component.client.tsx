@@ -105,7 +105,7 @@ const AnimatedWord: React.FC<AnimatedWordProps> = ({ pair }) => {
           {pair.primary.text}
         </Title>
       </span>
-      <div className="absolute top-0 left-0 w-full overflow-hidden">
+      <div className="absolute top-0 left-0 w-full">
         <div className="relative">
           <AnimatedText
             text={pair.primary.text}
@@ -152,7 +152,6 @@ const AnimatedWord: React.FC<AnimatedWordProps> = ({ pair }) => {
 }
 
 export function AnimatedHeroClient({ wordPairs }: { wordPairs: WordPair[] }) {
-  // Create rows with approximately 3 words each
   const rows = wordPairs.reduce<WordPair[][]>((acc, curr, index) => {
     const rowIndex = Math.floor(index / 3)
     if (!acc[rowIndex]) {
@@ -167,7 +166,7 @@ export function AnimatedHeroClient({ wordPairs }: { wordPairs: WordPair[] }) {
       {rows.map((row, rowIndex) => (
         <div
           key={rowIndex}
-          className="mb-8 flex h-[110px] items-center justify-between font-light whitespace-nowrap"
+          className="mb-8 flex h-[140px] items-center justify-between overflow-x-hidden font-light whitespace-nowrap"
         >
           {row.map((pair, index) => (
             <AnimatedWord key={index} pair={pair} />
