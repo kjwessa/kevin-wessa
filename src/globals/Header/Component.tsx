@@ -5,6 +5,20 @@ const defaultNavItems: NavItem[] = [
   {
     link: {
       type: 'custom' as const,
+      url: '/portfolio',
+      label: 'Portfolio',
+    },
+  },
+  {
+    link: {
+      type: 'custom' as const,
+      url: '/specialties',
+      label: 'Specialties',
+    },
+  },
+  {
+    link: {
+      type: 'custom' as const,
       url: '/about',
       label: 'About',
     },
@@ -12,15 +26,8 @@ const defaultNavItems: NavItem[] = [
   {
     link: {
       type: 'custom' as const,
-      url: '/work',
-      label: 'Work',
-    },
-  },
-  {
-    link: {
-      type: 'custom' as const,
-      url: '/contact',
-      label: 'Contact',
+      url: '/approach',
+      label: 'Approach',
     },
   },
 ]
