@@ -1,18 +1,6 @@
 [
   {
     "primary": {
-      "text": "Experience Design",
-      "color": "primary",
-      "underline": "Innovator"
-    },
-    "secondary": {
-      "text": "Visual Design",
-      "color": "foreground",
-      "underline": "Leader"
-    }
-  },
-  {
-    "primary": {
       "text": "Kevin Wessa",
       "color": "primary",
       "underline": "Hi, that's me!"
@@ -21,6 +9,18 @@
       "text": "Husband & Father",
       "color": "foreground",
       "underline": ""
+    }
+  },
+  {
+    "primary": {
+      "text": "Husband & Father",
+      "color": "primary",
+      "underline": "Innovator"
+    },
+    "secondary": {
+      "text": "Visual Design",
+      "color": "foreground",
+      "underline": "Leader"
     }
   },
   {

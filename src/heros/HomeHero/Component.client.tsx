@@ -162,11 +162,11 @@ export function AnimatedHeroClient({ wordPairs }: { wordPairs: WordPair[] }) {
   }, [])
 
   return (
-    <div className="flex min-h-screen flex-col justify-center px-4 pt-[50vh]">
+    <div className="flex min-h-screen flex-col justify-center px-8 pt-[50vh] md:px-16">
       {rows.map((row, rowIndex) => (
         <div
           key={rowIndex}
-          className="my-3 flex h-[140px] items-center justify-between overflow-x-hidden font-light whitespace-nowrap"
+          className="my-3 flex h-[140px] items-center justify-between overflow-hidden font-light whitespace-nowrap"
         >
           {row.map((pair, index) => (
             <AnimatedWord key={index} pair={pair} />
