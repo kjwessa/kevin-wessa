@@ -18,6 +18,7 @@ import { CalloutText } from '@/blocks/CalloutText/Component'
 import { AboutIntro } from '@/blocks/AboutIntro/Component'
 import { FourCards } from '@/blocks/FourCards/Component'
 import { ContactBlock } from './ContactBlock/Component'
+import { FAQBlock } from './FAQBlock/Component'
 
 type BlockType = NonNullable<Page['layout']>[number]
 
@@ -34,6 +35,7 @@ const blockComponents = {
   aboutIntro: AboutIntro,
   fourCards: FourCards,
   contactBlock: ContactBlock,
+  faqBlock: FAQBlock,
 } as const
 
 type Props = {

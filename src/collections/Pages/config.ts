@@ -32,6 +32,7 @@ import { AboutIntro } from '@/blocks/AboutIntro/config'
 import { FourCards } from '@/blocks/FourCards/config'
 import { FormBlock } from '@/blocks/Form/config'
 import { ContactBlock } from '@/blocks/ContactBlock/config'
+import { FAQBlock } from '@/blocks/FAQBlock/config'
 
 // Hero Imports
 import { VerticalsHero } from '@/heros/VerticalsHero/config'
@@ -93,6 +94,7 @@ const contentFields: Field[] = [
       FourCards,
       FormBlock,
       ContactBlock,
+      FAQBlock,
     ] as Block[],
     admin: {
       description: 'Add content blocks to build out this page.',

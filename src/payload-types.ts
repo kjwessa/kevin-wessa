@@ -162,6 +162,7 @@ export interface Page {
     | FourCardsBlock
     | FormBlock
     | ContactBlock
+    | FAQBlock
   )[];
   meta?: {
     title?: string | null;
@@ -824,6 +825,16 @@ export interface ContactBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "FAQBlock".
+ */
+export interface FAQBlock {
+  title: string;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'faqBlock';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "posts".
  */
 export interface Post {
@@ -1160,6 +1171,7 @@ export interface PagesSelect<T extends boolean = true> {
         fourCards?: T | FourCardsBlockSelect<T>;
         formBlock?: T | FormBlockSelect<T>;
         contactBlock?: T | ContactBlockSelect<T>;
+        faqBlock?: T | FAQBlockSelect<T>;
       };
   meta?:
     | T
@@ -1421,6 +1433,15 @@ export interface FormBlockSelect<T extends boolean = true> {
 export interface ContactBlockSelect<T extends boolean = true> {
   title?: T;
   form?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "FAQBlock_select".
+ */
+export interface FAQBlockSelect<T extends boolean = true> {
+  title?: T;
   id?: T;
   blockName?: T;
 }
