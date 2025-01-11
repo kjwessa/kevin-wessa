@@ -2,6 +2,8 @@
 
 import React, { useState, useEffect, useRef } from 'react'
 import { WordPair } from './types'
+import { Title } from '@/components/ui/Title'
+import { Text } from '@/components/ui/Text'
 
 type AnimatedWordProps = {
   pair: WordPair
@@ -61,31 +63,52 @@ const AnimatedWord: React.FC<AnimatedWordProps> = ({ pair }) => {
           : isSecondary
           ? '-translate-y-full opacity-0'
           : 'translate-y-full opacity-0'
-      } ${isSubtitle ? 'text-[1.5vw]' : 'text-[3.5vw]'} tracking-tighter`}
-      style={{ letterSpacing: '-3px' }}
+      }`}
       aria-hidden={!isVisible || isFlipped}
     >
-      {text
-        .toLowerCase()
-        .split('')
-        .map((char, charIndex) => (
-          <span
-            key={charIndex}
-            className="inline-block transition-transform duration-500"
-            style={{
-              transitionDelay: `${charIndex * 30}ms`,
-              transform: isVisible && !isFlipped ? 'translateY(0)' : 'translateY(100%)',
-            }}
-          >
-            {char === ' ' ? '\u00A0' : char}
-          </span>
-        ))}
+      {isSubtitle ? (
+        <Text size="body-medium" className="tracking-tighter opacity-80">
+          {text
+            .toLowerCase()
+            .split('')
+            .map((char, charIndex) => (
+              <span
+                key={charIndex}
+                className="inline-block transition-transform duration-500"
+                style={{
+                  transitionDelay: `${charIndex * 30}ms`,
+                  transform: isVisible && !isFlipped ? 'translateY(0)' : 'translateY(100%)',
+                }}
+              >
+                {char === ' ' ? '\u00A0' : char}
+              </span>
+            ))}
+        </Text>
+      ) : (
+        <Title el="h3" size="headline-medium" className="tracking-tighter">
+          {text
+            .toLowerCase()
+            .split('')
+            .map((char, charIndex) => (
+              <span
+                key={charIndex}
+                className="inline-block transition-transform duration-500"
+                style={{
+                  transitionDelay: `${charIndex * 30}ms`,
+                  transform: isVisible && !isFlipped ? 'translateY(0)' : 'translateY(100%)',
+                }}
+              >
+                {char === ' ' ? '\u00A0' : char}
+              </span>
+            ))}
+        </Title>
+      )}
     </div>
   )
 
   return (
     <div className="flex flex-col items-center px-6 py-3">
-      <div className="relative overflow-hidden" style={{ height: 'calc(3.5vw + 1.5vw + 1em)' }}>
+      <div className="relative h-40 overflow-hidden">
         <AnimatedText
           text={pair.primary.text}
           isVisible={isVisible}
@@ -100,7 +123,7 @@ const AnimatedWord: React.FC<AnimatedWordProps> = ({ pair }) => {
           color={pair.secondary.color}
         />
         {pair.primary.underline && (
-          <div className="mt-2">
+          <div className="mt-[2px]">
             <AnimatedText
               text={pair.primary.underline}
               isVisible={isVisible}
