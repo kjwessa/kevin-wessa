@@ -22,40 +22,40 @@ export function FooterClient({ navItems }: FooterClientProps) {
   const pathname = usePathname()
 
   return (
-    <footer className="mt-auto">
+    <footer className="mt-auto bg-[#B43435]">
       {/* Top Card Section */}
       <div className="mx-auto max-w-[120rem] px-[3.75rem] pb-32">
-        <div className="relative rounded-[1.25rem] bg-[#F5E2CA] px-32 py-24">
+        <div className="relative rounded-[1.25rem] bg-white/10 px-32 py-24">
           {/* Left Side Text */}
-          <div className="absolute bottom-[13.5rem] -left-10 flex rotate-90 gap-[1.875rem] text-[1.375rem] text-[#27272A]">
+          <div className="absolute bottom-[13.5rem] -left-10 flex rotate-90 gap-[1.875rem] text-[1.375rem] text-white/80">
             <span>Ac tristique</span>
             <span>Accumsan</span>
             <span>Pellentesque</span>
           </div>
 
           {/* Right Side Text */}
-          <div className="absolute top-10 -right-10 flex -rotate-90 gap-[1.875rem] text-[1.375rem] text-[#27272A]">
+          <div className="absolute top-10 -right-10 flex -rotate-90 gap-[1.875rem] text-[1.375rem] text-white/80">
             <span>Lacinia</span>
             <span>Sed</span>
             <span>Venenatis</span>
           </div>
 
           <div className="mx-auto max-w-[73.25rem] text-center">
-            <p className="mb-4 text-sm tracking-wider text-[#27272A] uppercase">
+            <p className="mb-4 text-sm tracking-wider text-white/80 uppercase">
               Sit arcu a orci elit
             </p>
             <h2 className="mb-8 text-[4rem] leading-tight font-medium">
-              <span className="text-[#27272A]">BUT ENOUGH ABOUT ME,</span>
+              <span className="text-white">BUT ENOUGH ABOUT ME,</span>
               <br />
-              <span className="text-[#B43435]">LET'S CONNECT</span>
-              <span className="text-[#27272A]"> AND TALK ABOUT YOU.</span>
+              <span className="text-white">LET'S CONNECT</span>
+              <span className="text-white"> AND TALK ABOUT YOU.</span>
             </h2>
             <div className="flex justify-center gap-6">
               <a
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex h-16 w-16 items-center justify-center rounded-full border border-[#27272A]"
+                className="flex h-16 w-16 items-center justify-center rounded-full border border-white/80 text-white transition-colors hover:bg-white/10"
               >
                 <LinkedInIcon />
               </a>
@@ -63,7 +63,7 @@ export function FooterClient({ navItems }: FooterClientProps) {
                 href="https://facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex h-16 w-16 items-center justify-center rounded-full border border-[#27272A]"
+                className="flex h-16 w-16 items-center justify-center rounded-full border border-white/80 text-white transition-colors hover:bg-white/10"
               >
                 <FacebookIcon />
               </a>
@@ -71,7 +71,7 @@ export function FooterClient({ navItems }: FooterClientProps) {
                 href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex h-16 w-16 items-center justify-center rounded-full border border-[#27272A]"
+                className="flex h-16 w-16 items-center justify-center rounded-full border border-white/80 text-white transition-colors hover:bg-white/10"
               >
                 <InstagramIcon />
               </a>
@@ -79,7 +79,7 @@ export function FooterClient({ navItems }: FooterClientProps) {
                 href="https://github.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex h-16 w-16 items-center justify-center rounded-full border border-[#27272A]"
+                className="flex h-16 w-16 items-center justify-center rounded-full border border-white/80 text-white transition-colors hover:bg-white/10"
               >
                 <GitHubIcon />
               </a>
