@@ -13,6 +13,7 @@ export const ScrollingHero: Block = {
       type: 'array',
       label: 'Scrolling Text Items',
       minRows: 1,
+      maxRows: 2,
       required: true,
       fields: [
         {

@@ -23,7 +23,7 @@ export function ScrollingHeroClient({ scrollingText = [], theme = 'light' }: Pro
 
   return (
     <div className="overflow-hidden whitespace-nowrap">
-      <Title size="display-small" el="h3" className="inline-block">
+      <Title size="display-large" el="h3" className="inline-block">
         <span
           className={cn(
             'animate-scroll inline-block font-medium tracking-wider',
