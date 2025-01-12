@@ -2,7 +2,7 @@ import React from 'react'
 import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '@/utilities/cn'
 
-const headingVariants = cva('title', {
+const headingVariants = cva('title [&]:font-secondary', {
   variants: {
     el: {
       h1: '',
@@ -14,15 +14,15 @@ const headingVariants = cva('title', {
       p: '',
     },
     size: {
-      'display-large': '[&]:text-display-large font-secondary',
-      'display-medium': '[&]:text-display-medium font-secondary',
-      'display-small': '[&]:text-display-small font-secondary',
-      'headline-large': '[&]:text-headline-large font-secondary',
-      'headline-medium': '[&]:text-headline-medium font-secondary',
-      'headline-small': '[&]:text-headline-small font-secondary',
-      'title-large': '[&]:text-title-large font-secondary',
-      'title-medium': '[&]:text-title-medium font-secondary',
-      'title-small': '[&]:text-title-small font-secondary',
+      'display-large': '[&]:text-display-large',
+      'display-medium': '[&]:text-display-medium',
+      'display-small': '[&]:text-display-small',
+      'headline-large': '[&]:text-headline-large',
+      'headline-medium': '[&]:text-headline-medium',
+      'headline-small': '[&]:text-headline-small',
+      'title-large': '[&]:text-title-large',
+      'title-medium': '[&]:text-title-medium',
+      'title-small': '[&]:text-title-small',
     },
     weight: {
       thin: 'font-thin',

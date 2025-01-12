@@ -57,10 +57,7 @@ export function FooterClient({ navItems }: FooterClientProps) {
         <div className="relative w-full bg-[#F5E2CA] p-20">
           {/* Header */}
           <div className="mb-32 flex w-full flex-row items-start justify-between">
-            <Title
-              size="display-large"
-              className="text-[134px] leading-[91%] tracking-[-4px] uppercase"
-            >
+            <Title size="title-large" className="tracking-[-4px] uppercase">
               <span className="text-[#161616]">THOUGHTS ON</span>
               <br />
               <span className="text-[#B43435]">COOL THINGS.</span>
@@ -96,7 +93,7 @@ export function FooterClient({ navItems }: FooterClientProps) {
             </p>
             <Title
               size="display-large"
-              className="max-w-[1164px] text-center text-[174px] leading-[90%] tracking-[-4px] text-[#FDEFDD] uppercase"
+              className="max-w-[1164px] text-center leading-[90%] tracking-[-4px] text-[#FDEFDD] uppercase"
             >
               But enough about me, let's connect and talk about you.
             </Title>
@@ -117,10 +114,7 @@ export function FooterClient({ navItems }: FooterClientProps) {
 
         {/* Navigation Bar */}
         <div className="flex w-full items-center justify-between gap-[87px] rounded-[999px] bg-[#F5E2CA] px-[60px] py-8">
-          <Title
-            size="display-small"
-            className="text-[44px] leading-[95%] tracking-[-2px] text-[#B43435] uppercase"
-          >
+          <Title size="display-small" className="tracking-[-2px] text-[#B43435] uppercase">
             Kevinwessa
           </Title>
           <div className="flex items-center gap-10">
@@ -156,7 +150,7 @@ export function FooterClient({ navItems }: FooterClientProps) {
         {/* Background Text */}
         <Title
           size="display-large"
-          className="text-[461.8px] leading-[90%] tracking-[-10.6px] text-white/10 uppercase"
+          className="leading-[90%] tracking-[-10.6px] text-white/10 uppercase"
         >
           Kevinwessa
         </Title>
