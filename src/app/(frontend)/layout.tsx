@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import { cn } from 'src/utilities/cn'
 import React from 'react'
 import { AdminBar } from '@/components/AdminBar'
 import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
@@ -19,12 +18,12 @@ const bebasNeue = localFont({
   display: 'swap',
 })
 
-// const roboto = localFont({
-//   src: '../../fonts/Roboto.ttf',
-//   variable: '--font-roboto',
-//   preload: true,
-//   display: 'swap',
-// })
+const roboto = localFont({
+  src: '../../fonts/Roboto.ttf',
+  variable: '--font-roboto',
+  preload: true,
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   title: {
@@ -43,7 +42,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const { isEnabled } = await draftMode()
 
   return (
-    <html lang="en" className={bebasNeue.variable} suppressHydrationWarning>
+    <html lang="en" className={`${bebasNeue.variable} ${roboto.variable}`} suppressHydrationWarning>
       <head>
         <link href="/favicon.ico" rel="icon" sizes="32x32" />
         <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
