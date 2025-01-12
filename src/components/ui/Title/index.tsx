@@ -57,12 +57,6 @@ const headingVariants = cva('title', {
       wider: 'tracking-wider',
       widest: 'tracking-widest',
     },
-    font: {
-      inherit: '',
-      primary: 'font-primary',
-      secondary: 'font-secondary',
-      mono: 'font-mono',
-    },
     italic: {
       true: 'italic',
     },
@@ -71,7 +65,6 @@ const headingVariants = cva('title', {
     size: 'headline-large',
     textWrap: 'normal',
     el: 'h2',
-    font: 'inherit',
   },
 })
 
@@ -90,7 +83,6 @@ export const Title = React.forwardRef<HTMLHeadingElement, TitleProps>(
       weight,
       leading,
       tracking,
-      font,
       italic,
       children,
       className,
@@ -111,7 +103,6 @@ export const Title = React.forwardRef<HTMLHeadingElement, TitleProps>(
             weight,
             leading,
             tracking,
-            font,
             italic,
             textWrap,
           }),

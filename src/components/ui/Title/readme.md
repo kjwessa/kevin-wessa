@@ -305,3 +305,9 @@ A heading component that provides consistent typography for section titles and h
   Fully Responsive Title with Dynamic Properties
 </Title>
 ```
+
+## Changelog
+
+### January 2024
+
+- **Breaking**: Removed `font` variant from Title component. Font families are now controlled exclusively through the size variants (e.g., `title-large`, `headline-large`, etc.) which have their font families defined in CSS variables.
