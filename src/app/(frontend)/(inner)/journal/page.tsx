@@ -4,6 +4,7 @@ import { SectionBeta } from '@/components/layout/SectionBeta'
 import { ContainerBeta } from '@/components/layout/ContainerBeta'
 
 import { Page } from '@/components/layout/Page'
+import { JournalHero } from './JournalHero'
 
 export const revalidate = 21600 // 6 hours
 
@@ -29,7 +30,11 @@ export default async function BlogPage() {
       }),
     ])
 
-    return <Page theme="dark">test</Page>
+    return (
+      <Page theme="dark">
+        <JournalHero />
+      </Page>
+    )
   } catch (error) {
     console.error(error)
     throw error
