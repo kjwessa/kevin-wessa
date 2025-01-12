@@ -55,9 +55,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         />
         <div className="flex min-h-screen w-full flex-col">
           <Grain>
-            <Header />
             <main className="flex-1">{children}</main>
-            <Footer />
           </Grain>
         </div>
       </body>
