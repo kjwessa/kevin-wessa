@@ -15,7 +15,7 @@ export function FooterBlogCard({ category, title, description, href }: FooterBlo
       <div className="flex flex-col gap-6 rounded-2xl bg-[#27272710] p-8 transition-colors hover:bg-[#27272715]">
         <div className="flex flex-col gap-4">
           <p className="text-base tracking-[3.2px] text-[#161616] uppercase">{category}</p>
-          <Title size="title-small" className="text-[#B43435]">
+          <Title size="title-large" className="text-[#B43435]">
             {title}
           </Title>
         </div>

@@ -57,7 +57,7 @@ export function FooterClient({ navItems }: FooterClientProps) {
         <div className="relative w-full bg-[#F5E2CA] p-20">
           {/* Header */}
           <div className="mb-32 flex w-full flex-row items-start justify-between">
-            <Title size="title-large" className="tracking-[-4px] uppercase">
+            <Title size="headline-large">
               <span className="text-[#161616]">THOUGHTS ON</span>
               <br />
               <span className="text-[#B43435]">COOL THINGS.</span>
@@ -86,7 +86,7 @@ export function FooterClient({ navItems }: FooterClientProps) {
         </div>
 
         {/* Contact Section */}
-        <div className="relative flex h-[824px] w-full flex-col items-center justify-center">
+        <div className="relative flex w-full flex-col items-center justify-center py-60">
           <div className="flex flex-col items-center gap-8">
             <p className="text-2xl leading-6 tracking-[3.84px] text-[#FDEFDD] uppercase">
               Contact me

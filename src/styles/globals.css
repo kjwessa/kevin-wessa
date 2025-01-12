@@ -65,17 +65,17 @@
 
   /* Title Styles */
   --text-title-large: clamp(1.42rem, 1.12rem + 1.5vw, 2.44rem);
-  --text-title-large--line-height: var(--leading-normal);
+  --text-title-large--line-height: var(--leading-tight);
   --text-title-large--letter-spacing: var(--tracking-normal);
   --text-title-large--font-family: var(--font-secondary);
 
   --text-title-medium: clamp(1.27rem, 1.07rem + 1vw, 1.95rem);
-  --text-title-medium--line-height: var(--leading-normal);
+  --text-title-medium--line-height: var(--leading-tight);
   --text-title-medium--letter-spacing: var(--tracking-wide);
   --text-title-medium--font-family: var(--font-secondary);
 
   --text-title-small: clamp(1.13rem, 1.03rem + 0.5vw, 1.56rem);
-  --text-title-small--line-height: var(--leading-relaxed);
+  --text-title-small--line-height: var(--leading-tight);
   --text-title-small--letter-spacing: var(--tracking-wide);
   --text-title-small--font-family: var(--font-secondary);
 
