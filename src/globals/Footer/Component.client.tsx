@@ -51,7 +51,7 @@ export function FooterClient({ navItems }: FooterClientProps) {
   const pathname = usePathname()
 
   return (
-    <footer className="mt-auto w-full bg-[#B43435] px-2 pb-[183px]">
+    <footer className="mt-auto w-full overflow-hidden bg-[#B43435] px-2">
       <div className="flex h-full w-full flex-col items-center">
         {/* Journal Section */}
         <div className="relative w-full bg-[#F5E2CA] p-20">
@@ -113,9 +113,9 @@ export function FooterClient({ navItems }: FooterClientProps) {
         </div>
 
         {/* Navigation Bar */}
-        <div className="flex w-full items-center justify-between gap-[87px] rounded-[999px] bg-[#F5E2CA] px-[60px] py-8">
-          <Title size="display-small" className="tracking-[-2px] text-[#B43435] uppercase">
-            Kevinwessa
+        <div className="mb-10 flex w-full items-center justify-between gap-[87px] rounded-[999px] bg-[#F5E2CA] px-[60px] py-8">
+          <Title size="headline-small" className="tracking-[-2px] text-[#B43435] uppercase">
+            KevinWessa
           </Title>
           <div className="flex items-center gap-10">
             {defaultNavItems.map((item) => (
@@ -148,12 +148,9 @@ export function FooterClient({ navItems }: FooterClientProps) {
         </div>
 
         {/* Background Text */}
-        <Title
-          size="display-large"
-          className="leading-[90%] tracking-[-10.6px] text-white/10 uppercase"
-        >
-          Kevinwessa
-        </Title>
+        <p className="font-secondary translate-y-[40%] text-[18vw] leading-[50%] font-bold tracking-[0px] text-[#FDEFDD] uppercase opacity-25">
+          KevinWessa
+        </p>
       </div>
     </footer>
   )
