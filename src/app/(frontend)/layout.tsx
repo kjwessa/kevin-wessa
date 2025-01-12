@@ -19,12 +19,12 @@ const bebasNeue = localFont({
   display: 'swap',
 })
 
-const roboto = localFont({
-  src: '../../fonts/Roboto.ttf',
-  variable: '--font-roboto',
-  preload: true,
-  display: 'swap',
-})
+// const roboto = localFont({
+//   src: '../../fonts/Roboto.ttf',
+//   variable: '--font-roboto',
+//   preload: true,
+//   display: 'swap',
+// })
 
 export const metadata: Metadata = {
   title: {
@@ -43,21 +43,21 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const { isEnabled } = await draftMode()
 
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className={bebasNeue.variable} suppressHydrationWarning>
       <head>
         <link href="/favicon.ico" rel="icon" sizes="32x32" />
         <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
       </head>
-      <body className={cn('antialiased', bebasNeue.variable, roboto.variable)}>
+      <body className="antialiased">
         <AdminBar
           adminBarProps={{
             preview: isEnabled,
           }}
         />
-        <div className={cn('flex min-h-screen w-full flex-col')}>
+        <div className="flex min-h-screen w-full flex-col">
           <Grain>
             <Header />
-            <main className={cn('flex-1')}>{children}</main>
+            <main className="flex-1">{children}</main>
             <Footer />
           </Grain>
         </div>

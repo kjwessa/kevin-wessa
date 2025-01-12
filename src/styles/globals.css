@@ -23,14 +23,11 @@
   --tracking-widest: 0.1em;
 
   /* Font Families */
-  --font-primary: var(--font-roboto, ui-sans-serif), system-ui, -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  --font-secondary: var(--font-bebas-neue, ui-sans-serif), system-ui, -apple-system,
-    BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-primary: var(--font-roboto);
+  --font-secondary: var(--font-bebas-neue);
 
   /* Typography - Font Families */
-  --font-sans: var(--font-roboto, ui-sans-serif), system-ui, -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-sans: var(--font-roboto);
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
     'Courier New', monospace;
 
