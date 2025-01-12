@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { cn } from '@/utilities/cn'
 import { Title } from '@/components/ui/Title'
-import { BlogCard } from '@/components/BlogCard'
+import { FooterBlogCard } from '@/components/FooterBlogCard'
 import { FacebookIcon } from '@/icons/FacebookIcon'
 import { GitHubIcon } from '@/icons/GitHubIcon'
 import { InstagramIcon } from '@/icons/InstagramIcon'
@@ -83,7 +83,7 @@ export function FooterClient({ navItems }: FooterClientProps) {
           {/* Journal Cards */}
           <div className="grid grid-cols-3 gap-6">
             {blogPosts.map((post) => (
-              <BlogCard key={post.href} {...post} />
+              <FooterBlogCard key={post.href} {...post} />
             ))}
           </div>
         </div>
