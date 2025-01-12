@@ -311,3 +311,29 @@ A heading component that provides consistent typography for section titles and h
 ### January 2024
 
 - **Breaking**: Removed `font` variant from Title component. Font families are now controlled exclusively through the size variants (e.g., `title-large`, `headline-large`, etc.) which have their font families defined in CSS variables.
+
+## Questions/Problems
+
+### Font Inheritance
+
+- Font family variables don't inherit naturally like other text properties (size, line-height, letter-spacing)
+- Requires `[&]` selector for proper application
+- Moving `font-secondary` to the base class in `cva` works as a workaround
+- Still investigating why font-family behaves differently from other text properties in Tailwind 4
+
+## Changelog
+
+### [0.1.1] - 2024-01-12
+
+#### Changed
+
+- Moved `[&]:font-secondary` from individual size variants to base class in `cva`
+- Simplified font handling while maintaining proper inheritance
+- Font family is now consistently applied across all variants
+
+### [0.1.0] - Initial Version
+
+- Basic Title component implementation
+- Support for various text sizes and styles
+- Configurable element types (h1-h6, p)
+- Customizable weight, leading, tracking, and text wrapping
