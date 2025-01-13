@@ -16,3 +16,5 @@ const config = {
 }
 
 export default config
+
+// TODO do I need to add any other config here? Did I create this?
