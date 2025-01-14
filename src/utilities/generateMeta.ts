@@ -1,13 +1,12 @@
 import type { Metadata } from 'next'
 
-import type { Page, Post } from '../payload-types'
+import type { Page } from '../payload-types'
 
+import { siteConfig } from '@/config/site'
 import { mergeOpenGraph } from './mergeOpenGraph'
 import { getServerSideURL } from './getURL'
 
-export const generateMeta = async (args: {
-  doc: Partial<Page> | Partial<Post>
-}): Promise<Metadata> => {
+export const generateMeta = async (args: { doc: Partial<Page> }): Promise<Metadata> => {
   const { doc } = args || {}
 
   const ogImage =
@@ -16,12 +15,14 @@ export const generateMeta = async (args: {
     'url' in doc.meta.image &&
     `${getServerSideURL()}`
 
-  const title = doc?.meta?.title ? doc?.meta?.title + ' | Kevin Wessa' : 'Kevin Wessa'
+  const title = doc?.meta?.title
+    ? siteConfig.meta.seo.titleTemplate.replace('%s', doc.meta.title)
+    : siteConfig.meta.seo.defaultTitle
 
   return {
-    description: doc?.meta?.description,
+    description: doc?.meta?.description || siteConfig.meta.seo.defaultDescription,
     openGraph: mergeOpenGraph({
-      description: doc?.meta?.description || '',
+      description: doc?.meta?.description || siteConfig.meta.seo.defaultDescription,
       images: ogImage
         ? [
             {

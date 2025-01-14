@@ -4,6 +4,7 @@
  */
 
 import type { Metadata } from 'next'
+import { siteConfig } from '@/config/site'
 import { getServerSideURL } from './getURL'
 
 /**
@@ -12,18 +13,18 @@ import { getServerSideURL } from './getURL'
  */
 const defaultOpenGraph: Metadata['openGraph'] = {
   type: 'website',
-  description: 'A marketing studio for the modern age.',
+  description: siteConfig.meta.seo.defaultDescription,
   images: [
     {
-      url: `${getServerSideURL()}/website-template-OG.webp`,
+      url: `${getServerSideURL()}${siteConfig.meta.seo.defaultImage}`,
     },
   ],
-  siteName: 'Kevin Wessa',
-  title: 'Kevin Wessa',
+  siteName: siteConfig.meta.brand.name,
+  title: siteConfig.meta.seo.defaultTitle,
 }
 
 /**
- * Merges custom OpenGraph metadata with Kevin Wessa default values.
+ * Merges custom OpenGraph metadata with Brewww Studio default values.
  * Custom values override defaults, except for images which are handled specially.
  *
  * @param {Metadata['openGraph']} [og] - Custom OpenGraph metadata to merge
@@ -35,7 +36,7 @@ const defaultOpenGraph: Metadata['openGraph'] = {
  *
  * Override specific values
  * const metadata = mergeOpenGraph({
- *   title: 'Kevin Wessa - Services',
+ *   title: 'Brewww Studio - Services',
  *   description: 'Explore our marketing services'
  * })
  *

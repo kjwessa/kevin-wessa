@@ -33,6 +33,7 @@
       "@/blocks/*": ["src/blocks/*"],
       "@/collections/*": ["src/collections/*"],
       "@/components/*": ["src/components/*"],
+      "@/config/*": ["src/config/*"],
       "@cssVariables": ["src/cssVariables.js"],
       "@/endpoints/*": ["src/endpoints/*"],
       "@/forms/*": ["src/forms/*"],
