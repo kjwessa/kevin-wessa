@@ -1,6 +1,7 @@
 import { getPayload } from 'payload'
 import config from '@payload-config'
 import { unstable_cache } from 'next/cache'
+import { siteConfig } from '@/config/site'
 
 interface SitemapField {
   loc: string
@@ -15,7 +16,7 @@ const getAllSitemap = unstable_cache(
     const SITE_URL =
       process.env.NEXT_PUBLIC_SERVER_URL ||
       process.env.VERCEL_PROJECT_PRODUCTION_URL ||
-      'https://www.kevinwessa.com'
+      siteConfig.meta.brand.domain
 
     const dateFallback = new Date().toISOString()
 

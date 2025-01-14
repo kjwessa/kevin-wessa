@@ -9,7 +9,7 @@ import { Grain } from '@/components/Grain'
 import { Header } from '@/globals/Header/Component'
 
 import '@/styles/globals.css'
-import { getServerSideURL } from '@/utilities/getURL'
+import { siteConfig } from '@/config/site'
 
 const bebasNeue = localFont({
   src: '../../fonts/BebasNeue-Regular.ttf',
@@ -24,19 +24,6 @@ const roboto = localFont({
   preload: true,
   display: 'swap',
 })
-
-export const metadata: Metadata = {
-  title: {
-    template: '%s | Kevin Wessa',
-    default: 'Kevin Wessa',
-  },
-  metadataBase: new URL(getServerSideURL()),
-  openGraph: mergeOpenGraph(),
-  twitter: {
-    card: 'summary_large_image',
-    creator: '@payloadcms',
-  },
-}
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const { isEnabled } = await draftMode()
@@ -63,4 +50,15 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       </body>
     </html>
   )
+}
+
+export const metadata: Metadata = {
+  metadataBase: new URL(siteConfig.meta.brand.domain),
+  title: siteConfig.meta.seo.defaultTitle,
+  description: siteConfig.meta.seo.defaultDescription,
+  openGraph: mergeOpenGraph(),
+  twitter: {
+    card: siteConfig.meta.seo.twitter?.cardType || 'summary_large_image',
+    creator: siteConfig.meta.seo.twitter?.handle,
+  },
 }
