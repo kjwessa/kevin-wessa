@@ -5,7 +5,7 @@ import type { AboutIntroBlock } from '@/payload-types'
 import { BlockWrapperBeta } from '@/components/layout/BlockWrapperBeta'
 import { BlockContainerBeta } from '@/components/layout/BlockContainerBeta'
 import { RichText } from '@/components/RichText'
-import { CMSLink } from '@/components/Link'
+import { CMSLink } from '@/components/CMSLink'
 
 export const AboutIntro: React.FC<AboutIntroBlock> = ({
   bannerText,

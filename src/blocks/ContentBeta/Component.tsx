@@ -4,7 +4,7 @@ import { RichText } from '@/components/RichText'
 import type { ContentBetaBlock } from '@/payload-types'
 import type { SerializedEditorState } from '@payloadcms/richtext-lexical/lexical'
 
-import { CMSLink } from '../../components/Link'
+import { CMSLink } from '../../components/CMSLink'
 
 type RichTextProps = React.ComponentProps<typeof RichText>
 
