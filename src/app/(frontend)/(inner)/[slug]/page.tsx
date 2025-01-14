@@ -14,8 +14,8 @@ import { RenderHero } from '@/heros/RenderHero'
 
 // Utilities
 import { generateMeta } from '@/utilities/generateMeta'
-import { PayloadRedirects } from '@/components/PayloadRedirects'
-import { LivePreviewListener } from '@/components/LivePreviewListener'
+import { PayloadRedirects } from '@/components/payload/PayloadRedirects'
+import { LivePreviewListener } from '@/components/payload/LivePreviewListener'
 
 // Generate static paths for all pages at build time
 export async function generateStaticParams() {

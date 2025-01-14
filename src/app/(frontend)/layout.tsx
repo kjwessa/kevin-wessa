@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import React from 'react'
-import { AdminBar } from '@/components/AdminBar'
+import { AdminBar } from '@/components/payload/AdminBar'
 import { mergeOpenGraph } from '@/utilities/mergeOpenGraph'
 import { draftMode } from 'next/headers'
 import localFont from 'next/font/local'

@@ -4,7 +4,7 @@ import type { Metadata } from 'next'
 import { draftMode } from 'next/headers'
 
 // Payload Imports
-import { PayloadRedirects } from '@/components/PayloadRedirects'
+import { PayloadRedirects } from '@/components/payload/PayloadRedirects'
 import configPromise from '@payload-config'
 import { getPayload } from 'payload'
 
