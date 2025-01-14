@@ -4,7 +4,7 @@ import React from 'react'
 import type { CalloutTextBlock } from '@/payload-types'
 import { BlockWrapperBeta } from '@/components/layout/BlockWrapperBeta'
 import { BlockContainerBeta } from '@/components/layout/BlockContainerBeta'
-import { RichText } from '@/components/RichText'
+import { RichText } from '@/components/core/RichText'
 
 export const CalloutText: React.FC<CalloutTextBlock> = ({ text, attribution }) => {
   return (

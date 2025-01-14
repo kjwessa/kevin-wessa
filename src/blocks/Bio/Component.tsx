@@ -1,7 +1,7 @@
 import React from 'react'
 import { BioBlock } from '@/payload-types'
-import { Media } from '@/components/Media'
-import { RichText } from '@/components/RichText'
+import { Media } from '@/components/core/Media'
+import { RichText } from '@/components/core/RichText'
 import { cn } from 'src/utilities/cn'
 
 type Props = BioBlock & {

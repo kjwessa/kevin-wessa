@@ -4,8 +4,8 @@ import React from 'react'
 import type { AboutIntroBlock } from '@/payload-types'
 import { BlockWrapperBeta } from '@/components/layout/BlockWrapperBeta'
 import { BlockContainerBeta } from '@/components/layout/BlockContainerBeta'
-import { RichText } from '@/components/RichText'
-import { CMSLink } from '@/components/CMSLink'
+import { RichText } from '@/components/core/RichText'
+import { CMSLink } from '@/components/core/CMSLink'
 
 export const AboutIntro: React.FC<AboutIntroBlock> = ({
   bannerText,

@@ -1,10 +1,10 @@
 import { cn } from 'src/utilities/cn'
 import React from 'react'
-import { RichText } from '@/components/RichText'
+import { RichText } from '@/components/core/RichText'
 import type { ContentBetaBlock } from '@/payload-types'
 import type { SerializedEditorState } from '@payloadcms/richtext-lexical/lexical'
 
-import { CMSLink } from '../../components/CMSLink'
+import { CMSLink } from '../../components/core/CMSLink'
 
 type RichTextProps = React.ComponentProps<typeof RichText>
 

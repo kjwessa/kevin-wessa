@@ -1,7 +1,7 @@
 import type { StaticImageData } from 'next/image'
 import React from 'react'
 import { MediaGridBlock } from '@/payload-types'
-import { Media } from '@/components/Media'
+import { Media } from '@/components/core/Media'
 import { cn } from 'src/utilities/cn'
 
 const getGridCols = (itemCount: number): string => {

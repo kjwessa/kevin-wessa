@@ -1,4 +1,4 @@
-import { RichText } from '@/components/RichText'
+import { RichText } from '@/components/core/RichText'
 import type { SplitContentBlock } from '@/payload-types'
 
 export const SplitContent: React.FC<SplitContentBlock> = (props) => {

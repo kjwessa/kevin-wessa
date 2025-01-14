@@ -2,7 +2,7 @@
 
 import React, { useRef } from 'react'
 import { MediaSliderBlock } from '@/payload-types'
-import { Media } from '@/components/Media'
+import { Media } from '@/components/core/Media'
 import { cn } from 'src/utilities/cn'
 import type { Swiper as SwiperType } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'

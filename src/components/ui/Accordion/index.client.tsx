@@ -5,7 +5,7 @@ import * as AccordionPrimitive from '@radix-ui/react-accordion'
 import { ChevronDown, Plus, Minus } from 'lucide-react'
 import { cva, type VariantProps } from 'class-variance-authority'
 import { cn } from '@/utilities/cn'
-import { RichText } from '@/components/RichText'
+import { RichText } from '@/components/core/RichText'
 
 const accordionVariants = cva(
   'flex w-full items-center justify-between py-4 text-left transition-all cursor-pointer text-[var(--color-foreground)]',

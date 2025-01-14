@@ -2,7 +2,7 @@ import React from 'react'
 import { Title } from '@/components/ui/Title'
 import { Accordion, AccordionItem } from '@/components/ui/Accordion'
 import { useAllFAQs } from './hooks/useAllFAQs'
-import { RichText } from '@/components/RichText'
+import { RichText } from '@/components/core/RichText'
 import { BlockThemeBeta } from '@/components/layout/BlockThemeBeta'
 
 type Props = {
